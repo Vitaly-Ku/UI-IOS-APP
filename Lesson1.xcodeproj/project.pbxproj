@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5D4DB879242DF9EB0092C1DC /* AllGroupsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4DB878242DF9EB0092C1DC /* AllGroupsCell.swift */; };
+		5D4DB87D242DFF660092C1DC /* AllGroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4DB87C242DFF660092C1DC /* AllGroupsViewController.swift */; };
+		5D4DB881242E0A330092C1DC /* FriendsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4DB880242E0A330092C1DC /* FriendsCell.swift */; };
+		5D4DB883242E0A650092C1DC /* FriendsPhotoCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4DB882242E0A650092C1DC /* FriendsPhotoCollection.swift */; };
 		DC81B2372429257800E170A0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC81B2362429257800E170A0 /* AppDelegate.swift */; };
 		DC81B23B2429257800E170A0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC81B23A2429257800E170A0 /* LoginViewController.swift */; };
 		DC81B23E2429257800E170A0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC81B23C2429257800E170A0 /* Main.storyboard */; };
@@ -15,6 +19,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5D4DB878242DF9EB0092C1DC /* AllGroupsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllGroupsCell.swift; sourceTree = "<group>"; };
+		5D4DB87C242DFF660092C1DC /* AllGroupsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllGroupsViewController.swift; sourceTree = "<group>"; };
+		5D4DB880242E0A330092C1DC /* FriendsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsCell.swift; sourceTree = "<group>"; };
+		5D4DB882242E0A650092C1DC /* FriendsPhotoCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsPhotoCollection.swift; sourceTree = "<group>"; };
 		DC81B2332429257800E170A0 /* vk_test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = vk_test.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC81B2362429257800E170A0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DC81B23A2429257800E170A0 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -35,6 +43,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5D4DB871242DD7830092C1DC /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DC81B23A2429257800E170A0 /* LoginViewController.swift */,
+				5D4DB87F242E09C60092C1DC /* Friends */,
+				5D4DB87E242E08CA0092C1DC /* Groups */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		5D4DB87E242E08CA0092C1DC /* Groups */ = {
+			isa = PBXGroup;
+			children = (
+				5D4DB878242DF9EB0092C1DC /* AllGroupsCell.swift */,
+				5D4DB87C242DFF660092C1DC /* AllGroupsViewController.swift */,
+			);
+			path = Groups;
+			sourceTree = "<group>";
+		};
+		5D4DB87F242E09C60092C1DC /* Friends */ = {
+			isa = PBXGroup;
+			children = (
+				5D4DB880242E0A330092C1DC /* FriendsCell.swift */,
+				5D4DB882242E0A650092C1DC /* FriendsPhotoCollection.swift */,
+			);
+			path = Friends;
+			sourceTree = "<group>";
+		};
 		DC81B22A2429257800E170A0 = {
 			isa = PBXGroup;
 			children = (
@@ -55,11 +91,11 @@
 			isa = PBXGroup;
 			children = (
 				DC81B2362429257800E170A0 /* AppDelegate.swift */,
-				DC81B23A2429257800E170A0 /* LoginViewController.swift */,
 				DC81B23C2429257800E170A0 /* Main.storyboard */,
 				DC81B2422429257900E170A0 /* Assets.xcassets */,
 				DC81B2442429257900E170A0 /* LaunchScreen.storyboard */,
 				DC81B2472429257900E170A0 /* Info.plist */,
+				5D4DB871242DD7830092C1DC /* Views */,
 			);
 			path = Lesson1;
 			sourceTree = "<group>";
@@ -92,7 +128,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 1130;
 				LastUpgradeCheck = 1130;
-				ORGANIZATIONNAME = jonfir;
+				ORGANIZATIONNAME = "Vitaly Kulagin";
 				TargetAttributes = {
 					DC81B2322429257800E170A0 = {
 						CreatedOnToolsVersion = 11.3.1;
@@ -135,8 +171,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D4DB87D242DFF660092C1DC /* AllGroupsViewController.swift in Sources */,
+				5D4DB881242E0A330092C1DC /* FriendsCell.swift in Sources */,
+				5D4DB883242E0A650092C1DC /* FriendsPhotoCollection.swift in Sources */,
 				DC81B23B2429257800E170A0 /* LoginViewController.swift in Sources */,
 				DC81B2372429257800E170A0 /* AppDelegate.swift in Sources */,
+				5D4DB879242DF9EB0092C1DC /* AllGroupsCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

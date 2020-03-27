@@ -16,7 +16,7 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-             
+        
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(keyboardOn),
@@ -28,26 +28,43 @@ class LoginViewController: UIViewController {
             name: UIResponder.keyboardWillHideNotification,
             object: nil)
     }
-
-    @IBAction func loginButtonOn() {
-        let login = loginField.text!
-        let password = passwordField.text!
-        
-        if login == "admin" && password == "333" {
-            print("успешная авторизация")
-        } else {
-            print("неуспешная авторизация")
-        }
+    
+    @IBAction func loginButtonOn() { // связь кнопки с контроллером
     }
     
     @objc func keyboardOn(notification: Notification) {
         let userInfo = (notification as NSNotification).userInfo as! [String: Any]
         let frame = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as! CGRect
-        
         scrollBottomConstraint.constant = frame.height
     }
     
     @objc func keyboardOff(notification: Notification) {
         scrollBottomConstraint.constant = 0
+    }
+    
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool { // проверка входа
+        switch identifier {
+        case "loginSegue":
+            let isAuth = checkUserData()
+            if !isAuth {
+                showLoginError()
+            }
+            return isAuth
+        default:
+           return true
+        }
+    }
+    
+    func checkUserData() -> Bool {
+        let login = loginField.text
+        let password = passwordField.text
+        return password == "" && login == "" || login == " " && password == ""
+    }
+    
+    func showLoginError() {
+        let alter = UIAlertController(title: "Ошибка", message: "Введены не верные данные пользователя", preferredStyle: .alert)
+        let action = UIAlertAction(title: "OK", style: .cancel, handler: nil) // кнопка на алерте
+        alter.addAction(action) // добавить кнопку на алерт
+        present(alter, animated: true, completion: nil)
     }
 }

@@ -62,9 +62,9 @@ class LoginViewController: UIViewController {
     }
     
     func showLoginError() {
-        let alter = UIAlertController(title: "Ошибка", message: "Введены не верные данные пользователя", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Ошибка", message: "Введены не верные данные пользователя", preferredStyle: .alert)
         let action = UIAlertAction(title: "OK", style: .cancel, handler: nil) // кнопка на алерте
-        alter.addAction(action) // добавить кнопку на алерт
-        present(alter, animated: true, completion: nil)
+        alert.addAction(action) // добавить кнопку на алерт
+        present(alert, animated: true, completion: nil)
     }
 }

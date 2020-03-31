@@ -36,7 +36,7 @@ class MyGroupsTVC: UITableViewController {
             let allGroupsTVC = segue.source as! AllGroupsTVC // контроллер, с которого переходим
             if let indexPath = allGroupsTVC.tableView.indexPathForSelectedRow { // если indexPath = индекс выделенной ячейки
                 let group = allGroupsTVC.groups[indexPath.row] // получить группу по индексу
-                if !groups.contains(where: { g -> Bool in
+                if !groups.contains(where: { g -> Bool in // проверка на наличие строки в избранном
                     return group.title == g.title
                 }) {
                     groups.append(group)

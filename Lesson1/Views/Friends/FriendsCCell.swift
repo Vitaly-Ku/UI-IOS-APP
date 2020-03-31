@@ -9,5 +9,14 @@
 import UIKit
 
 class FriendsCCell: UICollectionViewCell {
-    @IBOutlet weak var photoggg: UIImageView! // привязка именно imageView, а не collection cell
+    @IBOutlet weak var photo: UIImageView! // привязка именно imageView, а не collection cell
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        layer.borderColor = UIColor.white.cgColor
+        layer.borderWidth = 10
+        layer.cornerRadius = 25
+    }
 }
+
+

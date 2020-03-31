@@ -8,23 +8,7 @@
 
 import UIKit
 
-struct Friends {
-    var title: String
-    var photo: UIImage?
-    var status: String
-}
-
 class FriendsTVC: UITableViewController {
-    
-    let friends: [Friends] = [
-        Friends(title: "Алиса", photo: UIImage(named: "Алиса"), status: "Жена"),
-        Friends(title: "Несси", photo: UIImage(named: "Несси"), status: "Кошка"),
-        Friends(title: "Рина", photo: UIImage(named: "Рина"), status: "Кошка")
-    ]
-    
-//    let friends: [String] = ["Алиса", "Несси", "Рина"]
-//    let statuses: [String] = ["Жена", "Кошка", "Кошка"]
-
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,7 +36,8 @@ class FriendsTVC: UITableViewController {
         cell.titleLabel.text = friend.title // именование ячеек элементами массива
         let status = friends[indexPath.row]
         cell.statusLabel.text = status.status
-        cell.photo.image = friend.photo
+        cell.photo.image = friend.avatar
+
 
         return cell
     }

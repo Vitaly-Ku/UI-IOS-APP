@@ -10,7 +10,7 @@ import UIKit
 
 // Вкладка "Все группы" общий контроллер
 
-class AllGroupsTCell: UITableViewCell {
+class AllGroupsTableCell: UITableViewCell {
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var photo: UIImageView!

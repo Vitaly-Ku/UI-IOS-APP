@@ -26,18 +26,17 @@ class FriendsCollectionCell: UICollectionViewCell {
     }
     
     @IBAction func like() { // экшен для смены цвета кнопки и счётчика
-        likesCounter.text = "0"
-
-        if (likeButton.backgroundColor == nil) {
-            likeButton.backgroundColor = .systemRed
-            likesCounter.textColor = .systemRed
+        if (likesCounter.text == "0") {
+            likeButton.setImage(#imageLiteral(resourceName: "heartRed"), for: .normal)
+            likesCounter.textColor = .red
             likesCounter.text = "1"
         } else {
-            likeButton.backgroundColor = nil
+            likeButton.setImage(#imageLiteral(resourceName: "heartBlue"), for: .normal)
             likesCounter.textColor = .systemBlue
+            likesCounter.text = "0"
         }
     }
-    
+
 }
 
 

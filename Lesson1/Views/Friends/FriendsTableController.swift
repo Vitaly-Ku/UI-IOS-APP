@@ -9,6 +9,8 @@
 import UIKit
 
 class FriendsTableController: UITableViewController {
+    @IBOutlet weak var searchBar: UISearchBar!
+//    var searchFriend = [String]()
     
     let friends = FriendsFactory.makeFriends()
 
@@ -37,8 +39,12 @@ class FriendsTableController: UITableViewController {
         let status = friends[indexPath.row]
         cell.statusLabel.text = status.status
         cell.photo.image = friend.avatar // photo - это аутлет фоки, avatar - проперти из структуры личных данных
-
-
         return cell
     }
+    
 }
+//extension FriendsTableController: UISearchBarDelegate {
+//    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+//        searchFriend = friends.filter({$0.title.prefix(searchText.count) == searchText})
+//    }
+//}

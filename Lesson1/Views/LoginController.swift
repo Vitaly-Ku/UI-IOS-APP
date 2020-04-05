@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
+class LoginController: UIViewController {
     
     @IBOutlet weak var scrollBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var loginField: UITextField!
@@ -58,7 +58,7 @@ class LoginViewController: UIViewController {
     func checkUserData() -> Bool {
         let login = loginField.text
         let password = passwordField.text
-        return password == "" && login == "" || login == " " && password == ""
+        return password == "123456" && login == "admin" || login == "admin " && password == "123456"
     }
     
     func showLoginError() {

@@ -29,6 +29,9 @@ class LoginController: UIViewController {
             object: nil)
     }
     
+    @IBAction func ggg(_ sender: UIButton) {
+        sender.pulsate()
+    }
     @IBAction func loginButtonOn() { // связь кнопки с контроллером
     }
     

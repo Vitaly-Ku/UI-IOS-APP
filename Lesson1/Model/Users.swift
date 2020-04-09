@@ -44,11 +44,11 @@ final class FriendsFactory {
         let nina = Friends(title: "Нина", avatar: UIImage(named: "Нина"), status: "кошка", photoes:
         [UIImage(named: "Нина")])
         
-        let red = Friends(title: "Рыжий", avatar: UIImage(named: "Рыжий"), status: "кот", photoes:
-        [UIImage(named: "Рыжий")])
+        let red = Friends(title: "Рыжий", avatar: UIImage(named: "red"), status: "кот", photoes:
+        [UIImage(named: "red")])
         
-        let dog = Friends(title: "Собачё", avatar: UIImage(named: "Пёс"), status: "пёс", photoes:
-        [UIImage(named: "Пёс")])
+        let dog = Friends(title: "Собачё", avatar: UIImage(named: "dog"), status: "пёс", photoes:
+        [UIImage(named: "dog")])
 
         return [alice, nessy, rina, anna, nina, red, dog]
     }

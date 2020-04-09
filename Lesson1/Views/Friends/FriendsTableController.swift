@@ -14,7 +14,6 @@ class FriendsTableController: UITableViewController {
     var filteredUsers = [Friends]()
     var searching = false
     
-    
     @IBOutlet weak var searchBar: UISearchBar!
     
     override func viewDidLoad() {

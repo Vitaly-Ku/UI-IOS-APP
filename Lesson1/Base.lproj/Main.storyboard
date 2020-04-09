@@ -21,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r7j-ue-TOd">
-                                        <rect key="frame" x="179.33333333333334" y="200" width="55.333333333333343" height="28"/>
+                                        <rect key="frame" x="179.66666666666666" y="200" width="55" height="28"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                         <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -127,7 +127,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBrownColor" red="0.63529411759999999" green="0.51764705879999995" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <searchBar key="tableHeaderView" contentMode="redraw" showsCancelButton="YES" id="B7d-Bv-7xA">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                            <rect key="frame" x="0.0" y="0.0" width="508" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <color key="barTintColor" red="0.63529411759999999" green="0.51764705879999995" blue="0.36862745099999999" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
@@ -145,7 +145,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GKM-jd-vCI">
-                                            <rect key="frame" x="30" y="11.666666666666666" width="132" height="20.666666666666671"/>
+                                            <rect key="frame" x="30" y="11.666666666666666" width="304" height="20.666666666666671"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -163,7 +163,7 @@
                                         <constraint firstAttribute="trailing" secondItem="LCN-dg-IWR" secondAttribute="trailing" constant="20" id="EbZ-1f-lTv"/>
                                         <constraint firstItem="GKM-jd-vCI" firstAttribute="leading" secondItem="PKW-Sm-6Hg" secondAttribute="leadingMargin" constant="10" id="HCH-6I-qi8"/>
                                         <constraint firstAttribute="bottom" secondItem="LCN-dg-IWR" secondAttribute="bottom" constant="2" id="dBI-Nm-s6a"/>
-                                        <constraint firstItem="LCN-dg-IWR" firstAttribute="leading" secondItem="GKM-jd-vCI" secondAttribute="trailing" constant="182" id="jTR-0C-KHq"/>
+                                        <constraint firstItem="LCN-dg-IWR" firstAttribute="leading" secondItem="GKM-jd-vCI" secondAttribute="trailing" constant="10" id="jTR-0C-KHq"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="GKM-jd-vCI" secondAttribute="bottom" constant="0.5" id="vVH-Ma-vxl"/>
                                     </constraints>
                                 </tableViewCellContentView>
@@ -264,7 +264,7 @@
                         <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="sectionIndexTrackingBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <searchBar key="tableHeaderView" contentMode="redraw" showsCancelButton="YES" id="KDr-2s-3gt">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                            <rect key="frame" x="0.0" y="0.0" width="508" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -289,7 +289,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="36A-iI-ywz">
-                                            <rect key="frame" x="30" y="34" width="121" height="15"/>
+                                            <rect key="frame" x="30" y="34" width="304" height="15"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
@@ -381,7 +381,7 @@
                                         <constraint firstItem="p88-eu-bj4" firstAttribute="leading" secondItem="zAf-Xn-yFK" secondAttribute="leadingMargin" constant="10" id="c7F-co-zRG"/>
                                         <constraint firstItem="NJ3-tK-lbV" firstAttribute="top" secondItem="zAf-Xn-yFK" secondAttribute="top" constant="3" id="hh8-ay-aub"/>
                                         <constraint firstItem="36A-iI-ywz" firstAttribute="leading" secondItem="zAf-Xn-yFK" secondAttribute="leadingMargin" constant="10" id="k7s-UB-VU4"/>
-                                        <constraint firstItem="NJ3-tK-lbV" firstAttribute="leading" secondItem="36A-iI-ywz" secondAttribute="trailing" constant="203" id="qmN-Au-3ZA"/>
+                                        <constraint firstItem="NJ3-tK-lbV" firstAttribute="leading" secondItem="36A-iI-ywz" secondAttribute="trailing" constant="20" id="qmN-Au-3ZA"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.63529411759999999" green="0.51764705879999995" blue="0.36862745099999999" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
@@ -768,7 +768,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lpQ-Ae-C5b" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2466" y="1243"/>
+            <point key="canvasLocation" x="2377" y="1083"/>
         </scene>
         <!--Друзья-->
         <scene sceneID="tRd-l7-cdc">
@@ -821,7 +821,7 @@
     <resources>
         <image name="arrowshape.turn.up.right" catalog="system" width="64" height="52"/>
         <image name="bubble.right" catalog="system" width="64" height="54"/>
-        <image name="globe" catalog="system" width="32" height="32"/>
+        <image name="globe" catalog="system" width="64" height="60"/>
         <image name="heartBlue" width="400" height="400"/>
         <image name="logo_cats" width="307" height="320"/>
         <image name="person.circle.fill" catalog="system" width="64" height="60"/>

@@ -101,7 +101,7 @@ class LoginController: UIViewController {
             
             let animation = CABasicAnimation(keyPath: "strokeEnd")
             animation.toValue = 1
-            animation.duration = 3  //Second
+            animation.duration = 3  // секунды
             animation.autoreverses = true
             animation.repeatCount = .infinity
             

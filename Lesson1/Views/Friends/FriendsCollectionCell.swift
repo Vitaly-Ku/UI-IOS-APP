@@ -15,28 +15,24 @@ class FriendsCollectionCell: UICollectionViewCell {
     }
     @IBOutlet weak var photo: UIImageView! // привязка именно imageView, а не collection cell
     @IBOutlet weak var likeButton: UIButton!
-    @IBOutlet weak var likeButtonCustom: UIView! // скрыта (в разработке)
+//    @IBOutlet weak var likeButtonCustom: UIView! // скрыта (в разработке)
     @IBOutlet weak var likesCounter: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        layer.borderColor = UIColor.white.cgColor // рамки у фото в CVC
-        layer.borderWidth = 10
+        layer.borderColor = UIColor.lightGray.cgColor // рамки у фото в CVC
+        layer.borderWidth = 7
         layer.cornerRadius = 25
+        likeButton.setImage(#imageLiteral(resourceName: "heartRed"), for: .selected)
+        likeButton.setImage(#imageLiteral(resourceName: "heartBlue"), for: .normal)
+
     }
     
     @IBAction func like() { // экшен для смены цвета кнопки и счётчика
-        if (likesCounter.text == "0") {
-            likeButton.setImage(#imageLiteral(resourceName: "heartRed"), for: .normal)
-            likesCounter.textColor = .red
-            likesCounter.text = "1"
-        } else {
-            likeButton.setImage(#imageLiteral(resourceName: "heartBlue"), for: .normal)
-            likesCounter.textColor = .systemBlue
-            likesCounter.text = "0"
-        }
+        likeButton.isSelected.toggle()
+        likesCounter.textColor = likeButton.isSelected ? .red : .systemBlue
+        likesCounter.text = likeButton.isSelected ? "1" : "0"
     }
-
 }
 
 

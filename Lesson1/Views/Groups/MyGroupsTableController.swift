@@ -11,16 +11,15 @@ import UIKit
 class MyGroupsTableController: UITableViewController {
     
     var groups = [Groups]()
-
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return groups.count
     }
-
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "groupCell", for: indexPath) as! MyGroupsTableCell
         let group = groups[indexPath.row]
@@ -33,12 +32,21 @@ class MyGroupsTableController: UITableViewController {
         if segue.identifier == "addGroup" { // проверка идентификатора перехода
             let allGroupsTVC = segue.source as! AllGroupsTableController // контроллер, с которого переходим
             if let indexPath = allGroupsTVC.tableView.indexPathForSelectedRow { // если indexPath = индекс выделенной ячейки
-                let group = allGroupsTVC.groups[indexPath.row] // получить группу по индексу
-                if !groups.contains(where: { g -> Bool in // проверка на наличие строки в избранном
-                    return group.title == g.title
-                }) {
-                    groups.append(group)
-                    tableView.reloadData()
+                
+                if allGroupsTVC.searching {
+                    let gr = allGroupsTVC.filteredGroups[indexPath.row] // получить группу по индексу
+                    if !groups.contains(where: { g -> Bool in // проверка на наличие строки в избранном
+                        return gr.title == g.title}) {
+                        groups.append(gr)
+                        tableView.reloadData()
+                    }
+                } else {
+                    let group = allGroupsTVC.groups[indexPath.row]
+                    if !groups.contains(where: { g -> Bool in
+                        return group.title == g.title}) {
+                        groups.append(group)
+                        tableView.reloadData()
+                    }
                 }
             }
         }
@@ -50,6 +58,4 @@ class MyGroupsTableController: UITableViewController {
             tableView.deleteRows(at: [indexPath], with: .fade) // удаляем строку из таблицы
         }
     }
-
-
 }

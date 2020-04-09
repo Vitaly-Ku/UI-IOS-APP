@@ -17,10 +17,5 @@ class FriendsTableCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        photo.layer.borderColor = UIColor.lightGray.cgColor
-        photo.layer.borderWidth = 3
-        photo.layer.cornerRadius = 25
-        photo.layer.masksToBounds = true
     }
 }

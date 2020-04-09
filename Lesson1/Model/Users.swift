@@ -37,7 +37,19 @@ final class FriendsFactory {
              UIImage(named: "r333"),
              UIImage(named: "r444"),
              UIImage(named: "r555")])
+        
+        let anna = Friends(title: "Анна", avatar: UIImage(named: "Анна"), status: "кошка", photoes:
+        [UIImage(named: "Анна")])
+        
+        let nina = Friends(title: "Нина", avatar: UIImage(named: "Нина"), status: "кошка", photoes:
+        [UIImage(named: "Нина")])
+        
+        let red = Friends(title: "Рыжий", avatar: UIImage(named: "red"), status: "кот", photoes:
+        [UIImage(named: "red")])
+        
+        let dog = Friends(title: "Собачё", avatar: UIImage(named: "dog"), status: "пёс", photoes:
+        [UIImage(named: "dog")])
 
-        return [alice, nessy, rina]
+        return [alice, nessy, rina, anna, nina, red, dog]
     }
 }

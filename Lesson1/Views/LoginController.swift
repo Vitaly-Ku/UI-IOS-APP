@@ -14,13 +14,17 @@ class LoginController: UIViewController {
     @IBOutlet weak var loginField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     
-    @IBOutlet weak var kkk: UIView!
+    @IBOutlet weak var logoCat: UIView!
+    @IBOutlet weak var dotsLoading: UIView!
+    @IBOutlet weak var leftDot: UIView!
+    @IBOutlet weak var centerDot: UIView!
+    @IBOutlet weak var rightDot: UIView!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        makeAppleLogo()
+        makeCatLogo()
         addAnimationPath()
         
         NotificationCenter.default.addObserver(
@@ -33,9 +37,14 @@ class LoginController: UIViewController {
             selector: #selector(keyboardOff),
             name: UIResponder.keyboardWillHideNotification,
             object: nil)
+        
+        UIView.animateKeyframes(withDuration: 1, delay: 0, options: .repeat, animations: { self.leftDot.alpha = 0.0 })
+        UIView.animateKeyframes(withDuration: 1, delay: 0.3, options: .repeat, animations: { self.centerDot.alpha = 0.0 })
+        UIView.animateKeyframes(withDuration: 1, delay: 0.6, options: .repeat, animations: { self.rightDot.alpha = 0.0 })
+
     }
     
-    @IBAction func ggg(_ sender: UIButton) {
+    @IBAction func launchPulsate(_ sender: UIButton) {
         sender.pulsate()
     }
     @IBAction func loginButtonOn() { // связь кнопки с контроллером
@@ -84,12 +93,24 @@ class LoginController: UIViewController {
      var path : UIBezierPath!
     
         func addAnimationPath()  {
+            
+//            let dots = CAShapeLayer()
+//            dots.path = path.cgPath
+//            dots.strokeEnd = 0
+//            dots.lineWidth = 2
+//            dots.strokeColor = UIColor.lightGray.cgColor
+//            dots.fillColor = UIColor.darkGray.cgColor
+//
+//            dotsLoading.layer.addSublayer(dots)
+//
+//            let animationDots = CABasicAnimation(keyPath: "dots")
+//            animationDots.toValue = 1
+            
+            
             let layer = CAShapeLayer()
             layer.path  = path.cgPath
-            
             layer.strokeEnd = 0
             layer.lineWidth = 2
-//            layer.borderColor = UIColor.red.cgColor
             layer.shadowColor = UIColor.black.cgColor
             layer.shadowRadius = 7
             layer.shadowOffset = CGSize(width: 1, height: 1)
@@ -97,7 +118,7 @@ class LoginController: UIViewController {
             layer.strokeColor = UIColor.lightGray.cgColor
             layer.fillColor = UIColor.darkGray.cgColor
             
-            kkk.layer.addSublayer(layer)
+            logoCat.layer.addSublayer(layer)
             
             let animation = CABasicAnimation(keyPath: "strokeEnd")
             animation.toValue = 1
@@ -108,13 +129,12 @@ class LoginController: UIViewController {
             layer.add(animation, forKey: "line")
         }
         
-        func makeAppleLogo()  {
+        func makeCatLogo()  {
             path = UIBezierPath()
             
-            path.move(to: CGPoint(x: 3, y: 12))
+            path.move(to: CGPoint(x: 3, y: 21))
             
-            path.addLine(to: CGPoint(x: 3, y: 21)) // кошка
-            path.addLine(to: CGPoint(x: 6, y: 24))
+            path.addLine(to: CGPoint(x: 6, y: 24)) // кошка
             path.addLine(to: CGPoint(x: 69, y: 24))
             path.addLine(to: CGPoint(x: 69, y: 15))
             path.addLine(to: CGPoint(x: 60, y: 15))
@@ -135,6 +155,8 @@ class LoginController: UIViewController {
             path.addLine(to: CGPoint(x: 12, y: 9))
             path.addLine(to: CGPoint(x: 12, y: 3))
             path.addLine(to: CGPoint(x: 9, y: 3))
+            path.addLine(to: CGPoint(x: 3, y: 12))
+            path.addLine(to: CGPoint(x: 3, y: 21))
             
             path.move(to: CGPoint(x: 6, y: 12)) // глаз
             path.addLine(to: CGPoint(x: 6, y: 15))

@@ -16,6 +16,7 @@ class FriendsCollectionController: UICollectionViewController {
         super.viewDidLoad()
         title =  friend.title
         
+        
     }
     
     override func numberOfSections(in collectionView: UICollectionView) -> Int { 1 }

@@ -13,12 +13,20 @@ class LoginController: UIViewController {
     @IBOutlet weak var scrollBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var loginField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
+    @IBOutlet weak var logniitle: UILabel!
+    @IBOutlet weak var passitle: UILabel!
+    
     
     @IBOutlet weak var logoCat: UIView!
     @IBOutlet weak var dotsLoading: UIView!
     @IBOutlet weak var leftDot: UIView!
     @IBOutlet weak var centerDot: UIView!
     @IBOutlet weak var rightDot: UIView!
+    @IBOutlet weak var catHome: UIImageView!
+    
+    
+    @IBOutlet var backGroundView: UIView!
+    @IBOutlet weak var loginButton: UIButton!
     
     
     override func viewDidLoad() {
@@ -41,7 +49,11 @@ class LoginController: UIViewController {
         UIView.animateKeyframes(withDuration: 1, delay: 0, options: .repeat, animations: { self.leftDot.alpha = 0.0 })
         UIView.animateKeyframes(withDuration: 1, delay: 0.3, options: .repeat, animations: { self.centerDot.alpha = 0.0 })
         UIView.animateKeyframes(withDuration: 1, delay: 0.6, options: .repeat, animations: { self.rightDot.alpha = 0.0 })
-
+        
+        addPanGesture(view: logoCat)
+//        fileViewOrigin = logoCat.frame.origin
+        view.bringSubviewToFront(logoCat)
+        self.loginButton.alpha = 0
     }
     
     @IBAction func launchPulsate(_ sender: UIButton) {
@@ -86,27 +98,12 @@ class LoginController: UIViewController {
         present(alert, animated: true, completion: nil)
     }
     
-    
-    
     // MARK: Logo Animation
     
      var path : UIBezierPath!
     
         func addAnimationPath()  {
-            
-//            let dots = CAShapeLayer()
-//            dots.path = path.cgPath
-//            dots.strokeEnd = 0
-//            dots.lineWidth = 2
-//            dots.strokeColor = UIColor.lightGray.cgColor
-//            dots.fillColor = UIColor.darkGray.cgColor
-//
-//            dotsLoading.layer.addSublayer(dots)
-//
-//            let animationDots = CABasicAnimation(keyPath: "dots")
-//            animationDots.toValue = 1
-            
-            
+
             let layer = CAShapeLayer()
             layer.path  = path.cgPath
             layer.strokeEnd = 0
@@ -120,20 +117,26 @@ class LoginController: UIViewController {
             
             logoCat.layer.addSublayer(layer)
             
-            let animation = CABasicAnimation(keyPath: "strokeEnd")
+            let animation = CABasicAnimation(keyPath: "strokeStart")
+            animation.fromValue = 0
             animation.toValue = 1
-            animation.duration = 3  // секунды
-            animation.autoreverses = true
-            animation.repeatCount = .infinity
+
+            let animationEnd = CABasicAnimation(keyPath: "strokeEnd")
+            animationEnd.fromValue = 0
+            animationEnd.toValue = 1.2
             
-            layer.add(animation, forKey: "line")
+            let animationGroup = CAAnimationGroup()
+            animationGroup.duration = 3
+            animationGroup.repeatCount = .infinity
+            animationGroup.animations = [animation, animationEnd]
+            
+            layer.add(animationGroup, forKey: "line")
         }
         
         func makeCatLogo()  {
             path = UIBezierPath()
             
             path.move(to: CGPoint(x: 3, y: 21))
-            
             path.addLine(to: CGPoint(x: 6, y: 24)) // кошка
             path.addLine(to: CGPoint(x: 69, y: 24))
             path.addLine(to: CGPoint(x: 69, y: 15))
@@ -170,4 +173,44 @@ class LoginController: UIViewController {
             
             path.close()
         }
+    // MARK: Hide cat gesture animation
+    
+       func addPanGesture(view: UIView) {
+           let pan = UIPanGestureRecognizer(target: self, action: #selector(LoginController.handlePan(sender:)))
+           view.addGestureRecognizer(pan)
+       }
+       
+    @objc func handlePan(sender: UIPanGestureRecognizer) {
+        let view = sender.view!
+        switch sender.state {
+        case .began, .changed:
+            moveViewWithPan(view: view, sender: sender)
+        case .ended:
+            if view.frame.intersects(dotsLoading.frame) {
+                deleteView(view: view)
+                deleteView(view: loginField)
+                deleteView(view: passwordField)
+                deleteView(view: logniitle)
+                deleteView(view: passitle)
+                deleteView(view: dotsLoading)
+                UIView.animateKeyframes(withDuration: 0.5, delay: 0.7, options: .allowUserInteraction, animations: { self.loginButton.frame.origin.y -= 50
+                    self.loginButton.alpha = 1
+                })
+            }
+        default:
+            break
+        }
+    }
+       
+       func moveViewWithPan(view: UIView, sender: UIPanGestureRecognizer) {
+           let translation = sender.translation(in: view)
+           view.center = CGPoint(x: view.center.x + translation.x, y: view.center.y + translation.y)
+           sender.setTranslation(CGPoint.zero, in: view)
+       }
+
+       func deleteView(view: UIView) {
+           UIView.animate(withDuration: 1, animations: {
+               view.alpha = 0.0
+           })
+       }
 }

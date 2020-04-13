@@ -31,5 +31,9 @@ class FriendsCollectionController: UICollectionViewController {
         cell.photo.image = friend.photoes[indexPath.row]
         return cell
     }
+    
+    @IBAction func jjj(_ sender: Any) {
+    }
+    
 }
 

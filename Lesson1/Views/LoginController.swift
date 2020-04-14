@@ -50,8 +50,17 @@ class LoginController: UIViewController {
         UIView.animateKeyframes(withDuration: 1, delay: 0.3, options: .repeat, animations: { self.centerDot.alpha = 0.0 })
         UIView.animateKeyframes(withDuration: 1, delay: 0.6, options: .repeat, animations: { self.rightDot.alpha = 0.0 })
         
+        // c completion не работает почему-то. 2ая точка не анимируется
+        
+//        UIView.animate(withDuration: 1, delay: 0, options: .repeat, animations: {
+//            self.leftDot.alpha = 0
+//        }, completion: {_ in
+//            UIView.animate(withDuration: 1, delay: 0.3, options: .repeat, animations: {
+//                self.centerDot.alpha = 0
+//            })
+//        })
+        
         addPanGesture(view: logoCat)
-//        fileViewOrigin = logoCat.frame.origin
         view.bringSubviewToFront(logoCat)
         self.loginButton.alpha = 0
     }

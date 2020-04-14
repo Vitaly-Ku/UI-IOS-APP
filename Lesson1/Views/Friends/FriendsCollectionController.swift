@@ -16,6 +16,7 @@ class FriendsCollectionController: UICollectionViewController {
         super.viewDidLoad()
         title =  friend.title
         
+        
     }
     
     override func numberOfSections(in collectionView: UICollectionView) -> Int { 1 }
@@ -30,5 +31,9 @@ class FriendsCollectionController: UICollectionViewController {
         cell.photo.image = friend.photoes[indexPath.row]
         return cell
     }
+    
+    @IBAction func jjj(_ sender: Any) {
+    }
+    
 }
 

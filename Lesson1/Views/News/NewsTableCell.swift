@@ -33,5 +33,7 @@ class NewsTableCell: UITableViewCell {
         likeButton.isSelected.toggle()
         likeCounter.textColor = likeButton.isSelected ? .red : .systemBlue
         likeCounter.text = likeButton.isSelected ? "1" : "0"
+        UIView.animateKeyframes(withDuration: 0.5, delay: 0, options: .autoreverse, animations: { self.likeCounter.frame.origin.y += 10 })
+        self.likeCounter.frame.origin.y -= 10
     }
 }

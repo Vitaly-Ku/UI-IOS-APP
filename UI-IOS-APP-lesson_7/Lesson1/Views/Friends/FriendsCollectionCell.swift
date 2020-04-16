@@ -16,12 +16,13 @@ class FriendsCollectionCell: UICollectionViewCell {
     @IBOutlet weak var photo: UIImageView! // привязка именно imageView, а не collection cell
     @IBOutlet weak var likeButton: UIButton!
     @IBOutlet weak var likesCounter: UILabel!
+    @IBOutlet weak var imgView: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        layer.borderColor = UIColor.lightGray.cgColor // рамки у фото в CVC
-        layer.borderWidth = 7
-        layer.cornerRadius = 25
+//        layer.borderColor = UIColor.lightGray.cgColor // рамки у фото в CVC
+//        layer.borderWidth = 7
+//        layer.cornerRadius = 25
         likeButton.setImage(#imageLiteral(resourceName: "heartRed"), for: .selected)
         likeButton.setImage(#imageLiteral(resourceName: "heartBlue"), for: .normal)
     }

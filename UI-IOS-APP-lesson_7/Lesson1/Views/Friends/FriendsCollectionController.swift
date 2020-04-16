@@ -15,8 +15,6 @@ class FriendsCollectionController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title =  friend.title
-        
-        
     }
     
     override func numberOfSections(in collectionView: UICollectionView) -> Int { 1 }
@@ -25,15 +23,8 @@ class FriendsCollectionController: UICollectionViewController {
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "friendCell", for: indexPath) as! FriendsCollectionCell
-        
-        
-        
         cell.photo.image = friend.photoes[indexPath.row]
         return cell
     }
-    
-    @IBAction func jjj(_ sender: Any) {
-    }
-    
 }
 

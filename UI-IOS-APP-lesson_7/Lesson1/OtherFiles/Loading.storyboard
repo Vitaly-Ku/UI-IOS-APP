@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gTk-Fz-vxc">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Loading View Controller-->
+        <scene sceneID="A8S-0x-oWT">
+            <objects>
+                <viewController id="gTk-Fz-vxc" customClass="LoadingViewController" customModule="vk_test" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8lz-Jf-UVh">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="91C-0X-aUb">
+                                <rect key="frame" x="171" y="434.5" width="72" height="27"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LtZ-F7-UQY" customClass="Roundinng" customModule="vk_test" customModuleProvider="target">
+                                        <rect key="frame" x="10" y="8.5" width="10" height="10"/>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="10" id="1is-Lw-BlX"/>
+                                            <constraint firstAttribute="width" constant="10" id="gTf-h9-gFG"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                                <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="radius">
+                                                <real key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tz5-oc-Ash" customClass="Roundinng" customModule="vk_test" customModuleProvider="target">
+                                        <rect key="frame" x="52" y="8.5" width="10" height="10"/>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="10" id="IKG-xg-7Zz"/>
+                                            <constraint firstAttribute="height" constant="10" id="Nuw-fB-XHp"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="radius">
+                                                <real key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V05-IJ-Vod" customClass="Roundinng" customModule="vk_test" customModuleProvider="target">
+                                        <rect key="frame" x="31" y="8.5" width="10" height="10"/>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="10" id="0bD-IZ-TQx"/>
+                                            <constraint firstAttribute="width" constant="10" id="wo9-CM-cvt"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="radius">
+                                                <real key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="V05-IJ-Vod" firstAttribute="centerX" secondItem="91C-0X-aUb" secondAttribute="centerX" id="9ee-u4-AHN"/>
+                                    <constraint firstAttribute="width" constant="72" id="EYt-mT-c68"/>
+                                    <constraint firstAttribute="trailing" secondItem="tz5-oc-Ash" secondAttribute="trailing" constant="10" id="FPd-oC-DVU"/>
+                                    <constraint firstItem="V05-IJ-Vod" firstAttribute="centerY" secondItem="91C-0X-aUb" secondAttribute="centerY" id="Lb6-rl-gH1"/>
+                                    <constraint firstAttribute="height" constant="27" id="Vb5-5i-QLR"/>
+                                    <constraint firstItem="LtZ-F7-UQY" firstAttribute="centerY" secondItem="91C-0X-aUb" secondAttribute="centerY" id="Vvh-bQ-tcM"/>
+                                    <constraint firstItem="tz5-oc-Ash" firstAttribute="centerY" secondItem="91C-0X-aUb" secondAttribute="centerY" id="bW9-wK-cpe"/>
+                                    <constraint firstItem="LtZ-F7-UQY" firstAttribute="leading" secondItem="91C-0X-aUb" secondAttribute="leading" constant="10" id="wmk-N0-k7g"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBrownColor" red="0.63529411759999999" green="0.51764705879999995" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="91C-0X-aUb" firstAttribute="centerY" secondItem="8lz-Jf-UVh" secondAttribute="centerY" id="35A-Hf-dsX"/>
+                            <constraint firstItem="91C-0X-aUb" firstAttribute="centerX" secondItem="8lz-Jf-UVh" secondAttribute="centerX" id="cXA-71-9KA"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="1Dw-vz-5ml"/>
+                    </view>
+                    <connections>
+                        <outlet property="centerDot" destination="V05-IJ-Vod" id="wF6-xt-ysu"/>
+                        <outlet property="dotsLoading" destination="91C-0X-aUb" id="CfB-C7-k2h"/>
+                        <outlet property="leftDot" destination="LtZ-F7-UQY" id="Mv0-20-BPz"/>
+                        <outlet property="rightDot" destination="tz5-oc-Ash" id="Cbi-DZ-U1L"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2dn-HA-A6d" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="146" y="44"/>
+        </scene>
+    </scenes>
+</document>

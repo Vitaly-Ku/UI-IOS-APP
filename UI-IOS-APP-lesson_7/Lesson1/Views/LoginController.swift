@@ -18,9 +18,7 @@ class LoginController: UIViewController {
     @IBOutlet weak var logoCat: UIView!
     @IBOutlet var backGroundView: UIView!
     @IBOutlet weak var loginButton: UIButton!
-    @IBOutlet weak var threeCatsLogo: UIImageView!
-    @IBOutlet weak var loginButtonConstraint: NSLayoutConstraint!
-    @IBOutlet weak var passFieldConstraint: NSLayoutConstraint!    
+    @IBOutlet weak var threeCatsLogo: UIImageView!    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -86,6 +84,11 @@ class LoginController: UIViewController {
         alert.addAction(action) // добавить кнопку на алерт
         present(alert, animated: true, completion: nil)
     }
+    
+    
+    @IBAction func myUnwindAction(unwindSegue: UIStoryboardSegue) {
+    }
+
     
     // MARK: Logo Animation
     
@@ -179,14 +182,18 @@ class LoginController: UIViewController {
                 deleteView(view: view)
                 self.loginField.alpha = 0
                 self.passwordField.alpha = 0
-                self.passFieldConstraint.constant -= 30
+//                self.passFieldConstraint.constant -= 30
                 UIView.animate(withDuration: 5, delay: 3, options: [], animations: {
                     self.loginField.alpha = 1
                     self.passwordField.alpha = 1
+//                    self.view.layoutIfNeeded()
                 })
                 deleteView(view: loginTitle)
                 deleteView(view: passTitle)
-                UIView.animateKeyframes(withDuration: 0.5, delay: 0.3, options: .allowUserInteraction, animations: { self.loginButtonConstraint.constant -= 30
+                UIView.animateKeyframes(withDuration: 0.5, delay: 0.3, options: .allowUserInteraction, animations: {
+                    
+//                    self.loginButtonConstraint.constant -= 30
+//                    self.view.layoutIfNeeded()
                     self.loginButton.alpha = 1
                 })
             }

@@ -13,6 +13,7 @@
 		5D4DB87D242DFF660092C1DC /* AllGroupsTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4DB87C242DFF660092C1DC /* AllGroupsTableController.swift */; };
 		5D4DB881242E0A330092C1DC /* FriendsTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4DB880242E0A330092C1DC /* FriendsTableCell.swift */; };
 		5D4DB883242E0A650092C1DC /* FriendsTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4DB882242E0A650092C1DC /* FriendsTableController.swift */; };
+		5D5D306E24465CDA009B9A17 /* MenuBlurViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5D306D24465CDA009B9A17 /* MenuBlurViewController.swift */; };
 		5D611E032445EA2B00811894 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D611E022445EA2B00811894 /* LoadingViewController.swift */; };
 		5D611E052445F0CC00811894 /* Loading.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D611E042445F0CC00811894 /* Loading.storyboard */; };
 		5D8B22CA242FC81200A2D17C /* MyGroupsTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8B22C9242FC81200A2D17C /* MyGroupsTableController.swift */; };
@@ -38,6 +39,7 @@
 		5D4DB87C242DFF660092C1DC /* AllGroupsTableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllGroupsTableController.swift; sourceTree = "<group>"; };
 		5D4DB880242E0A330092C1DC /* FriendsTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTableCell.swift; sourceTree = "<group>"; };
 		5D4DB882242E0A650092C1DC /* FriendsTableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTableController.swift; sourceTree = "<group>"; };
+		5D5D306D24465CDA009B9A17 /* MenuBlurViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBlurViewController.swift; sourceTree = "<group>"; };
 		5D611E022445EA2B00811894 /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 		5D611E042445F0CC00811894 /* Loading.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Loading.storyboard; sourceTree = "<group>"; };
 		5D8B22C9242FC81200A2D17C /* MyGroupsTableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGroupsTableController.swift; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 			children = (
 				5DB3227624345CC9001AAC86 /* AvatarRoundShadow.swift */,
 				5D3A2D232435BD92000BAED5 /* ButtonExtension.swift */,
+				5D5D306D24465CDA009B9A17 /* MenuBlurViewController.swift */,
 			);
 			path = CustomClass;
 			sourceTree = "<group>";
@@ -258,6 +261,7 @@
 				5DB3227724345CC9001AAC86 /* AvatarRoundShadow.swift in Sources */,
 				5DFC9498243B3E1200BE9B06 /* News.swift in Sources */,
 				5D8B22D0242FECF100A2D17C /* FriendsCollectionCell.swift in Sources */,
+				5D5D306E24465CDA009B9A17 /* MenuBlurViewController.swift in Sources */,
 				5D3A2D242435BD92000BAED5 /* ButtonExtension.swift in Sources */,
 				5DFC9494243B369100BE9B06 /* NewsTableController.swift in Sources */,
 				5DBC1D8024332CD60093A036 /* Groups.swift in Sources */,

@@ -84,7 +84,10 @@ class FriendsTableController: UITableViewController {
         var index = 0
         for a in cells {
             let cell: UITableViewCell = a as UITableViewCell
-            UIView.animate(withDuration: 1.5, delay: 0.05 * Double(index), usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: .curveEaseInOut, animations: { cell.transform = CGAffineTransform(translationX: 0, y: 0);
+            cell.alpha = 0
+            UIView.animate(withDuration: 1.5, delay: 0.05 * Double(index), usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: .curveEaseInOut, animations: {
+                cell.transform = CGAffineTransform(translationX: 0, y: 0)
+                cell.alpha = 1
             }, completion: nil)
             
             index += 1

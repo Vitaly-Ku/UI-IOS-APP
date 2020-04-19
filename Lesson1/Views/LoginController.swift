@@ -39,7 +39,7 @@ class LoginController: UIViewController {
         
         addPanGesture(view: logoCat)
         view.bringSubviewToFront(logoCat)
-        self.loginButton.alpha = 0
+//        self.loginButton.alpha = 0
         self.loginButton.layer.cornerRadius = 5
     }
     
@@ -194,7 +194,7 @@ class LoginController: UIViewController {
                     
 //                    self.loginButtonConstraint.constant -= 30
 //                    self.view.layoutIfNeeded()
-                    self.loginButton.alpha = 1
+//                    self.loginButton.alpha = 1
                 })
             }
         default:

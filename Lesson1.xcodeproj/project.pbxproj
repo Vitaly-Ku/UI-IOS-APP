@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		5D18ACE8243205A100E42763 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D18ACE7243205A100E42763 /* Users.swift */; };
 		5D3A2D242435BD92000BAED5 /* ButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D3A2D232435BD92000BAED5 /* ButtonExtension.swift */; };
+		5D4B24082449AAA100E25884 /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D4B24072449AAA100E25884 /* iCarousel.m */; };
 		5D4DB879242DF9EB0092C1DC /* AllGroupsTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4DB878242DF9EB0092C1DC /* AllGroupsTableCell.swift */; };
 		5D4DB87D242DFF660092C1DC /* AllGroupsTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4DB87C242DFF660092C1DC /* AllGroupsTableController.swift */; };
 		5D4DB881242E0A330092C1DC /* FriendsTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4DB880242E0A330092C1DC /* FriendsTableCell.swift */; };
@@ -35,6 +36,9 @@
 /* Begin PBXFileReference section */
 		5D18ACE7243205A100E42763 /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
 		5D3A2D232435BD92000BAED5 /* ButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonExtension.swift; sourceTree = "<group>"; };
+		5D4B24052449AAA000E25884 /* Lesson1-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Lesson1-Bridging-Header.h"; sourceTree = "<group>"; };
+		5D4B24062449AAA100E25884 /* iCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCarousel.h; sourceTree = "<group>"; };
+		5D4B24072449AAA100E25884 /* iCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCarousel.m; sourceTree = "<group>"; };
 		5D4DB878242DF9EB0092C1DC /* AllGroupsTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllGroupsTableCell.swift; sourceTree = "<group>"; };
 		5D4DB87C242DFF660092C1DC /* AllGroupsTableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllGroupsTableController.swift; sourceTree = "<group>"; };
 		5D4DB880242E0A330092C1DC /* FriendsTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTableCell.swift; sourceTree = "<group>"; };
@@ -121,6 +125,9 @@
 				5D4DB882242E0A650092C1DC /* FriendsTableController.swift */,
 				5D8B22CD242FECCB00A2D17C /* FriendsCollectionController.swift */,
 				5D8B22CF242FECF100A2D17C /* FriendsCollectionCell.swift */,
+				5D4B24062449AAA100E25884 /* iCarousel.h */,
+				5D4B24072449AAA100E25884 /* iCarousel.m */,
+				5D4B24052449AAA000E25884 /* Lesson1-Bridging-Header.h */,
 			);
 			path = Friends;
 			sourceTree = "<group>";
@@ -206,6 +213,7 @@
 				TargetAttributes = {
 					DC81B2322429257800E170A0 = {
 						CreatedOnToolsVersion = 11.3.1;
+						LastSwiftMigration = 1130;
 					};
 				};
 			};
@@ -258,6 +266,7 @@
 				5D4DB879242DF9EB0092C1DC /* AllGroupsTableCell.swift in Sources */,
 				5D8B22CE242FECCB00A2D17C /* FriendsCollectionController.swift in Sources */,
 				5D18ACE8243205A100E42763 /* Users.swift in Sources */,
+				5D4B24082449AAA100E25884 /* iCarousel.m in Sources */,
 				5DB3227724345CC9001AAC86 /* AvatarRoundShadow.swift in Sources */,
 				5DFC9498243B3E1200BE9B06 /* News.swift in Sources */,
 				5D8B22D0242FECF100A2D17C /* FriendsCollectionCell.swift in Sources */,
@@ -408,6 +417,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Q5PBRQ5CWD;
 				INFOPLIST_FILE = Lesson1/Info.plist;
@@ -418,6 +428,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "vit-k";
 				PRODUCT_NAME = vk_test;
+				SWIFT_OBJC_BRIDGING_HEADER = "Lesson1/Views/Friends/Lesson1-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -427,6 +439,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Q5PBRQ5CWD;
 				INFOPLIST_FILE = Lesson1/Info.plist;
@@ -437,6 +450,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "vit-k";
 				PRODUCT_NAME = vk_test;
+				SWIFT_OBJC_BRIDGING_HEADER = "Lesson1/Views/Friends/Lesson1-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

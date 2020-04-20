@@ -21,25 +21,22 @@ class MenuBlurViewController: UIViewController {
     @IBOutlet weak var menuConstraint: NSLayoutConstraint!
     @IBOutlet weak var blur: UIVisualEffectView!
     @IBOutlet weak var sideView: UIView!
-    @IBOutlet weak var yellowView: UIImageView!
     
-    var animator: UIViewPropertyAnimator!
-    var direction = false
-
+    @IBOutlet weak var photo: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        blur.layer.cornerRadius = 25
-        sideView.layer.shadowColor = UIColor.black.cgColor
-        sideView.layer.shadowOpacity = 4
-        sideView.layer.shadowOffset = CGSize(width: 5, height: 0)
-        sideView.layer.shadowRadius = 7
-        menuConstraint.constant = 0
+//        blur.layer.cornerRadius = 25
+//        sideView.layer.shadowColor = UIColor.black.cgColor
+//        sideView.layer.shadowOpacity = 4
+//        sideView.layer.shadowOffset = CGSize(width: 5, height: 0)
+//        sideView.layer.shadowRadius = 7
+//        menuConstraint.constant = 0
+//        
+//        self.menuConstraint.constant = -155
         
-        self.menuConstraint.constant = -155
-        
-        self.yellowView.image = self.arr[0]
+        self.photo.image = self.arr[0]
         
     }
     var i = 0
@@ -55,15 +52,15 @@ class MenuBlurViewController: UIViewController {
 
             if translation > 0 {
                 UIView.animate(withDuration: 1, delay: 0, options: .curveEaseInOut, animations: {
-                    self.yellowView.alpha = 0
-                    self.yellowView.transform.tx += translation
-                    self.yellowView.transform = CGAffineTransform(rotationAngle: 70)
+                    self.photo.alpha = 0
+                    self.photo.transform.tx += translation
+                    self.photo.transform = CGAffineTransform(rotationAngle: 70)
                 }, completion: nil)
             } else {
                 UIView.animate(withDuration: 1, delay: 0, options: .curveEaseInOut, animations: {
-                    self.yellowView.alpha = 0
-                    self.yellowView.transform.tx -= -translation
-                    self.yellowView.transform = CGAffineTransform(rotationAngle: -70)
+                    self.photo.alpha = 0
+                    self.photo.transform.tx -= -translation
+                    self.photo.transform = CGAffineTransform(rotationAngle: -70)
                 }, completion: nil)
             }
 
@@ -72,13 +69,13 @@ class MenuBlurViewController: UIViewController {
                 i += 1
             } else {
                 i = 0
-                self.yellowView.image = self.arr.first!!
+                self.photo.image = self.arr.first!!
             }
 
-            self.yellowView.image = self.arr[i]
-            self.yellowView.transform = .identity
+            self.photo.image = self.arr[i]
+            self.photo.transform = .identity
             UIView.animate(withDuration: 0.5, animations: {
-                self.yellowView.alpha = 1
+                self.photo.alpha = 1
             })
 
         default:

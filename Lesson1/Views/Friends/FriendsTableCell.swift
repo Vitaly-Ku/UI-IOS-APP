@@ -18,22 +18,23 @@ class FriendsTableCell: UITableViewCell {
     @IBOutlet weak var shadov: UIView!
     
     @IBAction func avatarRotate() {
-        UIView.animateKeyframes(withDuration: 0.1, delay: 0, options: .autoreverse, animations: {
-            self.photo.transform = CGAffineTransform(rotationAngle: 360)
-        }) { _ in
-            self.photo.transform = CGAffineTransform(rotationAngle: 0)
-        }
+        let animation = CASpringAnimation(keyPath: "transform.scale")
+        animation.fromValue = 0.8
+        animation.toValue = 1
+        animation.stiffness = 350
+        animation.duration = 0.7
+        photo.layer.add(animation, forKey: nil)
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
-//        contentView.layer.insertSublayer(gr, at: 0)
-//        gr.colors = [
-//            UIColor.lightGray.cgColor,
-//            UIColor.darkGray.cgColor
-//        ]
-//        gr.startPoint = CGPoint(x: 0.5, y: 0)
-//        gr.endPoint = CGPoint(x: 0.5, y: 1)
+        //        contentView.layer.insertSublayer(gr, at: 0)
+        //        gr.colors = [
+        //            UIColor.lightGray.cgColor,
+        //            UIColor.darkGray.cgColor
+        //        ]
+        //        gr.startPoint = CGPoint(x: 0.5, y: 0)
+        //        gr.endPoint = CGPoint(x: 0.5, y: 1)
     }
     
 //    override func layoutSubviews() {

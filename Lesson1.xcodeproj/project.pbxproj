@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5D18ACE8243205A100E42763 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D18ACE7243205A100E42763 /* Users.swift */; };
+		5D362CC6244ED84E002DF4EF /* InteractiveTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D362CC5244ED84E002DF4EF /* InteractiveTransition.swift */; };
 		5D3A2D242435BD92000BAED5 /* ButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D3A2D232435BD92000BAED5 /* ButtonExtension.swift */; };
 		5D4B24082449AAA100E25884 /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D4B24072449AAA100E25884 /* iCarousel.m */; };
 		5D4DB879242DF9EB0092C1DC /* AllGroupsTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4DB878242DF9EB0092C1DC /* AllGroupsTableCell.swift */; };
@@ -21,6 +22,7 @@
 		5D8B22CC242FC84200A2D17C /* MyGroupsTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8B22CB242FC84200A2D17C /* MyGroupsTableCell.swift */; };
 		5D8B22CE242FECCB00A2D17C /* FriendsCollectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8B22CD242FECCB00A2D17C /* FriendsCollectionController.swift */; };
 		5D8B22D0242FECF100A2D17C /* FriendsCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8B22CF242FECF100A2D17C /* FriendsCollectionCell.swift */; };
+		5D8CBFD8244EC234007A5C34 /* CustomPushAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8CBFD7244EC234007A5C34 /* CustomPushAnimator.swift */; };
 		5DB3227724345CC9001AAC86 /* AvatarRoundShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB3227624345CC9001AAC86 /* AvatarRoundShadow.swift */; };
 		5DBC1D8024332CD60093A036 /* Groups.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DBC1D7F24332CD60093A036 /* Groups.swift */; };
 		5DFC9494243B369100BE9B06 /* NewsTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DFC9493243B369100BE9B06 /* NewsTableController.swift */; };
@@ -35,6 +37,7 @@
 
 /* Begin PBXFileReference section */
 		5D18ACE7243205A100E42763 /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
+		5D362CC5244ED84E002DF4EF /* InteractiveTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractiveTransition.swift; sourceTree = "<group>"; };
 		5D3A2D232435BD92000BAED5 /* ButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonExtension.swift; sourceTree = "<group>"; };
 		5D4B24052449AAA000E25884 /* Lesson1-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Lesson1-Bridging-Header.h"; sourceTree = "<group>"; };
 		5D4B24062449AAA100E25884 /* iCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCarousel.h; sourceTree = "<group>"; };
@@ -50,6 +53,7 @@
 		5D8B22CB242FC84200A2D17C /* MyGroupsTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGroupsTableCell.swift; sourceTree = "<group>"; };
 		5D8B22CD242FECCB00A2D17C /* FriendsCollectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsCollectionController.swift; sourceTree = "<group>"; };
 		5D8B22CF242FECF100A2D17C /* FriendsCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsCollectionCell.swift; sourceTree = "<group>"; };
+		5D8CBFD7244EC234007A5C34 /* CustomPushAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPushAnimator.swift; sourceTree = "<group>"; };
 		5DB3227624345CC9001AAC86 /* AvatarRoundShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarRoundShadow.swift; sourceTree = "<group>"; };
 		5DBC1D7F24332CD60093A036 /* Groups.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Groups.swift; sourceTree = "<group>"; };
 		5DFC9493243B369100BE9B06 /* NewsTableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableController.swift; sourceTree = "<group>"; };
@@ -138,6 +142,8 @@
 				5DB3227624345CC9001AAC86 /* AvatarRoundShadow.swift */,
 				5D3A2D232435BD92000BAED5 /* ButtonExtension.swift */,
 				5D5D306D24465CDA009B9A17 /* MenuBlurViewController.swift */,
+				5D8CBFD7244EC234007A5C34 /* CustomPushAnimator.swift */,
+				5D362CC5244ED84E002DF4EF /* InteractiveTransition.swift */,
 			);
 			path = CustomClass;
 			sourceTree = "<group>";
@@ -261,11 +267,13 @@
 				5D8B22CC242FC84200A2D17C /* MyGroupsTableCell.swift in Sources */,
 				5D611E032445EA2B00811894 /* LoadingViewController.swift in Sources */,
 				5D8B22CA242FC81200A2D17C /* MyGroupsTableController.swift in Sources */,
+				5D362CC6244ED84E002DF4EF /* InteractiveTransition.swift in Sources */,
 				DC81B23B2429257800E170A0 /* LoginController.swift in Sources */,
 				DC81B2372429257800E170A0 /* AppDelegate.swift in Sources */,
 				5D4DB879242DF9EB0092C1DC /* AllGroupsTableCell.swift in Sources */,
 				5D8B22CE242FECCB00A2D17C /* FriendsCollectionController.swift in Sources */,
 				5D18ACE8243205A100E42763 /* Users.swift in Sources */,
+				5D8CBFD8244EC234007A5C34 /* CustomPushAnimator.swift in Sources */,
 				5D4B24082449AAA100E25884 /* iCarousel.m in Sources */,
 				5DB3227724345CC9001AAC86 /* AvatarRoundShadow.swift in Sources */,
 				5DFC9498243B3E1200BE9B06 /* News.swift in Sources */,

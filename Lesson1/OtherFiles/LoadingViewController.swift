@@ -10,9 +10,9 @@ import UIKit
 
 class LoadingViewController: UIViewController {
     
+    var timer: Timer!
+    
     @IBOutlet weak var logoCat: UIView!
-    
-    
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -28,6 +28,16 @@ class LoadingViewController: UIViewController {
         super.viewDidLoad()
         makeCatLogo()
         addAnimationPath()
+        
+        view.backgroundColor = .random()
+        timer = Timer.scheduledTimer(timeInterval: 0.3, target: self, selector: #selector(changeBackgroundColor), userInfo: nil, repeats: true)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            self.timer.invalidate()
+        }
+    }
+    
+    @objc func changeBackgroundColor () {
+        view.backgroundColor = .random()
     }
     
     var path : UIBezierPath!
@@ -102,5 +112,15 @@ class LoadingViewController: UIViewController {
         path.addLine(to: CGPoint(x: 18, y: 12))
         
         path.close()
+    }
+}
+
+extension UIColor {
+    static func random() -> UIColor {
+        let red: CGFloat = .random(in: 0...1)
+        let green: CGFloat = .random(in: 0...1)
+        let blue: CGFloat = .random(in: 0...1)
+        
+        return UIColor(displayP3Red: red, green: green, blue: blue, alpha: 1)
     }
 }

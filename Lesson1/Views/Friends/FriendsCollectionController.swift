@@ -23,9 +23,9 @@ class FriendsCollectionController: UICollectionViewController {
     }
     
 //    override func numberOfSections(in collectionView: UICollectionView) -> Int { 1 }
-    
+//    
 //    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int { friend.photoes.count }
-    
+//    
 //    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 //        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "friendCell", for: indexPath) as! FriendsCollectionCell
 //        cell.photo.image = friend.photoes[indexPath.row]
@@ -52,3 +52,10 @@ extension FriendsCollectionController: iCarouselDelegate, iCarouselDataSource {
         return imageView
     }
 }
+
+//extension FriendsCollectionController: UICollectionViewDelegateFlowLayout {
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//        let cellWidth = floor(collectionView.bounds.width / 3)
+//        return CGSize(width: cellWidth, height: cellWidth)
+//    }
+//}

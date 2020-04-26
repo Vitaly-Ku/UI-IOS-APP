@@ -22,7 +22,7 @@ class NewsTableCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         likeButton.setImage(#imageLiteral(resourceName: "heartRed"), for: .selected)
-        likeButton.setImage(#imageLiteral(resourceName: "heartBlue"), for: .normal)
+        likeButton.setImage(#imageLiteral(resourceName: "hearts"), for: .normal)
     }
     
     @IBAction func pulseButton(_ sender: UIButton) { // экшен для пульсации кнопки
@@ -31,9 +31,9 @@ class NewsTableCell: UITableViewCell {
     
     @IBAction func like() {
         likeButton.isSelected.toggle()
-        likeCounter.textColor = likeButton.isSelected ? .red : .systemBlue
+        likeCounter.textColor = likeButton.isSelected ? .red : .darkGray
         likeCounter.text = likeButton.isSelected ? "1" : "0"
-        UIView.animateKeyframes(withDuration: 0.5, delay: 0, options: .autoreverse, animations: { self.likeCounter.frame.origin.y += 10 })
-        self.likeCounter.frame.origin.y -= 10
+        UIView.animateKeyframes(withDuration: 0.1, delay: 0, options: .autoreverse, animations: { self.likeCounter.frame.origin.y += 3 })
+        self.likeCounter.frame.origin.y -= 3
     }
 }

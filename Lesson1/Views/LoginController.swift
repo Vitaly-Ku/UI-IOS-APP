@@ -9,7 +9,7 @@
 import UIKit
 
 class LoginController: UIViewController {
-    
+        
     @IBOutlet weak var scrollBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var loginField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
@@ -39,13 +39,23 @@ class LoginController: UIViewController {
         
         addPanGesture(view: logoCat)
         view.bringSubviewToFront(logoCat)
-//        self.loginButton.alpha = 0
         self.loginButton.layer.cornerRadius = 5
+    }
+    
+    override func motionBegan(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
+        UIView.animate(withDuration: 0.3) {
+            self.randomBGColor()
+        }
+    }
+    
+    func randomBGColor() {
+        view.backgroundColor = .random()
     }
     
     @IBAction func launchPulsate(_ sender: UIButton) {
         sender.pulsate()
     }
+    
     @IBAction func loginButtonOn() { // связь кнопки с контроллером
     }
     
@@ -182,19 +192,13 @@ class LoginController: UIViewController {
                 deleteView(view: view)
                 self.loginField.alpha = 0
                 self.passwordField.alpha = 0
-//                self.passFieldConstraint.constant -= 30
                 UIView.animate(withDuration: 5, delay: 3, options: [], animations: {
                     self.loginField.alpha = 1
                     self.passwordField.alpha = 1
-//                    self.view.layoutIfNeeded()
                 })
                 deleteView(view: loginTitle)
                 deleteView(view: passTitle)
                 UIView.animateKeyframes(withDuration: 0.5, delay: 0.3, options: .allowUserInteraction, animations: {
-                    
-//                    self.loginButtonConstraint.constant -= 30
-//                    self.view.layoutIfNeeded()
-//                    self.loginButton.alpha = 1
                 })
             }
         default:

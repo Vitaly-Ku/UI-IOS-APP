@@ -8,7 +8,7 @@
 
 import UIKit
 
-@IBDesignable class Shadow: UIView { // класс для слоёв с тенью(вьюхам подписаться на него)
+ class Shadow: UIView { // класс для слоёв с тенью(вьюхам подписаться на него)
     override class var layerClass: AnyClass {
           return CAShapeLayer.self
       }
@@ -46,7 +46,7 @@ import UIKit
     }
 }
 
-@IBDesignable class Roundinng: UIImageView { // скругление, рамка(толщтнаи цвет)
+ class Roundinng: UIImageView {
     override class var layerClass: AnyClass {
           return CAShapeLayer.self
       }

@@ -28,6 +28,8 @@
 		5DBC1D8024332CD60093A036 /* Groups.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DBC1D7F24332CD60093A036 /* Groups.swift */; };
 		5DC45FBD2456B62100CF58CD /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC45FBC2456B62100CF58CD /* Notifications.swift */; };
 		5DC45FC02456D5CA00CF58CD /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC45FBF2456D5CA00CF58CD /* Extensions.swift */; };
+		5DE083BA24581D99008E3134 /* VKLoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE083B924581D99008E3134 /* VKLoginController.swift */; };
+		5DE083BD2458347E008E3134 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DE083BC2458347E008E3134 /* WebKit.framework */; };
 		5DFC9494243B369100BE9B06 /* NewsTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DFC9493243B369100BE9B06 /* NewsTableController.swift */; };
 		5DFC9496243B36D600BE9B06 /* NewsTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DFC9495243B36D600BE9B06 /* NewsTableCell.swift */; };
 		5DFC9498243B3E1200BE9B06 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DFC9497243B3E1200BE9B06 /* News.swift */; };
@@ -62,6 +64,8 @@
 		5DBC1D7F24332CD60093A036 /* Groups.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Groups.swift; sourceTree = "<group>"; };
 		5DC45FBC2456B62100CF58CD /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		5DC45FBF2456D5CA00CF58CD /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		5DE083B924581D99008E3134 /* VKLoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKLoginController.swift; sourceTree = "<group>"; };
+		5DE083BC2458347E008E3134 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		5DFC9493243B369100BE9B06 /* NewsTableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableController.swift; sourceTree = "<group>"; };
 		5DFC9495243B36D600BE9B06 /* NewsTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableCell.swift; sourceTree = "<group>"; };
 		5DFC9497243B3E1200BE9B06 /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
@@ -79,6 +83,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5DE083BD2458347E008E3134 /* WebKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -109,6 +114,7 @@
 		5D4DB871242DD7830092C1DC /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				5DE083B924581D99008E3134 /* VKLoginController.swift */,
 				DC81B23A2429257800E170A0 /* LoginController.swift */,
 				5D92BCB124570BCF00C107E0 /* TabBarVC.swift */,
 				5D4DB87F242E09C60092C1DC /* Friends */,
@@ -171,6 +177,14 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		5DE083BB2458347E008E3134 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5DE083BC2458347E008E3134 /* WebKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		5DFC948E243B336F00BE9B06 /* News */ = {
 			isa = PBXGroup;
 			children = (
@@ -185,6 +199,7 @@
 			children = (
 				DC81B2352429257800E170A0 /* Lesson1 */,
 				DC81B2342429257800E170A0 /* Products */,
+				5DE083BB2458347E008E3134 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -293,6 +308,7 @@
 				5D8B22CC242FC84200A2D17C /* MyGroupsTableCell.swift in Sources */,
 				5D611E032445EA2B00811894 /* LoadingViewController.swift in Sources */,
 				5D92BCB224570BCF00C107E0 /* TabBarVC.swift in Sources */,
+				5DE083BA24581D99008E3134 /* VKLoginController.swift in Sources */,
 				5D8B22CA242FC81200A2D17C /* MyGroupsTableController.swift in Sources */,
 				5D362CC6244ED84E002DF4EF /* InteractiveTransition.swift in Sources */,
 				DC81B23B2429257800E170A0 /* LoginController.swift in Sources */,

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zAK-kr-Ajf">
     <device id="retina3_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -128,6 +128,41 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="226.08695652173915" y="398.64130434782612"/>
+        </scene>
+        <!--Login Controller-->
+        <scene sceneID="Sf9-Cl-sGj">
+            <objects>
+                <viewController id="zAK-kr-Ajf" customClass="VKLoginController" customModule="vk_test" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5ID-6b-HYz">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ELJ-6n-7y1">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="5mK-wj-YO2" firstAttribute="trailing" secondItem="ELJ-6n-7y1" secondAttribute="trailing" id="3W1-SK-6vm"/>
+                            <constraint firstItem="ELJ-6n-7y1" firstAttribute="top" secondItem="5mK-wj-YO2" secondAttribute="top" id="ACK-Ug-U1v"/>
+                            <constraint firstItem="ELJ-6n-7y1" firstAttribute="leading" secondItem="5mK-wj-YO2" secondAttribute="leading" id="T9n-yy-D3C"/>
+                            <constraint firstItem="5mK-wj-YO2" firstAttribute="bottom" secondItem="ELJ-6n-7y1" secondAttribute="bottom" id="xW5-0u-LlY"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="5mK-wj-YO2"/>
+                    </view>
+                    <connections>
+                        <outlet property="webView" destination="ELJ-6n-7y1" id="uyL-eP-wo6"/>
+                        <segue destination="gCf-X5-LnV" kind="presentation" identifier="VKLogin" modalPresentationStyle="overFullScreen" id="V5j-pd-8tv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1UC-mP-GPw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="225" y="1104"/>
         </scene>
         <!--Поиск групп-->
         <scene sceneID="NBM-9Y-lbm">
@@ -596,7 +631,7 @@
                     <tabBarItem key="tabBarItem" title="Новости" image="news" id="9QV-Gq-GWd"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Kzg-3Z-fuc">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                         <textAttributes key="titleTextAttributes">
@@ -836,8 +871,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="175" height="273"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Потрясите iPhone для изменения цвета всего приложения" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HNh-Iw-rNq">
-                                                    <rect key="frame" x="15" y="10" width="145" height="81.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Потрясите iPhone на этом экране для изменения цвета всего приложения" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HNh-Iw-rNq">
+                                                    <rect key="frame" x="15" y="10" width="145" height="101.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -861,10 +896,6 @@
                                     <constraint firstAttribute="trailing" secondItem="8gv-Ue-sCD" secondAttribute="trailing" id="aKJ-G4-Wya"/>
                                 </constraints>
                             </view>
-                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Iphone" translatesAutoresizingMaskIntoConstraints="NO" id="tXo-b3-mhH">
-                                <rect key="frame" x="129" y="173" width="94" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBrownColor" red="0.63529411759999999" green="0.51764705879999995" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
@@ -885,7 +916,6 @@
                     <navigationItem key="navigationItem" title="Настройки" id="e3b-bq-tQV"/>
                     <connections>
                         <outlet property="blur" destination="8gv-Ue-sCD" id="QAr-1Q-P9p"/>
-                        <outlet property="iPhone" destination="tXo-b3-mhH" id="nxk-44-Uv6"/>
                         <outlet property="menuConstraint" destination="uB2-U5-fPe" id="KEG-wt-0KI"/>
                         <outlet property="sideView" destination="uvj-sC-9zt" id="ExU-hV-ZSB"/>
                     </connections>
@@ -971,7 +1001,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Iphone" width="900" height="1100"/>
         <image name="coment" width="48" height="48"/>
         <image name="friends" width="30" height="30"/>
         <image name="groups" width="30" height="30"/>
@@ -984,4 +1013,7 @@
         <image name="views" width="48" height="48"/>
         <image name="vk_logo" width="128" height="128"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="V5j-pd-8tv"/>
+    </inferredMetricsTieBreakers>
 </document>

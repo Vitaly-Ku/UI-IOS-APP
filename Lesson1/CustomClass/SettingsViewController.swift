@@ -13,13 +13,10 @@ var colorBG: UIColor = .brown
 
 class SettingsViewController: UIViewController {
     
-    @IBOutlet weak var iPhone: UIImageView!
     @IBOutlet weak var menuConstraint: NSLayoutConstraint!
     @IBOutlet weak var blur: UIVisualEffectView!
     @IBOutlet weak var sideView: UIView!
-    
-    @IBOutlet weak var photo: UIImageView!
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         

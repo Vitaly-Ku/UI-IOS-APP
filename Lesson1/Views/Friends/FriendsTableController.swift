@@ -23,10 +23,15 @@ class FriendsTableController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         group(friends: friends)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         animateTable()
+        tableView.backgroundColor = colorBG
+        searchBar.barTintColor = colorBG
+        searchBar.tintColor = colorBG
+
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int { friendSection.count }
@@ -92,25 +97,5 @@ class FriendsTableController: UITableViewController {
             
             index += 1
         }
-    }
-}
-
-// MARK: Searching extension
-
-extension FriendsTableController: UISearchBarDelegate {
-    
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        if searchText.isEmpty {
-            group(friends: friends)
-        } else {
-            let filteredUsers = friends.filter({$0.title.lowercased().contains(searchText.lowercased())})
-            group(friends: filteredUsers)
-        }
-        tableView.reloadData()
-    }
-    
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        group(friends: friends)
-        tableView.reloadData()
     }
 }

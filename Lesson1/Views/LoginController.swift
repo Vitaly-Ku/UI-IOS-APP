@@ -40,17 +40,23 @@ class LoginController: UIViewController {
         addPanGesture(view: logoCat)
         view.bringSubviewToFront(logoCat)
         self.loginButton.layer.cornerRadius = 5
+        
+
     }
     
-    override func motionBegan(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
-        UIView.animate(withDuration: 0.3) {
-            self.randomBGColor()
-        }
+    override func viewWillAppear(_ animated: Bool) {
+        view.backgroundColor = colorBG
     }
     
-    func randomBGColor() {
-        view.backgroundColor = .random()
-    }
+//    override func motionBegan(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
+//        UIView.animate(withDuration: 0.3) {
+//            self.randomBGColor()
+//        }
+//    }
+//    
+//    func randomBGColor() {
+//        view.backgroundColor = .random()
+//    }
     
     @IBAction func launchPulsate(_ sender: UIButton) {
         sender.pulsate()
@@ -94,11 +100,6 @@ class LoginController: UIViewController {
         alert.addAction(action) // добавить кнопку на алерт
         present(alert, animated: true, completion: nil)
     }
-    
-    
-    @IBAction func myUnwindAction(unwindSegue: UIStoryboardSegue) {
-    }
-
     
     // MARK: Logo Animation
     

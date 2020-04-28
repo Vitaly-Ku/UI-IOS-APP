@@ -21,6 +21,9 @@ class AllGroupsTableController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         animateTable()
+        tableView.backgroundColor = colorBG
+        searchBar.barTintColor = colorBG
+        searchBar.tintColor = colorBG
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -62,20 +65,5 @@ class AllGroupsTableController: UITableViewController {
             
             index += 1
         }
-    }
-}
-
-extension AllGroupsTableController: UISearchBarDelegate {
-    
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        filteredGroups = groups.filter({$0.title.lowercased().contains(searchText.lowercased())})
-        searching = true
-        tableView.reloadData()
-    }
-    
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        searching = false
-        searchBar.text = ""
-        tableView.reloadData()
     }
 }

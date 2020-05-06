@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 struct SectionFriend {
     var title: String
@@ -23,7 +24,7 @@ class FriendsTableController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         group(friends: friends)
-        
+//        callAPI()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -31,7 +32,7 @@ class FriendsTableController: UITableViewController {
         tableView.backgroundColor = colorBG
         searchBar.barTintColor = colorBG
         searchBar.tintColor = colorBG
-
+        
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int { friendSection.count }
@@ -39,18 +40,26 @@ class FriendsTableController: UITableViewController {
     override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
         tableView.sectionIndexColor = .darkGray
         tableView.sectionIndexBackgroundColor = .init(displayP3Red: 31, green: 33, blue: 36, alpha: 0.0)
-      return  friendSection.map {$0.title}
+        return  friendSection.map {$0.title}
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int { friendSection[section].items.count }
+    //    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int { responseArray.count }
+    
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "friendCell", for: indexPath) as! FriendsTableCell // привязка ячеек к идентификатору и классу, кт заимствует общий VC
+        let cell = tableView.dequeueReusableCell(withIdentifier: "friendCell", for: indexPath) as! FriendsTableCell
         cell.titleLabel.text = friendSection[indexPath.section].items[indexPath.row].title
         cell.statusLabel.text = friendSection[indexPath.section].items[indexPath.row].status
         cell.photo.image = friendSection[indexPath.section].items[indexPath.row].avatar
         return cell
     }
+    //    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    //        let cell = tableView.dequeueReusableCell(withIdentifier: "friendCell", for: indexPath) as! FriendsTableCell
+    //        cell.titleLabel.text = responseArray[indexPath.row].name
+    //        cell.statusLabel.text = responseArray[indexPath.row].lastName
+    //        return cell
+    //    }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? { // хедеры
         let view = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 20))
@@ -76,7 +85,57 @@ class FriendsTableController: UITableViewController {
         friendSection.sort {$0.title < $1.title}
     }
     
-//    MARK: Animation of table list
+    
+    
+//    func callAPI() {
+//        let param: Parameters = ["access_token" : Session.shared.token, "extended" : 1, "v" : "5.103", "fields" : "photo_50"]
+//        AF.request(VKServices.shared.baseUrl + VKServices.Method.getFriends.methodName, method: .get, parameters: param).responseJSON {response in
+//            guard let value = response.data else { return }
+//            print(value)
+//            do {
+//                self.responseArray = try JSONDecoder().decode([Friend].self, from: value)
+////                let items = json
+//            } catch let error {
+//                print(error)
+//            }
+//            print(value)
+//        }
+//    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+        var responseArray = [Friend]()
+    
+//        func callAPI() {
+//            let path = "/method/friends.get"
+//            let param: Parameters = ["access_token" : Session.shared.token, "extended" : 1, "v" : "5.103", "fields" : "photo_50"]
+//            AF.request(Session.shared.baseUrl + path, method: .get, parameters: param).responseJSON { response in
+//                guard let value = response.data else { return }
+//                do {
+//                    let decodeJson = JSONDecoder()
+//                    decodeJson.keyDecodingStrategy = .convertFromSnakeCase
+//                    self.responseArray = try decodeJson.decode([Friend].self, from: value)
+//                    self.tableView.reloadData()
+//                } catch {
+//                    print(error.localizedDescription)
+//                }
+//            print(value)
+//            }
+//        }
+    
+    //    MARK: Animation of table list
     
     func animateTable() {
         tableView.reloadData()

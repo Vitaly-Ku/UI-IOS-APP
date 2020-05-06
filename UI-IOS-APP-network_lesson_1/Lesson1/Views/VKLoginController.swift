@@ -11,7 +11,7 @@ import WebKit
 import Alamofire
 
 class VKLoginController: UIViewController {
-    
+        
     @IBOutlet var webView: WKWebView! {
         didSet {
             var urlComponents = URLComponents()
@@ -67,7 +67,6 @@ extension VKLoginController: WKNavigationDelegate {
         
         Session.shared.token = token
         Session.shared.userId = userId
-        Session.shared.baseUrl = "https://api.vk.com"
         
         // MARK: ВЫЗОВ ЗАПРОСОВ
         
@@ -81,36 +80,32 @@ extension VKLoginController: WKNavigationDelegate {
     }
     
     func loadGroups() {
-        let path = "/method/groups.get"
         let param: Parameters = ["access_token" : Session.shared.token, "extended" : 1, "v" : "5.103"]
-        AF.request(Session.shared.baseUrl + path, method: .get, parameters: param).responseJSON { response in
+        AF.request(VKServices.shared.baseUrl + VKServices.Method.getGroups.methodName, method: .get, parameters: param).responseJSON { response in
             guard let value = response.value else { return }
             print(value)
         }
     }
     
     func loadFriends() {
-        let path = "/method/friends.get"
-        let param: Parameters = ["access_token" : Session.shared.token, "extended" : 1, "v" : "5.103", "fields" : "nickname"]
-        AF.request(Session.shared.baseUrl + path, method: .get, parameters: param).responseJSON { response in
+        let param: Parameters = ["access_token" : Session.shared.token, "extended" : 1, "v" : "5.103", "fields" : "photo_50"]
+        AF.request(VKServices.shared.baseUrl + VKServices.Method.getFriends.methodName, method: .get, parameters: param).responseJSON { response in
             guard let value = response.value else { return }
             print(value)
         }
     }
-    
+
     func loadFotosFriends() {
-        let path = "/method/photos.get"
         let param: Parameters = ["access_token" : Session.shared.token, "extended" : 1, "v" : "5.103", "album_id" : "profile", "owner_id" : 76809617]
-        AF.request(Session.shared.baseUrl + path, method: .get, parameters: param).responseJSON { response in
+        AF.request(VKServices.shared.baseUrl + VKServices.Method.getPhotos.methodName, method: .get, parameters: param).responseJSON { response in
             guard let value = response.value else { return }
             print(value)
         }
     }
-    
+
     func groupsSearch() {
-        let path = "/method/groups.search"
         let param: Parameters = ["access_token" : Session.shared.token, "extended" : 1, "v" : "5.103", "q" : "garage.band"]
-        AF.request(Session.shared.baseUrl + path, method: .get, parameters: param).responseJSON { response in
+        AF.request(VKServices.shared.baseUrl + VKServices.Method.searchGroups.methodName, method: .get, parameters: param).responseJSON { response in
             guard let value = response.value else { return }
             print(value)
         }

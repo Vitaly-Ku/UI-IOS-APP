@@ -17,7 +17,8 @@
 		5D5D306E24465CDA009B9A17 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5D306D24465CDA009B9A17 /* SettingsViewController.swift */; };
 		5D611E032445EA2B00811894 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D611E022445EA2B00811894 /* LoadingViewController.swift */; };
 		5D611E052445F0CC00811894 /* Loading.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D611E042445F0CC00811894 /* Loading.storyboard */; };
-		5D80E1632458A0D800242067 /* AlamofireServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D80E1622458A0D800242067 /* AlamofireServices.swift */; };
+		5D80E1632458A0D800242067 /* VKServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D80E1622458A0D800242067 /* VKServices.swift */; };
+		5D87020B245E9EB8001A0E55 /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D87020A245E9EB8001A0E55 /* Friend.swift */; };
 		5D8B22CA242FC81200A2D17C /* MyGroupsTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8B22C9242FC81200A2D17C /* MyGroupsTableController.swift */; };
 		5D8B22CC242FC84200A2D17C /* MyGroupsTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8B22CB242FC84200A2D17C /* MyGroupsTableCell.swift */; };
 		5D8B22CE242FECCB00A2D17C /* FriendsCollectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8B22CD242FECCB00A2D17C /* FriendsCollectionController.swift */; };
@@ -27,7 +28,6 @@
 		5DA0C8632455B5A000A85655 /* Singletons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DA0C8622455B5A000A85655 /* Singletons.swift */; };
 		5DB3227724345CC9001AAC86 /* AvatarRoundShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB3227624345CC9001AAC86 /* AvatarRoundShadow.swift */; };
 		5DBC1D8024332CD60093A036 /* Groups.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DBC1D7F24332CD60093A036 /* Groups.swift */; };
-		5DC45FBD2456B62100CF58CD /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC45FBC2456B62100CF58CD /* Notifications.swift */; };
 		5DC45FC02456D5CA00CF58CD /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC45FBF2456D5CA00CF58CD /* Extensions.swift */; };
 		5DE083BA24581D99008E3134 /* VKLoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE083B924581D99008E3134 /* VKLoginController.swift */; };
 		5DE083BD2458347E008E3134 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DE083BC2458347E008E3134 /* WebKit.framework */; };
@@ -57,7 +57,8 @@
 		5D5D306D24465CDA009B9A17 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		5D611E022445EA2B00811894 /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 		5D611E042445F0CC00811894 /* Loading.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Loading.storyboard; sourceTree = "<group>"; };
-		5D80E1622458A0D800242067 /* AlamofireServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireServices.swift; sourceTree = "<group>"; };
+		5D80E1622458A0D800242067 /* VKServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKServices.swift; sourceTree = "<group>"; };
+		5D87020A245E9EB8001A0E55 /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
 		5D8B22C9242FC81200A2D17C /* MyGroupsTableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGroupsTableController.swift; sourceTree = "<group>"; };
 		5D8B22CB242FC84200A2D17C /* MyGroupsTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGroupsTableCell.swift; sourceTree = "<group>"; };
 		5D8B22CD242FECCB00A2D17C /* FriendsCollectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsCollectionController.swift; sourceTree = "<group>"; };
@@ -67,7 +68,6 @@
 		5DA0C8622455B5A000A85655 /* Singletons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Singletons.swift; sourceTree = "<group>"; };
 		5DB3227624345CC9001AAC86 /* AvatarRoundShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarRoundShadow.swift; sourceTree = "<group>"; };
 		5DBC1D7F24332CD60093A036 /* Groups.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Groups.swift; sourceTree = "<group>"; };
-		5DC45FBC2456B62100CF58CD /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		5DC45FBF2456D5CA00CF58CD /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		5DE083B924581D99008E3134 /* VKLoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKLoginController.swift; sourceTree = "<group>"; };
 		5DE083BC2458347E008E3134 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
@@ -121,7 +121,6 @@
 		5D4DB871242DD7830092C1DC /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				5D80E1622458A0D800242067 /* AlamofireServices.swift */,
 				5DE083B924581D99008E3134 /* VKLoginController.swift */,
 				DC81B23A2429257800E170A0 /* LoginController.swift */,
 				5D92BCB124570BCF00C107E0 /* TabBarVC.swift */,
@@ -157,11 +156,19 @@
 			path = Friends;
 			sourceTree = "<group>";
 		};
+		5D870209245E9E73001A0E55 /* NetWork */ = {
+			isa = PBXGroup;
+			children = (
+				5D80E1622458A0D800242067 /* VKServices.swift */,
+				5D87020A245E9EB8001A0E55 /* Friend.swift */,
+			);
+			path = NetWork;
+			sourceTree = "<group>";
+		};
 		5DA0C8642455B5A700A85655 /* patterns */ = {
 			isa = PBXGroup;
 			children = (
 				5DA0C8622455B5A000A85655 /* Singletons.swift */,
-				5DC45FBC2456B62100CF58CD /* Notifications.swift */,
 			);
 			path = patterns;
 			sourceTree = "<group>";
@@ -235,6 +242,7 @@
 			children = (
 				DC81B23C2429257800E170A0 /* Main.storyboard */,
 				5DC45FBE2456D5AA00CF58CD /* Extensions */,
+				5D870209245E9E73001A0E55 /* NetWork */,
 				5DA0C8642455B5A700A85655 /* patterns */,
 				5DB3227524345CAE001AAC86 /* CustomClass */,
 				5D18ACE62432058500E42763 /* Model */,
@@ -363,8 +371,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5D80E1632458A0D800242067 /* AlamofireServices.swift in Sources */,
-				5DC45FBD2456B62100CF58CD /* Notifications.swift in Sources */,
+				5D80E1632458A0D800242067 /* VKServices.swift in Sources */,
 				5D4DB87D242DFF660092C1DC /* AllGroupsTableController.swift in Sources */,
 				5D4DB881242E0A330092C1DC /* FriendsTableCell.swift in Sources */,
 				5D4DB883242E0A650092C1DC /* FriendsTableController.swift in Sources */,
@@ -378,6 +385,7 @@
 				DC81B23B2429257800E170A0 /* LoginController.swift in Sources */,
 				DC81B2372429257800E170A0 /* AppDelegate.swift in Sources */,
 				5DA0C8632455B5A000A85655 /* Singletons.swift in Sources */,
+				5D87020B245E9EB8001A0E55 /* Friend.swift in Sources */,
 				5D4DB879242DF9EB0092C1DC /* AllGroupsTableCell.swift in Sources */,
 				5D8B22CE242FECCB00A2D17C /* FriendsCollectionController.swift in Sources */,
 				5D18ACE8243205A100E42763 /* Users.swift in Sources */,

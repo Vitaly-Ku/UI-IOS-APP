@@ -58,23 +58,23 @@ extension CustomNavigationController: UINavigationControllerDelegate {
     }
 }
 
-extension FriendsTableController: UISearchBarDelegate {
-    
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        if searchText.isEmpty {
-            group(friends: friends)
-        } else {
-            let filteredUsers = friends.filter({$0.title.lowercased().contains(searchText.lowercased())})
-            group(friends: filteredUsers)
-        }
-        tableView.reloadData()
-    }
-    
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        group(friends: friends)
-        tableView.reloadData()
-    }
-}
+//extension FriendsTableController: UISearchBarDelegate {
+//    
+//    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+//        if searchText.isEmpty {
+//            group(friends: friends)
+//        } else {
+//            let filteredUsers = friends.filter({$0.title.lowercased().contains(searchText.lowercased())})
+//            group(friends: filteredUsers)
+//        }
+//        tableView.reloadData()
+//    }
+//    
+//    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+//        group(friends: friends)
+//        tableView.reloadData()
+//    }
+//}
 
 extension FriendsCollectionController: iCarouselDelegate, iCarouselDataSource {
     func numberOfItems(in carousel: iCarousel) -> Int {

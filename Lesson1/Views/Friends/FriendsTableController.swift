@@ -21,30 +21,23 @@ class FriendsTableController: UITableViewController {
 //    let friends = FriendsFactory.makeFriends()
 //    var friendSection = [SectionFriend]()
     var friendResponse: FriendResponse? = nil
-    var arr: [FriendItem] = []
-    var arr111: [String] = []
+//    static var arr: [FriendItem] = []
         
     @IBOutlet weak var searchBar: UISearchBar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
 //        group(friends: friends)
+        
         VKRequests.loadFriends { [weak self] (result) in
             switch result {
             case .success(let friendResponse):
                 self?.friendResponse = friendResponse
                 self?.tableView.reloadData()
                 friendResponse.response.items.map { (friend) in
-                    self!.arr.append(friend)
-//                    print(friend.id, friend.first_name, friend.last_name)
+//                    FriendsTableController.arr.append(friend)
                 }
-                for i in self!.arr { // ДОБАВЛЕНИЕ ВО ВНЕШНИЙ МАССИВ
-                    self!.arr111.append(i.first_name)
-//                    print(self!.arr111)
-//                    print(i.first_name + " " + i.last_name)
-                }
-//                print(self!.arr[0].first_name)
-//                print(friendResponse.response.items)
             case .failure(let error):
                 print("error: ", error)
             }
@@ -80,14 +73,24 @@ class FriendsTableController: UITableViewController {
         override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             let cell = tableView.dequeueReusableCell(withIdentifier: "friendCell", for: indexPath) as! FriendsTableCell
             cell.titleLabel.text = friendResponse!.response.items[indexPath.row].last_name + " " + friendResponse!.response.items[indexPath.row].first_name
-//            cell.statusLabel.text = searchResponse?.response.items[indexPath.row].online
-            let online = friendResponse?.response.items[indexPath.row].online
-            if online == 0 {
+            
+            if friendResponse!.response.items[indexPath.row].online == 0 {
                 cell.statusLabel.text = "не в сети"
             } else {
                 cell.statusLabel.text = "в сети"
                 cell.statusLabel.textColor = .systemGreen
             }
+            
+            
+            
+            
+//            let online = friendResponse?.response.items[indexPath.row].online
+//            if online == 0 {
+//                cell.statusLabel.text = "не в сети"
+//            } else {
+//                cell.statusLabel.text = "в сети"
+//                cell.statusLabel.textColor = .systemGreen
+//            }
             AF.request((friendResponse?.response.items[indexPath.row].photo_50)!).responseImage { response in
                 do {
                  let image = try response.result.get()
@@ -114,6 +117,8 @@ class FriendsTableController: UITableViewController {
             if let indexPath = tableView.indexPathForSelectedRow { // проверка выбранной строки перехода
                 
 //                friendsCVC.friend = friendSection[indexPath.section].items[indexPath.row]
+//                friendsCVC.friend = FriendsTableController.arr[indexPath.row]
+                friendsCVC.friend = friendResponse?.response.items[indexPath.row]
             }
         }
     }

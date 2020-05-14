@@ -7,19 +7,25 @@
 //
 
 import UIKit
+import Alamofire
+import AlamofireImage
 
 class FriendsCollectionController: UICollectionViewController {
     
     @IBOutlet weak var iCarouselView: iCarousel!
     
-    var friend: Friends!
+//    var friend: Friends!
+    var friend: FriendItem?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title =  friend.title
+
+        title = friend?.first_name
         iCarouselView.type = .coverFlow2
         iCarouselView.contentMode = .scaleAspectFill
         iCarouselView.isPagingEnabled = true
+        print(friend as Any)
+        print(friend?.photo_50?.count as Any)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -39,12 +45,9 @@ class FriendsCollectionController: UICollectionViewController {
 }
 
 extension FriendsCollectionController: iCarouselDelegate, iCarouselDataSource {
-    func numberOfItems(in carousel: iCarousel) -> Int {
-        return friend.photoes.count
-    }
+    func numberOfItems(in carousel: iCarousel) -> Int { 2 }
     
     func carousel(_ carousel: iCarousel, viewForItemAt index: Int, reusing view: UIView?) -> UIView {
-        
         var imageView: UIImageView!
         if view == nil {
             imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 300))
@@ -52,8 +55,16 @@ extension FriendsCollectionController: iCarouselDelegate, iCarouselDataSource {
         } else {
             imageView = view as? UIImageView
         }
+//        imageView.image = friend.photoes[index]
         
-        imageView.image = friend.photoes[index]
+        AF.request((friend?.photo_50)!).responseImage { response in
+            do {
+             let image = try response.result.get()
+                imageView.image = image
+            } catch {
+                print("CAN'T GET AVATAR")
+            }
+        }
         return imageView
     }
 }

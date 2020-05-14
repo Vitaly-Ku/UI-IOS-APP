@@ -8,21 +8,21 @@
 
 import Foundation
 
-struct PhotoResponse {
+struct PhotoResponse: Decodable {
     var response: PhotoList
 }
 
-struct PhotoList {
+struct PhotoList: Decodable {
     var count: Int
     var items: [PhotoItems]
 }
 
-struct PhotoItems {
+struct PhotoItems: Decodable {
     var id: Int
     var sizes: [Sizes]
 }
 
-struct Sizes {
+struct Sizes: Decodable {
     var type: String
     var url: String
 }

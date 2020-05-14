@@ -91,7 +91,7 @@ class FriendsTableController: UITableViewController {
 //                cell.statusLabel.text = "в сети"
 //                cell.statusLabel.textColor = .systemGreen
 //            }
-            AF.request((friendResponse?.response.items[indexPath.row].photo_50)!).responseImage { response in
+            AF.request((friendResponse?.response.items[indexPath.row].photo_100)!).responseImage { response in
                 do {
                  let image = try response.result.get()
                     cell.photo.image = image

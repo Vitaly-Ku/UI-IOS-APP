@@ -51,7 +51,7 @@ class VKRequests {
     }
     
     static func loadFriends(completion: @escaping (Result<FriendResponse, Error>) -> Void) {
-        let urlString = VKServices.shared.baseUrl + VKServices.Method.getFriends.methodName + "?access_token=\(Session.shared.token)&extended=1&v=5.103&fields=photo_50"
+        let urlString = VKServices.shared.baseUrl + VKServices.Method.getFriends.methodName + "?access_token=\(Session.shared.token)&extended=1&v=5.103&fields=photo_100"
         guard let url = URL(string: urlString) else { return }
         URLSession.shared.dataTask(with: url) { (data, response, error) in
             DispatchQueue.main.async {

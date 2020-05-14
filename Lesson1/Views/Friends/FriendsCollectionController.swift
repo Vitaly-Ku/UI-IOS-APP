@@ -25,7 +25,7 @@ class FriendsCollectionController: UICollectionViewController {
         iCarouselView.contentMode = .scaleAspectFill
         iCarouselView.isPagingEnabled = true
         print(friend as Any)
-        print(friend?.photo_50?.count as Any)
+        print(friend?.photo_100?.count as Any)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -57,7 +57,7 @@ extension FriendsCollectionController: iCarouselDelegate, iCarouselDataSource {
         }
 //        imageView.image = friend.photoes[index]
         
-        AF.request((friend?.photo_50)!).responseImage { response in
+        AF.request((friend?.photo_100)!).responseImage { response in
             do {
              let image = try response.result.get()
                 imageView.image = image

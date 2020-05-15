@@ -71,44 +71,5 @@ class VKRequests {
             }
         }.resume()
     }
-    
-//    static func loadFotosFriends(completion: @escaping (Result<PhotoResponse, Error>) -> Void) {
-//        let urlString = VKServices.shared.baseUrl + VKServices.Method.getPhotos.methodName + "?access_token=\(Session.shared.token)&extended=1&v=5.103&album_id=profile&owner_id=\()"
-//        guard let url = URL(string: urlString) else { return }
-//        URLSession.shared.dataTask(with: url) { (data, response, error) in
-//            DispatchQueue.main.async {
-//                if let error = error {
-//                    print("some error")
-//                    completion(.failure(error))
-//                    return
-//                }
-//                guard let data = data else { return }
-//                do {
-//                    let friend = try JSONDecoder().decode(FriendResponse.self, from: data)
-//                    completion(.success(friend))
-//                } catch let jsonError {
-//                    print("FAILED TO DECODE JSON", jsonError)
-//                    completion(.failure(jsonError))
-//                }
-//            }
-//        }.resume()
-//    }
-    
-    static func loadFotosFriends() {
-        let param: Parameters = ["access_token" : Session.shared.token, "extended" : 1, "v" : "5.103", "album_id" : "profile", "owner_id" : 76809617]
-        AF.request(VKServices.shared.baseUrl + VKServices.Method.getPhotos.methodName, method: .get, parameters: param).responseJSON { response in
-            guard let value = response.value else { return }
-            print(value)
-        }
-    }
-    
-//    static func groupsSearch() {
-//        let param: Parameters = ["access_token" : Session.shared.token, "extended" : 1, "v" : "5.103", "q" : "garage.band"]
-//        AF.request(VKServices.shared.baseUrl + VKServices.Method.searchGroups.methodName, method: .get, parameters: param).responseJSON { response in
-//            guard let value = response.value else { return }
-//            print(value)
-//        }
-//    }
+    // MARK:  запросы photoFriends и searchGroups реализованы в контроллерах
 }
-//8bb4ca5d4d942b6357c10febfe55362a1a2daa3b12ae261904eafec352fa3eeae5f0f732f52eb770dd3b0
-

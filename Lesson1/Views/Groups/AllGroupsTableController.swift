@@ -112,7 +112,7 @@ extension AllGroupsTableController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
         func groupsSearch111(param: Parameters) {
-            AF.request(VKServices.shared.baseUrl + VKServices.Method.searchGroups.methodName, method: .get, parameters: param).responseJSON { response in
+            AF.request(VKServices.shared.baseUrl + VKServices.Method.searchGroups.methodName, parameters: param).responseJSON { response in
                 guard let value = response.data else { return }
                 switch (response.result) {
                 case .success(_):

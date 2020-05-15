@@ -80,17 +80,7 @@ class FriendsTableController: UITableViewController {
                 cell.statusLabel.text = "в сети"
                 cell.statusLabel.textColor = .systemGreen
             }
-            
-            
-            
-            
-//            let online = friendResponse?.response.items[indexPath.row].online
-//            if online == 0 {
-//                cell.statusLabel.text = "не в сети"
-//            } else {
-//                cell.statusLabel.text = "в сети"
-//                cell.statusLabel.textColor = .systemGreen
-//            }
+
             AF.request((friendResponse?.response.items[indexPath.row].photo_100)!).responseImage { response in
                 do {
                  let image = try response.result.get()

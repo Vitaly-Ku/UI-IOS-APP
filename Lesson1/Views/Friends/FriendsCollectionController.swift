@@ -13,19 +13,43 @@ import AlamofireImage
 class FriendsCollectionController: UICollectionViewController {
     
     @IBOutlet weak var iCarouselView: iCarousel!
+    var fotoResponse: PhotoResponse?
     
 //    var friend: Friends!
     var friend: FriendItem?
+    var foto: Sizes?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        func foto1(param: Parameters) {
+            AF.request(VKServices.shared.baseUrl + VKServices.Method.getPhotos.methodName, parameters: param).responseJSON { response in
+                guard let value = response.data else { return }
+                switch (response.result) {
+                case .success(_):
+                    do {
+                        let json = try JSONDecoder().decode(Sizes.self, from: value)
+                        self.foto = json
+                        print(json, " ПОЛУЧИЛИ JSON")
+                    } catch let error {
+                        print(error, "ошибка, не распарсилось")
+                    }
+                case .failure(let error):
+                    print("errrrrrrrrrror", error)
+                }
+                print(value)
+            }
+        }
+        foto1(param: ["access_token" : Session.shared.token, "extended" : 1, "v" : "5.103", "album_id" : "profile", "owner_id" : "\(String(describing: friend?.id))"])
+        
+        
 
         title = friend?.first_name
         iCarouselView.type = .coverFlow2
         iCarouselView.contentMode = .scaleAspectFill
         iCarouselView.isPagingEnabled = true
-        print(friend as Any)
-        print(friend?.photo_100?.count as Any)
+//        print(friend as Any)
+//        print(friend?.photo_100?.count as Any)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -56,7 +80,6 @@ extension FriendsCollectionController: iCarouselDelegate, iCarouselDataSource {
             imageView = view as? UIImageView
         }
 //        imageView.image = friend.photoes[index]
-        
         AF.request((friend?.photo_100)!).responseImage { response in
             do {
              let image = try response.result.get()

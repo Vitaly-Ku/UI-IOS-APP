@@ -13,10 +13,11 @@ import Alamofire
 class VKLoginController: UIViewController {
         
     @IBOutlet var webView: WKWebView!
+    let vkRequest = VKRequests()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        webView.load(VKRequests.vkLoginRequest())
+        webView.load(vkRequest.vkLoginRequest())
         webView.navigationDelegate = self
     }
 }
@@ -45,7 +46,7 @@ extension VKLoginController: WKNavigationDelegate {
         guard let token = params["access_token"],
             let userId = Int(params["user_id"]!)
             else {
-                decisionHandler(.cancel)
+                decisionHandler(.allow)
                 return
         }
         

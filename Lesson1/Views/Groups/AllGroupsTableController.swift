@@ -11,6 +11,8 @@ import AlamofireImage
 
 class AllGroupsTableController: UITableViewController {
     
+    let vkRequest = VKRequests()
+    
     var filteredGroups = [GroupItem]()
     var searching = false
     var groupResponse: GroupResponse?
@@ -19,7 +21,7 @@ class AllGroupsTableController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        VKRequests.loadGroups { [weak self] (result) in
+        vkRequest.loadGroups { [weak self] (result) in
             switch result {
             case .success(let groupResponse):
                 self?.groupResponse = groupResponse
@@ -51,7 +53,7 @@ class AllGroupsTableController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "groupCell", for: indexPath) as! AllGroupsTableCell 
         if searching {
             cell.titleLabel?.text = filteredGroups[indexPath.row].name
-            AF.request((filteredGroups[indexPath.row].photo_50)!).responseImage { response in
+            AF.request((filteredGroups[indexPath.row].photo50)!).responseImage { response in
                 do {
                  let image = try response.result.get()
                     cell.photo.image = image
@@ -61,7 +63,7 @@ class AllGroupsTableController: UITableViewController {
             }
         } else {
             cell.titleLabel?.text = groupResponse?.response.items[indexPath.row].name
-            AF.request((groupResponse?.response.items[indexPath.row].photo_50)!).responseImage { response in
+            AF.request((groupResponse?.response.items[indexPath.row].photo50)!).responseImage { response in
                 do {
                  let image = try response.result.get()
                     cell.photo.image = image
@@ -111,27 +113,16 @@ extension AllGroupsTableController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
-        func groupsSearch111(param: Parameters) {
-            AF.request(VKServices.shared.baseUrl + VKServices.Method.searchGroups.methodName, method: .get, parameters: param).responseJSON { response in
-                guard let value = response.data else { return }
-                switch (response.result) {
-                case .success(_):
-                    do {
-                        let json = try JSONDecoder().decode(GroupResponse.self, from: value)
-                        self.groupResponse = json
-                        self.searching = false
-                        self.tableView.reloadData()
-                        print(json)
-                    } catch let error {
-                        print(error)
-                    }
-                case .failure(let error):
-                    print("errrrrrrrrrror", error)
-                }
-                print(value)
+        vkRequest.groupsSearch(searchText: searchText) { [weak self] (result) in
+            switch result {
+            case .success(let searchResponse):
+                self?.groupResponse = searchResponse
+                self?.searching = false
+                self?.tableView.reloadData()
+            case .failure(let error):
+                print(error)
             }
         }
-        groupsSearch111(param: ["access_token" : Session.shared.token, "extended" : 1, "v" : "5.103", "q" : "\(searchText)"])
         
         filteredGroups = (groupResponse?.response.items.filter({$0.name.lowercased().contains(searchText.lowercased())}))! as [GroupItem]
         searching = true
@@ -143,4 +134,3 @@ extension AllGroupsTableController: UISearchBarDelegate {
         tableView.reloadData()
     }
 }
-

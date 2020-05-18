@@ -31,38 +31,3 @@ extension UIButton { // расширение для кнопок
         layer.add(pulse, forKey: nil)
     }
 }
-
-extension CustomNavigationController: UINavigationControllerDelegate {
-    
-    func navigationController(_ navigationController: UINavigationController,
-                              interactionControllerFor animationController: UIViewControllerAnimatedTransitioning)
-                              -> UIViewControllerInteractiveTransitioning? {
-        return interactiveTransition.hasStarted ? interactiveTransition : nil
-    }
-    
-    func navigationController(_ navigationController: UINavigationController,
-                              animationControllerFor operation: UINavigationController.Operation,
-                              from fromVC: UIViewController,
-                              to toVC: UIViewController)
-                              -> UIViewControllerAnimatedTransitioning? {
-        if operation == .push {
-            self.interactiveTransition.viewController = toVC
-            return CustomPushAnimator()
-        } else if operation == .pop {
-            if navigationController.viewControllers.first != toVC {
-                self.interactiveTransition.viewController = toVC
-            }
-            return CustomPopAnimator()
-        }
-        return nil
-    }
-}
-
-//extension FriendsCollectionController: UICollectionViewDelegateFlowLayout {
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        let cellWidth = floor(collectionView.bounds.width / 3)
-//        return CGSize(width: cellWidth, height: cellWidth)
-//    }
-//}
-
-

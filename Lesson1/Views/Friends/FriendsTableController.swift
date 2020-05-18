@@ -18,6 +18,8 @@ import SwiftyJSON
 
 class FriendsTableController: UITableViewController {
     
+    let vkRequest = VKRequests()
+    
 //    let friends = FriendsFactory.makeFriends()
 //    var friendSection = [SectionFriend]()
     var friendResponse: FriendResponse? = nil
@@ -30,7 +32,7 @@ class FriendsTableController: UITableViewController {
         
 //        group(friends: friends)
         
-        VKRequests.loadFriends { [weak self] (result) in
+        vkRequest.loadFriends { [weak self] (result) in
             switch result {
             case .success(let friendResponse):
                 self?.friendResponse = friendResponse
@@ -72,7 +74,7 @@ class FriendsTableController: UITableViewController {
 //    }
         override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             let cell = tableView.dequeueReusableCell(withIdentifier: "friendCell", for: indexPath) as! FriendsTableCell
-            cell.titleLabel.text = friendResponse!.response.items[indexPath.row].last_name + " " + friendResponse!.response.items[indexPath.row].first_name
+            cell.titleLabel.text = friendResponse!.response.items[indexPath.row].lastName + " " + friendResponse!.response.items[indexPath.row].firstName
             
             if friendResponse!.response.items[indexPath.row].online == 0 {
                 cell.statusLabel.text = "не в сети"
@@ -80,18 +82,8 @@ class FriendsTableController: UITableViewController {
                 cell.statusLabel.text = "в сети"
                 cell.statusLabel.textColor = .systemGreen
             }
-            
-            
-            
-            
-//            let online = friendResponse?.response.items[indexPath.row].online
-//            if online == 0 {
-//                cell.statusLabel.text = "не в сети"
-//            } else {
-//                cell.statusLabel.text = "в сети"
-//                cell.statusLabel.textColor = .systemGreen
-//            }
-            AF.request((friendResponse?.response.items[indexPath.row].photo_100)!).responseImage { response in
+
+            AF.request((friendResponse?.response.items[indexPath.row].photo100)!).responseImage { response in
                 do {
                  let image = try response.result.get()
                     cell.photo.image = image

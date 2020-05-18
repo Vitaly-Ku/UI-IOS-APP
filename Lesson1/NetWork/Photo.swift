@@ -13,35 +13,32 @@ struct PhotoResponse: Decodable {
 }
 
 struct PhotoList: Decodable {
-    var count: Int
+//    var count: Int
     var items: [PhotoItems]
 }
 
 struct PhotoItems: Decodable {
-    var id: Int
+//    var id: Int
     var sizes: [Sizes]
 }
 
 struct Sizes: Decodable {
-    var type: String
-    var url: String
+//    var type = "m"
+    var url: String?
 }
 
 
 
-
-
-
-//{
-//"response": {
+//{                                                                                     <- PhotoResponse
+//"response": {                                                                         <- PhotoList
 //  "count": 39,
-//  "items": [
-//    {
+//  "items": [                                                                          <- items
+//    {                                                                                 <- PhotoItems
 //      "id": 215109917,
 //      "album_id": -6,
 //      "owner_id": 76809617,
-//      "sizes": [
-//        {
+//      "sizes": [                                                                      <- sizes
+//        { 			                                                                <- Sizes
 //          "type": "s",
 //          "url": "https://sun9-40.userapi.com/c10512/u76809617/-6/s_7e7a40cb.jpg",
 //          "width": 0,

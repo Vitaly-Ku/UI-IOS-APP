@@ -12,20 +12,30 @@ import AlamofireImage
 
 class FriendsCollectionController: UICollectionViewController {
     
-    @IBOutlet weak var iCarouselView: iCarousel!
+    let vkRequest = VKRequests()
     
-//    var friend: Friends!
+    //    var friend: Friends!
+    @IBOutlet weak var iCarouselView: iCarousel!
+    var fotoResponse: PhotoResponse?
     var friend: FriendItem?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        vkRequest.loadPhotos(friendId: String(friend!.id)) { [weak self] (result) in
+            switch result {
+            case .success(let fotoResponse):
+                self?.fotoResponse = fotoResponse
+                self?.iCarouselView.reloadData()
+            case .failure(let error):
+                print(error)
+            }
+        }
 
-        title = friend?.first_name
+        title = friend?.firstName
         iCarouselView.type = .coverFlow2
         iCarouselView.contentMode = .scaleAspectFill
         iCarouselView.isPagingEnabled = true
-        print(friend as Any)
-        print(friend?.photo_100?.count as Any)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -45,7 +55,7 @@ class FriendsCollectionController: UICollectionViewController {
 }
 
 extension FriendsCollectionController: iCarouselDelegate, iCarouselDataSource {
-    func numberOfItems(in carousel: iCarousel) -> Int { 2 }
+    func numberOfItems(in carousel: iCarousel) -> Int { fotoResponse?.response.items.count ?? 1 }
     
     func carousel(_ carousel: iCarousel, viewForItemAt index: Int, reusing view: UIView?) -> UIView {
         var imageView: UIImageView!
@@ -55,12 +65,14 @@ extension FriendsCollectionController: iCarouselDelegate, iCarouselDataSource {
         } else {
             imageView = view as? UIImageView
         }
-//        imageView.image = friend.photoes[index]
         
-        AF.request((friend?.photo_100)!).responseImage { response in
+//        fotoResponse?.response.items[index].sizes[index]
+        AF.request((friend?.photo100)!).responseImage { response in
             do {
              let image = try response.result.get()
                 imageView.image = image
+                print(self.fotoResponse?.response.items.count, " кол-во фоток")
+
             } catch {
                 print("CAN'T GET AVATAR")
             }
@@ -68,3 +80,10 @@ extension FriendsCollectionController: iCarouselDelegate, iCarouselDataSource {
         return imageView
     }
 }
+
+//extension FriendsCollectionController: UICollectionViewDelegateFlowLayout {
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//        let cellWidth = floor(collectionView.bounds.width / 3)
+//        return CGSize(width: cellWidth, height: cellWidth)
+//    }
+//}

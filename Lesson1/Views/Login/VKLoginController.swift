@@ -45,7 +45,7 @@ extension VKLoginController: WKNavigationDelegate {
         guard let token = params["access_token"],
             let userId = Int(params["user_id"]!)
             else {
-                decisionHandler(.cancel)
+                decisionHandler(.allow)
                 return
         }
         

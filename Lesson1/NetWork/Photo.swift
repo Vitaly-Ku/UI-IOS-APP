@@ -13,21 +13,19 @@ struct PhotoResponse: Decodable {
 }
 
 struct PhotoList: Decodable {
-    var count: Int
+//    var count: Int
     var items: [PhotoItems]
 }
 
 struct PhotoItems: Decodable {
-    var id: Int
+//    var id: Int
     var sizes: [Sizes]
 }
 
 struct Sizes: Decodable {
-//    var type: String
+//    var type = "m"
     var url: String?
 }
-
-
 
 
 

@@ -13,10 +13,11 @@ import Alamofire
 class VKLoginController: UIViewController {
         
     @IBOutlet var webView: WKWebView!
+    let vkRequest = VKRequests()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        webView.load(VKRequests.vkLoginRequest())
+        webView.load(vkRequest.vkLoginRequest())
         webView.navigationDelegate = self
     }
 }

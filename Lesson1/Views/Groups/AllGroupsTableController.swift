@@ -11,6 +11,8 @@ import AlamofireImage
 
 class AllGroupsTableController: UITableViewController {
     
+    let vkRequest = VKRequests()
+    
     var filteredGroups = [GroupItem]()
     var searching = false
     var groupResponse: GroupResponse?
@@ -19,7 +21,7 @@ class AllGroupsTableController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        VKRequests.loadGroups { [weak self] (result) in
+        vkRequest.loadGroups { [weak self] (result) in
             switch result {
             case .success(let groupResponse):
                 self?.groupResponse = groupResponse
@@ -111,7 +113,7 @@ extension AllGroupsTableController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
-        VKRequests.groupsSearch(searchText: searchText) { [weak self] (result) in
+        vkRequest.groupsSearch(searchText: searchText) { [weak self] (result) in
             switch result {
             case .success(let searchResponse):
                 self?.groupResponse = searchResponse

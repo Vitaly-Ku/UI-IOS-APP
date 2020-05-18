@@ -12,6 +12,8 @@ import AlamofireImage
 
 class FriendsCollectionController: UICollectionViewController {
     
+    let vkRequest = VKRequests()
+    
     //    var friend: Friends!
     @IBOutlet weak var iCarouselView: iCarousel!
     var fotoResponse: PhotoResponse?
@@ -20,7 +22,7 @@ class FriendsCollectionController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        VKRequests.loadPhotos(friendId: String(friend!.id)) { [weak self] (result) in
+        vkRequest.loadPhotos(friendId: String(friend!.id)) { [weak self] (result) in
             switch result {
             case .success(let fotoResponse):
                 self?.fotoResponse = fotoResponse

@@ -18,6 +18,8 @@ import SwiftyJSON
 
 class FriendsTableController: UITableViewController {
     
+    let vkRequest = VKRequests()
+    
 //    let friends = FriendsFactory.makeFriends()
 //    var friendSection = [SectionFriend]()
     var friendResponse: FriendResponse? = nil
@@ -30,7 +32,7 @@ class FriendsTableController: UITableViewController {
         
 //        group(friends: friends)
         
-        VKRequests.loadFriends { [weak self] (result) in
+        vkRequest.loadFriends { [weak self] (result) in
             switch result {
             case .success(let friendResponse):
                 self?.friendResponse = friendResponse

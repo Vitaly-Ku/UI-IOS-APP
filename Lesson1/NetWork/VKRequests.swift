@@ -11,7 +11,7 @@ import Alamofire
 
 class VKRequests {
     
-    static func vkLoginRequest() -> URLRequest {
+    func vkLoginRequest() -> URLRequest {
         var urlComponents = URLComponents()
         urlComponents.scheme = "https"
         urlComponents.host = "oauth.vk.com"
@@ -28,7 +28,7 @@ class VKRequests {
         return request
     }
     
-     static func loadGroups(completion: @escaping (Result<GroupResponse, Error>) -> Void ) {
+    func loadGroups(completion: @escaping (Result<GroupResponse, Error>) -> Void ) {
         var urlComponents = URLComponents()
         urlComponents.scheme = "https"
         urlComponents.host = "api.vk.com"
@@ -59,7 +59,7 @@ class VKRequests {
         }.resume()
     }
     
-    static func loadFriends(completion: @escaping (Result<FriendResponse, Error>) -> Void) {
+    func loadFriends(completion: @escaping (Result<FriendResponse, Error>) -> Void) {
         var urlComponents = URLComponents()
         urlComponents.scheme = "https"
         urlComponents.host = "api.vk.com"
@@ -91,7 +91,7 @@ class VKRequests {
         }.resume()
     }
     
-    static func groupsSearch(searchText: String, completion: @escaping (Result<GroupResponse, Error>) -> Void) {
+    func groupsSearch(searchText: String, completion: @escaping (Result<GroupResponse, Error>) -> Void) {
         var urlComponents = URLComponents()
         urlComponents.scheme = "https"
         urlComponents.host = "api.vk.com"
@@ -123,7 +123,7 @@ class VKRequests {
         }.resume()
     }
     
-    static func loadPhotos(friendId: String, completion: @escaping (Result<PhotoResponse, Error>) -> Void) {
+    func loadPhotos(friendId: String, completion: @escaping (Result<PhotoResponse, Error>) -> Void) {
         var urlComponents = URLComponents()
         urlComponents.scheme = "https"
         urlComponents.host = "api.vk.com"

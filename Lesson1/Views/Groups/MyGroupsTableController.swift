@@ -12,7 +12,7 @@ import AlamofireImage
 
 class MyGroupsTableController: UITableViewController {
     
-    var groups = [GroupItem]() // вот тут-то и хранятся рез-ты запросов!
+    var groups = [Group]() // вот тут-то и хранятся рез-ты запросов!
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -13,7 +13,7 @@ class AllGroupsTableController: UITableViewController {
     
     let vkRequest = VKRequests()
     
-    var filteredGroups = [GroupItem]()
+    var filteredGroups = [Group]()
     var searching = false
     var groupResponse: GroupResponse?
     
@@ -124,7 +124,7 @@ extension AllGroupsTableController: UISearchBarDelegate {
             }
         }
         
-        filteredGroups = (groupResponse?.response.items.filter({$0.name.lowercased().contains(searchText.lowercased())}))! as [GroupItem]
+        filteredGroups = (groupResponse?.response.items.filter({$0.name.lowercased().contains(searchText.lowercased())}))! as [Group]
         searching = true
     }
     

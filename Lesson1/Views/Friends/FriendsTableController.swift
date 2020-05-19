@@ -78,6 +78,7 @@ class FriendsTableController: UITableViewController {
             
             if friendResponse!.response.items[indexPath.row].online == 0 {
                 cell.statusLabel.text = "не в сети"
+                cell.statusLabel.textColor = .lightGray
             } else {
                 cell.statusLabel.text = "в сети"
                 cell.statusLabel.textColor = .systemGreen

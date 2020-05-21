@@ -27,3 +27,16 @@ class GroupList: Decodable {
     var count: Int
     var items: [Group]
 }
+
+func loadDataGroups(_ groups: [Group]) {
+
+    do {
+        let realm = try Realm()
+        realm.beginWrite()
+        realm.add(groups)
+        try realm.commitWrite()
+        
+    } catch {
+        print(error)
+    }
+}

@@ -28,9 +28,7 @@ class FriendsTableController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        testDB()
-        
+                
 //        group(friends: friends)
         
         vkRequest.loadFriends { [weak self] (result) in
@@ -38,6 +36,7 @@ class FriendsTableController: UITableViewController {
             case .success(let friendResponse):
                 self?.friendResponse = friendResponse
                 self?.tableView.reloadData()
+                loadDataFriends(friendResponse)
             case .failure(let error):
                 print("error: ", error)
             }

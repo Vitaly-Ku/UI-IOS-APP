@@ -34,23 +34,17 @@ class FriendList: Decodable {
 }
 
 
-//class TestEntyty: Object {
-//    @objc dynamic var name = ""
-//}
-//
-//func testDB() {
-//    let testEntyty = TestEntyty()
-//    testEntyty.name = "Вася"
-//
-//    do {
-//        let realm = try Realm()
-//        realm.beginWrite()
-//        realm.add(testEntyty)
-//        try realm.commitWrite()
-//        
-//    } catch {
-//        print(error)
-//    }
-//}
+func loadDataFriends(_ friends: [Friend]) {
+
+    do {
+        let realm = try Realm()
+        realm.beginWrite()
+        realm.add(friends)
+        try realm.commitWrite()
+        
+    } catch {
+        print(error)
+    }
+}
 
 

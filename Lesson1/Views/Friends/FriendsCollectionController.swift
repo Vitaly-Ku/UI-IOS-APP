@@ -27,6 +27,7 @@ class FriendsCollectionController: UICollectionViewController {
             case .success(let fotoResponse):
                 self?.fotoResponse = fotoResponse
                 self?.iCarouselView.reloadData()
+//                loadDataPhotos(fotoResponse)
             case .failure(let error):
                 print(error)
             }

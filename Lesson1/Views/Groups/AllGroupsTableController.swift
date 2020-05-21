@@ -27,8 +27,7 @@ class AllGroupsTableController: UITableViewController {
             case .success(let groupResponse):
                 self?.groupResponse = groupResponse
                 self?.tableView.reloadData()
-//                groupResponse.response.items.map { (group) in
-//                }
+                loadDataGroups(groupResponse)
             case .failure(let error):
                 print("error: ", error)
             }

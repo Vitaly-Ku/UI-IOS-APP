@@ -16,7 +16,7 @@ class FriendsCollectionController: UICollectionViewController {
     
     //    var friend: Friends!
     @IBOutlet weak var iCarouselView: iCarousel!
-    var fotoResponse: PhotoResponse?
+    var fotoResponse = [PhotoItems]()
     var friend: Friend?
     
     override func viewDidLoad() {
@@ -55,7 +55,7 @@ class FriendsCollectionController: UICollectionViewController {
 }
 
 extension FriendsCollectionController: iCarouselDelegate, iCarouselDataSource {
-    func numberOfItems(in carousel: iCarousel) -> Int { fotoResponse?.response.items.count ?? 0 }
+    func numberOfItems(in carousel: iCarousel) -> Int { fotoResponse.count }
     
     func carousel(_ carousel: iCarousel, viewForItemAt index: Int, reusing view: UIView?) -> UIView {
         var imageView: UIImageView!
@@ -65,7 +65,7 @@ extension FriendsCollectionController: iCarouselDelegate, iCarouselDataSource {
         } else {
             imageView = view as? UIImageView
         }
-        imageView.af.setImage(withURL: URL(string: (fotoResponse?.response.items[index].sizes[2].url)!)!)
+        imageView.af.setImage(withURL: URL(string: (fotoResponse[index].sizes[2].url))!)
         return imageView
     }
 }

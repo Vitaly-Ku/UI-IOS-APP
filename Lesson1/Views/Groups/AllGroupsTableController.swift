@@ -15,7 +15,8 @@ class AllGroupsTableController: UITableViewController {
     
     var filteredGroups = [Group]()
     var searching = false
-    var groupResponse: GroupResponse?
+//    var groupResponse: GroupResponse?
+    var groupResponse = [Group]()
     
     @IBOutlet weak var searchBar: UISearchBar!
     
@@ -45,7 +46,7 @@ class AllGroupsTableController: UITableViewController {
         if searching {
             return filteredGroups.count
         } else {
-            return groupResponse?.response.items.count ?? 0
+            return groupResponse.count
         }
     }
     
@@ -53,7 +54,7 @@ class AllGroupsTableController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "groupCell", for: indexPath) as! AllGroupsTableCell 
         if searching {
             cell.titleLabel?.text = filteredGroups[indexPath.row].name
-            AF.request((filteredGroups[indexPath.row].photo50)!).responseImage { response in
+            AF.request(filteredGroups[indexPath.row].photo50).responseImage { response in
                 do {
                  let image = try response.result.get()
                     cell.photo.image = image
@@ -62,8 +63,8 @@ class AllGroupsTableController: UITableViewController {
                 }
             }
         } else {
-            cell.titleLabel?.text = groupResponse?.response.items[indexPath.row].name
-            AF.request((groupResponse?.response.items[indexPath.row].photo50)!).responseImage { response in
+            cell.titleLabel?.text = groupResponse[indexPath.row].name
+            AF.request(groupResponse[indexPath.row].photo50).responseImage { response in
                 do {
                  let image = try response.result.get()
                     cell.photo.image = image
@@ -124,7 +125,7 @@ extension AllGroupsTableController: UISearchBarDelegate {
             }
         }
         
-        filteredGroups = (groupResponse?.response.items.filter({$0.name.lowercased().contains(searchText.lowercased())}))! as [Group]
+        filteredGroups = (groupResponse.filter({$0.name.lowercased().contains(searchText.lowercased())})) as [Group]
         searching = true
     }
     

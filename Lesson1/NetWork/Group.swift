@@ -9,21 +9,21 @@
 import Foundation
 import RealmSwift
 
-struct GroupResponse: Decodable {
-    var response: GroupList
-}
-
-struct GroupList: Decodable {
-    var count: Int
-    var items: [Group]
-}
-
 class Group: Object, Decodable {
-    @objc dynamic var photo50: String?
-    @objc dynamic var name: String
+    @objc dynamic var photo50: String = ""
+    @objc dynamic var name: String = ""
     
     enum CodingKeys: String, CodingKey {
         case photo50 = "photo_50"
         case name = "name"
     }
+}
+
+class GroupResponse: Decodable {
+    var response: GroupList
+}
+
+class GroupList: Decodable {
+    var count: Int
+    var items: [Group]
 }

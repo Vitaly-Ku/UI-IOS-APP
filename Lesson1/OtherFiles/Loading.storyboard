@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gTk-Fz-vxc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gTk-Fz-vxc">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -24,21 +24,31 @@
                                     <constraint firstAttribute="height" constant="27" id="Vb5-5i-QLR"/>
                                 </constraints>
                             </view>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Y1l-th-CJg">
+                                <rect key="frame" x="50" y="491.5" width="314" height="12"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="12" id="EYy-Hb-NIB"/>
+                                </constraints>
+                            </progressView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBrownColor" red="0.63529411759999999" green="0.51764705879999995" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="91C-0X-aUb" firstAttribute="centerY" secondItem="8lz-Jf-UVh" secondAttribute="centerY" id="35A-Hf-dsX"/>
+                            <constraint firstItem="Y1l-th-CJg" firstAttribute="leading" secondItem="8lz-Jf-UVh" secondAttribute="leadingMargin" constant="30" id="Bnj-3n-I4I"/>
                             <constraint firstItem="91C-0X-aUb" firstAttribute="centerX" secondItem="8lz-Jf-UVh" secondAttribute="centerX" id="cXA-71-9KA"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Y1l-th-CJg" secondAttribute="trailing" constant="30" id="epQ-FQ-Lbn"/>
+                            <constraint firstItem="Y1l-th-CJg" firstAttribute="top" secondItem="91C-0X-aUb" secondAttribute="bottom" constant="30" id="sQ5-kk-haP"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="1Dw-vz-5ml"/>
                     </view>
                     <connections>
                         <outlet property="logoCat" destination="91C-0X-aUb" id="gVa-P4-wsB"/>
+                        <outlet property="progressBar" destination="Y1l-th-CJg" id="EKs-1A-Pbi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2dn-HA-A6d" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="146" y="44"/>
+            <point key="canvasLocation" x="144.92753623188406" y="43.526785714285715"/>
         </scene>
     </scenes>
 </document>

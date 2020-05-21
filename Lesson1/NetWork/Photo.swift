@@ -9,21 +9,22 @@
 import Foundation
 import RealmSwift
 
-struct PhotoResponse: Decodable {
+class Photo: Object, Decodable {
+    @objc dynamic var url: String = ""
+    
+    enum CodingKeys: String, CodingKey {
+        case url
+    }
+}
+
+class PhotoResponse: Decodable {
     var response: PhotoList
 }
 
-struct PhotoList: Decodable {
-//    var count: Int
+class PhotoList: Decodable {
     var items: [PhotoItems]
 }
 
-struct PhotoItems: Decodable {
-//    var id: Int
+class PhotoItems: Decodable {
     var sizes: [Photo]
-}
-
-class Photo: Object, Decodable {
-//    var type = "m"
-    @objc dynamic var url: String?
 }

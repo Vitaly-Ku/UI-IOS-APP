@@ -7,22 +7,14 @@
 //
 
 import Foundation
+import RealmSwift
 
-struct FriendResponse: Decodable {
-    var response: FriendList
-}
-
-struct FriendList: Decodable {
-    var count: Int
-    var items: [FriendItem]
-}
-
-struct FriendItem: Decodable {
-    var firstName: String
-    var lastName: String
-    var online: Int
-    var photo100: String?
-    var id: Int
+class Friend: Object, Decodable {
+    @objc dynamic var firstName: String = ""
+    @objc dynamic var lastName: String = ""
+    @objc dynamic var online: Int = 0
+    @objc dynamic var photo100: String = ""
+    @objc dynamic var id: Int = 0
     
     enum CodingKeys: String, CodingKey {
         case firstName = "first_name"
@@ -31,7 +23,28 @@ struct FriendItem: Decodable {
         case photo100 = "photo_100"
         case id = "id"
     }
+}
 
+class FriendResponse: Decodable {
+    var response: FriendList
+}
+
+class FriendList: Decodable {
+    var items: [Friend]
+}
+
+
+func loadDataFriends(_ friends: [Friend]) {
+
+    do {
+        let realm = try Realm()
+        realm.beginWrite()
+        realm.add(friends)
+        try realm.commitWrite()
+        
+    } catch {
+        print(error)
+    }
 }
 
 

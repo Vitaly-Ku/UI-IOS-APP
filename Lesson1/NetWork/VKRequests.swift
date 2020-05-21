@@ -28,7 +28,7 @@ class VKRequests {
         return request
     }
     
-    func loadGroups(completion: @escaping (Result<GroupResponse, Error>) -> Void ) {
+    func loadGroups(completion: @escaping (Result<[Group], Error>) -> Void ) {
         var urlComponents = URLComponents()
         urlComponents.scheme = "https"
         urlComponents.host = "api.vk.com"
@@ -49,7 +49,7 @@ class VKRequests {
                 }
                 guard let data = data else { return }
                 do {
-                    let group = try JSONDecoder().decode(GroupResponse.self, from: data)
+                    let group = try JSONDecoder().decode(GroupResponse.self, from: data).response.items
                     completion(.success(group))
                 } catch let jsonError {
                     print("FAILED TO DECODE JSON", jsonError)
@@ -59,7 +59,7 @@ class VKRequests {
         }.resume()
     }
     
-    func loadFriends(completion: @escaping (Result<FriendResponse, Error>) -> Void) {
+    func loadFriends(completion: @escaping (Result<[Friend], Error>) -> Void) {
         var urlComponents = URLComponents()
         urlComponents.scheme = "https"
         urlComponents.host = "api.vk.com"
@@ -81,7 +81,7 @@ class VKRequests {
                 }
                 guard let data = data else { return }
                 do {
-                    let friend = try JSONDecoder().decode(FriendResponse.self, from: data)
+                    let friend = try JSONDecoder().decode(FriendResponse.self, from: data).response.items
                     completion(.success(friend))
                 } catch let jsonError {
                     print("FAILED TO DECODE JSON", jsonError)
@@ -91,7 +91,7 @@ class VKRequests {
         }.resume()
     }
     
-    func groupsSearch(searchText: String, completion: @escaping (Result<GroupResponse, Error>) -> Void) {
+    func groupsSearch(searchText: String, completion: @escaping (Result<[Group], Error>) -> Void) {
         var urlComponents = URLComponents()
         urlComponents.scheme = "https"
         urlComponents.host = "api.vk.com"
@@ -113,7 +113,7 @@ class VKRequests {
                 }
                 guard let data = data else { return }
                 do {
-                    let group = try JSONDecoder().decode(GroupResponse.self, from: data)
+                    let group = try JSONDecoder().decode(GroupResponse.self, from: data).response.items
                     completion(.success(group))
                 } catch let jsonError {
                     print("FAILED TO DECODE JSON", jsonError)
@@ -123,7 +123,7 @@ class VKRequests {
         }.resume()
     }
     
-    func loadPhotos(friendId: String, completion: @escaping (Result<PhotoResponse, Error>) -> Void) {
+    func loadPhotos(friendId: String, completion: @escaping (Result<[PhotoItems], Error>) -> Void) {
         var urlComponents = URLComponents()
         urlComponents.scheme = "https"
         urlComponents.host = "api.vk.com"
@@ -146,7 +146,8 @@ class VKRequests {
                 }
                 guard let data = data else { return }
                 do {
-                    let photo = try JSONDecoder().decode(PhotoResponse.self, from: data)
+                    let photo = try JSONDecoder().decode(PhotoResponse.self, from: data).response.items
+                    
                     completion(.success(photo))
                 } catch let jsonError {
                     print("FAILED TO DECODE JSON", jsonError)

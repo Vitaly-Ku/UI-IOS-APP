@@ -16,8 +16,8 @@ class FriendsCollectionController: UICollectionViewController {
     
     //    var friend: Friends!
     @IBOutlet weak var iCarouselView: iCarousel!
-    var fotoResponse: PhotoResponse?
-    var friend: FriendItem?
+    var fotoResponse = [PhotoItems]()
+    var friend: Friend?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,13 +27,14 @@ class FriendsCollectionController: UICollectionViewController {
             case .success(let fotoResponse):
                 self?.fotoResponse = fotoResponse
                 self?.iCarouselView.reloadData()
+//                loadDataPhotos(fotoResponse)
             case .failure(let error):
                 print(error)
             }
         }
 
         title = friend?.firstName
-        iCarouselView.type = .coverFlow2
+        iCarouselView.type = .invertedCylinder
         iCarouselView.contentMode = .scaleAspectFill
         iCarouselView.isPagingEnabled = true
     }
@@ -55,7 +56,7 @@ class FriendsCollectionController: UICollectionViewController {
 }
 
 extension FriendsCollectionController: iCarouselDelegate, iCarouselDataSource {
-    func numberOfItems(in carousel: iCarousel) -> Int { fotoResponse?.response.items.count ?? 1 }
+    func numberOfItems(in carousel: iCarousel) -> Int { fotoResponse.count }
     
     func carousel(_ carousel: iCarousel, viewForItemAt index: Int, reusing view: UIView?) -> UIView {
         var imageView: UIImageView!
@@ -65,18 +66,7 @@ extension FriendsCollectionController: iCarouselDelegate, iCarouselDataSource {
         } else {
             imageView = view as? UIImageView
         }
-        
-//        fotoResponse?.response.items[index].sizes[index]
-        AF.request((friend?.photo100)!).responseImage { response in
-            do {
-             let image = try response.result.get()
-                imageView.image = image
-                print(self.fotoResponse?.response.items.count, " кол-во фоток")
-
-            } catch {
-                print("CAN'T GET AVATAR")
-            }
-        }
+        imageView.af.setImage(withURL: URL(string: (fotoResponse[index].sizes[2].url))!)
         return imageView
     }
 }

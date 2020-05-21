@@ -11,8 +11,11 @@ import UIKit
 class LoadingViewController: UIViewController {
     
     var timer: Timer!
+    var percent = 0
     
     @IBOutlet weak var logoCat: UIView!
+    @IBOutlet weak var progressBar: UIProgressView!
+    
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -26,13 +29,31 @@ class LoadingViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let gradientView = CustomGradient(frame: progressBar.bounds)
+        progressBar.trackImage = UIImage(view: gradientView).withHorizontallyFlippedOrientation()
+        progressBar.transform = CGAffineTransform(scaleX: -1, y: -1)
+        progressBar.progressTintColor = UIColor.white
+        progressBar.progress = 1
+        
         makeCatLogo()
         addAnimationPath()
         
         view.backgroundColor = .random()
+        timer = Timer.scheduledTimer(timeInterval: 0.025, target: self, selector: #selector(progressUpdate), userInfo: nil, repeats: true)
         timer = Timer.scheduledTimer(timeInterval: 0.3, target: self, selector: #selector(changeBackgroundColor), userInfo: nil, repeats: true)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-            self.timer.invalidate()
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+//            self.timer.invalidate()
+//        }
+    }
+    
+    @objc func progressUpdate() {
+        percent += 1
+        let invertedValue = Float(100 - percent) / 100
+        progressBar.setProgress(invertedValue, animated: true)
+        
+        if percent == 100 {
+            timer.invalidate()
         }
     }
     
@@ -112,5 +133,15 @@ class LoadingViewController: UIViewController {
         path.addLine(to: CGPoint(x: 18, y: 12))
         
         path.close()
+    }
+}
+
+extension UIImage {
+    convenience init(view: UIView) {
+        UIGraphicsBeginImageContext(view.frame.size)
+        view.layer.render(in: UIGraphicsGetCurrentContext()!)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        self.init(cgImage: (image?.cgImage)!)
     }
 }

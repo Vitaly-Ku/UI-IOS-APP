@@ -8,11 +8,18 @@
 
 import UIKit
 import CoreData
+import RealmSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
+    
+    func applicationDidFinishLaunching(_ application: UIApplication) {
+        if let realm = try? Realm() {
+            print(realm.configuration.fileURL, " файл Рилм")
+        }
+    }
 
 }
 

@@ -16,6 +16,7 @@
 		5D4DB87D242DFF660092C1DC /* AllGroupsTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4DB87C242DFF660092C1DC /* AllGroupsTableController.swift */; };
 		5D4DB881242E0A330092C1DC /* FriendsTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4DB880242E0A330092C1DC /* FriendsTableCell.swift */; };
 		5D4DB883242E0A650092C1DC /* FriendsTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4DB882242E0A650092C1DC /* FriendsTableController.swift */; };
+		5D5D01142474879200BAF937 /* CustomGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5D01132474879200BAF937 /* CustomGradient.swift */; };
 		5D5D306E24465CDA009B9A17 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5D306D24465CDA009B9A17 /* SettingsViewController.swift */; };
 		5D611E032445EA2B00811894 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D611E022445EA2B00811894 /* LoadingViewController.swift */; };
 		5D611E052445F0CC00811894 /* Loading.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D611E042445F0CC00811894 /* Loading.storyboard */; };
@@ -61,6 +62,7 @@
 		5D4DB87C242DFF660092C1DC /* AllGroupsTableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllGroupsTableController.swift; sourceTree = "<group>"; };
 		5D4DB880242E0A330092C1DC /* FriendsTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTableCell.swift; sourceTree = "<group>"; };
 		5D4DB882242E0A650092C1DC /* FriendsTableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTableController.swift; sourceTree = "<group>"; };
+		5D5D01132474879200BAF937 /* CustomGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomGradient.swift; sourceTree = "<group>"; };
 		5D5D306D24465CDA009B9A17 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		5D611E022445EA2B00811894 /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 		5D611E042445F0CC00811894 /* Loading.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Loading.storyboard; sourceTree = "<group>"; };
@@ -203,6 +205,7 @@
 				5D5D306D24465CDA009B9A17 /* SettingsViewController.swift */,
 				5D8CBFD7244EC234007A5C34 /* CustomPushAnimator.swift */,
 				5D362CC5244ED84E002DF4EF /* InteractiveTransition.swift */,
+				5D5D01132474879200BAF937 /* CustomGradient.swift */,
 			);
 			path = CustomClass;
 			sourceTree = "<group>";
@@ -409,6 +412,7 @@
 				5DE083BA24581D99008E3134 /* VKLoginController.swift in Sources */,
 				5D8B22CA242FC81200A2D17C /* MyGroupsTableController.swift in Sources */,
 				5D362CC6244ED84E002DF4EF /* InteractiveTransition.swift in Sources */,
+				5D5D01142474879200BAF937 /* CustomGradient.swift in Sources */,
 				DC81B23B2429257800E170A0 /* LoginController.swift in Sources */,
 				DC81B2372429257800E170A0 /* AppDelegate.swift in Sources */,
 				5D87020B245E9EB8001A0E55 /* Friend.swift in Sources */,

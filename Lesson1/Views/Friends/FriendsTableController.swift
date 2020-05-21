@@ -22,14 +22,13 @@ class FriendsTableController: UITableViewController {
     
 //    let friends = FriendsFactory.makeFriends()
 //    var friendSection = [SectionFriend]()
-    var friendResponse: FriendResponse? = nil
-//    static var arr: [FriendItem] = []
+    var friendResponse = [Friend]()
         
     @IBOutlet weak var searchBar: UISearchBar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+                
 //        group(friends: friends)
         
         vkRequest.loadFriends { [weak self] (result) in
@@ -37,16 +36,16 @@ class FriendsTableController: UITableViewController {
             case .success(let friendResponse):
                 self?.friendResponse = friendResponse
                 self?.tableView.reloadData()
-                friendResponse.response.items.map { (friend) in
-//                    FriendsTableController.arr.append(friend)
-                }
+                loadDataFriends(friendResponse)
             case .failure(let error):
                 print("error: ", error)
             }
         }
     }
     
+    
     override func viewWillAppear(_ animated: Bool) {
+        print(Session.shared.token)
         animateTable()
         tableView.backgroundColor = colorBG
         searchBar.barTintColor = colorBG
@@ -62,7 +61,7 @@ class FriendsTableController: UITableViewController {
 //    }
     
 //    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int { friendSection[section].items.count }
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int { friendResponse?.response.items.count ?? 0 }
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int { friendResponse.count }
     
     
 //    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -74,16 +73,17 @@ class FriendsTableController: UITableViewController {
 //    }
         override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             let cell = tableView.dequeueReusableCell(withIdentifier: "friendCell", for: indexPath) as! FriendsTableCell
-            cell.titleLabel.text = friendResponse!.response.items[indexPath.row].lastName + " " + friendResponse!.response.items[indexPath.row].firstName
+            cell.titleLabel.text = friendResponse[indexPath.row].lastName + " " + friendResponse[indexPath.row].firstName
             
-            if friendResponse!.response.items[indexPath.row].online == 0 {
+            if friendResponse[indexPath.row].online == 0 {
                 cell.statusLabel.text = "не в сети"
+                cell.statusLabel.textColor = .lightGray
             } else {
                 cell.statusLabel.text = "в сети"
                 cell.statusLabel.textColor = .systemGreen
             }
 
-            AF.request((friendResponse?.response.items[indexPath.row].photo100)!).responseImage { response in
+            AF.request((friendResponse[indexPath.row].photo100)).responseImage { response in
                 do {
                  let image = try response.result.get()
                     cell.photo.image = image
@@ -110,7 +110,7 @@ class FriendsTableController: UITableViewController {
                 
 //                friendsCVC.friend = friendSection[indexPath.section].items[indexPath.row]
 //                friendsCVC.friend = FriendsTableController.arr[indexPath.row]
-                friendsCVC.friend = friendResponse?.response.items[indexPath.row]
+                friendsCVC.friend = friendResponse[indexPath.row]
             }
         }
     }

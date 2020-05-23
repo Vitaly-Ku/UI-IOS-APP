@@ -10,21 +10,71 @@ import Foundation
 import RealmSwift
 
 class Photo: Object, Decodable {
+    @objc dynamic var id: Int = 0
+    @objc dynamic var albumId: Int = 0
+    @objc dynamic var ownerId: Int = 0
     @objc dynamic var url: String = ""
     
-    enum CodingKeys: String, CodingKey {
+    enum CodingKeysPhoto: String, CodingKey {
+        case id
+        case albumId = "album_id"
+        case ownerId = "owner_id"
+        case sizes
+    }
+    
+    enum CodingKeysPhotoSize: String, CodingKey {
+        case type
         case url
+    }
+    
+    convenience required init (from decoder: Decoder) throws {
+        self.init()
+        let values = try decoder.container(keyedBy: CodingKeysPhoto.self)
+        
+        self.id = try values.decode(Int.self, forKey: .id)
+        self.albumId = try values.decode(Int.self, forKey: .albumId)
+        self.ownerId = try values.decode(Int.self, forKey: .ownerId)
+        
+        var photoSizeValues = try values.nestedUnkeyedContainer(forKey: .sizes)
+
+        while !photoSizeValues.isAtEnd {
+            let size = try photoSizeValues.nestedContainer(keyedBy: CodingKeysPhotoSize.self)
+            let sizetype = try size.decode(String.self, forKey: .type)
+            switch sizetype {
+            case "x":
+                self.url = try size.decode(String.self, forKey: .url)
+            default:
+                break
+            }
+        }
+    }
+    
+    override static func primaryKey() -> String? {
+        return "url"
+    }
+}
+
+class PhotoList: Decodable {
+    let items: [Photo]
+    
+    enum CodingKeysPhotoData: String, CodingKey {
+        case items
     }
 }
 
 class PhotoResponse: Decodable {
-    var response: PhotoList
+    let response: PhotoList
 }
 
-class PhotoList: Decodable {
-    var items: [PhotoItems]
-}
-
-class PhotoItems: Decodable {
-    var sizes: [Photo]
+func saveDataPhotos(_ photos: [Photo]) {
+    do {
+        let realm = try Realm()
+        let oldValue = realm.objects(Photo.self)
+        realm.beginWrite()
+        realm.delete(oldValue)
+        realm.add(photos, update: .modified)
+        try realm.commitWrite()
+    } catch {
+        print(error)
+    }
 }

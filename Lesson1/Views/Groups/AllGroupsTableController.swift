@@ -8,6 +8,7 @@
 import UIKit
 import Alamofire
 import AlamofireImage
+import RealmSwift
 
 class AllGroupsTableController: UITableViewController {
     
@@ -22,15 +23,20 @@ class AllGroupsTableController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        vkRequest.loadGroups { [weak self] (result) in
-            switch result {
-            case .success(let groupResponse):
-                self?.groupResponse = groupResponse
-                self?.tableView.reloadData()
-                loadDataGroups(groupResponse)
-            case .failure(let error):
-                print("error: ", error)
-            }
+        loadDataGroups()
+        vkRequest.loadGroups { [weak self] in
+            self?.loadDataGroups()
+        }
+    }
+    
+    func loadDataGroups() {
+        do {
+            let realm = try Realm()
+            let groups = realm.objects(Group.self)
+            self.groupResponse = Array(groups)
+            self.tableView.reloadData()
+        } catch  {
+            print(error)
         }
     }
     

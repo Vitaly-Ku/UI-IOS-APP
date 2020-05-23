@@ -28,7 +28,7 @@ class VKRequests {
         return request
     }
     
-    func loadGroups(completion: @escaping (Result<[Group], Error>) -> Void ) {
+    func loadGroups(completion: @escaping () -> Void ) {
         var urlComponents = URLComponents()
         urlComponents.scheme = "https"
         urlComponents.host = "api.vk.com"
@@ -43,23 +43,22 @@ class VKRequests {
         URLSession.shared.dataTask(with: request) { (data, response, error) in
             DispatchQueue.main.async {
                 if let error = error {
-                    print("some error")
-                    completion(.failure(error))
+                    print(error, "some error")
                     return
                 }
                 guard let data = data else { return }
                 do {
                     let group = try JSONDecoder().decode(GroupResponse.self, from: data).response.items
-                    completion(.success(group))
+                    saveDataGroups(group)
+                    completion()
                 } catch let jsonError {
                     print("FAILED TO DECODE JSON", jsonError)
-                    completion(.failure(jsonError))
                 }
             }
         }.resume()
     }
     
-    func loadFriends(completion: @escaping (Result<[Friend], Error>) -> Void) {
+    func loadFriends(completion: @escaping () -> Void) {
         var urlComponents = URLComponents()
         urlComponents.scheme = "https"
         urlComponents.host = "api.vk.com"
@@ -75,17 +74,16 @@ class VKRequests {
         URLSession.shared.dataTask(with: request) { (data, response, error) in
             DispatchQueue.main.async {
                 if let error = error {
-                    print("some error")
-                    completion(.failure(error))
+                    print(error, "some error")
                     return
                 }
                 guard let data = data else { return }
                 do {
                     let friend = try JSONDecoder().decode(FriendResponse.self, from: data).response.items
-                    completion(.success(friend))
+                    saveDataFriends(friend)
+                    completion()
                 } catch let jsonError {
                     print("FAILED TO DECODE JSON", jsonError)
-                    completion(.failure(jsonError))
                 }
             }
         }.resume()
@@ -123,7 +121,7 @@ class VKRequests {
         }.resume()
     }
     
-    func loadPhotos(friendId: String, completion: @escaping (Result<[PhotoItems], Error>) -> Void) {
+    func loadPhotos(friendId: String, completion: @escaping () -> Void) {
         var urlComponents = URLComponents()
         urlComponents.scheme = "https"
         urlComponents.host = "api.vk.com"
@@ -140,18 +138,16 @@ class VKRequests {
         URLSession.shared.dataTask(with: request) { (data, response, error) in
             DispatchQueue.main.async {
                 if let error = error {
-                    print("some error")
-                    completion(.failure(error))
+                    print(error, "some error")
                     return
                 }
                 guard let data = data else { return }
                 do {
                     let photo = try JSONDecoder().decode(PhotoResponse.self, from: data).response.items
-                    
-                    completion(.success(photo))
+                    saveDataPhotos(photo)
+                    completion()
                 } catch let jsonError {
                     print("FAILED TO DECODE JSON", jsonError)
-                    completion(.failure(jsonError))
                 }
             }
         }.resume()

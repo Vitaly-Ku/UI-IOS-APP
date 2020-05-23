@@ -23,6 +23,11 @@ class Friend: Object, Decodable {
         case photo100 = "photo_100"
         case id = "id"
     }
+    
+    override static func primaryKey() -> String? {
+        return "id"
+    }
+
 }
 
 class FriendResponse: Decodable {
@@ -34,12 +39,14 @@ class FriendList: Decodable {
 }
 
 
-func loadDataFriends(_ friends: [Friend]) {
-
+func saveDataFriends(_ friends: [Friend]) {
     do {
         let realm = try Realm()
+        print(realm.configuration.fileURL)
+        let oldValue = realm.objects(Friend.self)
         realm.beginWrite()
-        realm.add(friends)
+        realm.delete(oldValue)
+        realm.add(friends, update: .modified)
         try realm.commitWrite()
         
     } catch {

@@ -10,12 +10,18 @@ import Foundation
 import RealmSwift
 
 class Group: Object, Decodable {
-    @objc dynamic var photo50: String = ""
+    @objc dynamic var photo200: String = ""
     @objc dynamic var name: String = ""
+    @objc dynamic var id: Int = 0
     
     enum CodingKeys: String, CodingKey {
-        case photo50 = "photo_50"
-        case name = "name"
+        case photo200 = "photo_200"
+        case name
+        case id
+    }
+    
+    override static func primaryKey() -> String? {
+        return "id"
     }
 }
 
@@ -28,15 +34,16 @@ class GroupList: Decodable {
     var items: [Group]
 }
 
-func loadDataGroups(_ groups: [Group]) {
-
-    do {
-        let realm = try Realm()
-        realm.beginWrite()
-        realm.add(groups)
-        try realm.commitWrite()
-        
-    } catch {
-        print(error)
-    }
-}
+//func saveDataGroups(_ groups: [Group]) {
+//    do {
+//        let realm = try Realm()
+//        let oldValue = realm.objects(Group.self)
+//        realm.beginWrite()
+//        realm.delete(oldValue)
+//        realm.add(groups, update: .all)
+//        try realm.commitWrite()
+//        
+//    } catch {
+//        print(error)
+//    }
+//}

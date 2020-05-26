@@ -12,6 +12,7 @@
 		5D2E183024698A01009A226E /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2E182F24698A01009A226E /* Photo.swift */; };
 		5D362CC6244ED84E002DF4EF /* InteractiveTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D362CC5244ED84E002DF4EF /* InteractiveTransition.swift */; };
 		5D4B24082449AAA100E25884 /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D4B24072449AAA100E25884 /* iCarousel.m */; };
+		5D4D28B7247B9E5B00876765 /* NewsFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4D28B6247B9E5B00876765 /* NewsFeed.swift */; };
 		5D4DB879242DF9EB0092C1DC /* AllGroupsTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4DB878242DF9EB0092C1DC /* AllGroupsTableCell.swift */; };
 		5D4DB87D242DFF660092C1DC /* AllGroupsTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4DB87C242DFF660092C1DC /* AllGroupsTableController.swift */; };
 		5D4DB881242E0A330092C1DC /* FriendsTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4DB880242E0A330092C1DC /* FriendsTableCell.swift */; };
@@ -58,6 +59,7 @@
 		5D4B24052449AAA000E25884 /* Lesson1-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Lesson1-Bridging-Header.h"; sourceTree = "<group>"; };
 		5D4B24062449AAA100E25884 /* iCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCarousel.h; sourceTree = "<group>"; };
 		5D4B24072449AAA100E25884 /* iCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCarousel.m; sourceTree = "<group>"; };
+		5D4D28B6247B9E5B00876765 /* NewsFeed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeed.swift; sourceTree = "<group>"; };
 		5D4DB878242DF9EB0092C1DC /* AllGroupsTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllGroupsTableCell.swift; sourceTree = "<group>"; };
 		5D4DB87C242DFF660092C1DC /* AllGroupsTableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllGroupsTableController.swift; sourceTree = "<group>"; };
 		5D4DB880242E0A330092C1DC /* FriendsTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTableCell.swift; sourceTree = "<group>"; };
@@ -194,6 +196,7 @@
 				5D87020A245E9EB8001A0E55 /* Friend.swift */,
 				5D2E182F24698A01009A226E /* Photo.swift */,
 				5D9BEF0D2467E51F00AE82F6 /* Group.swift */,
+				5D4D28B6247B9E5B00876765 /* NewsFeed.swift */,
 			);
 			path = NetWork;
 			sourceTree = "<group>";
@@ -428,6 +431,7 @@
 				5DFC9498243B3E1200BE9B06 /* News.swift in Sources */,
 				5D2E183024698A01009A226E /* Photo.swift in Sources */,
 				5D8B22D0242FECF100A2D17C /* FriendsCollectionCell.swift in Sources */,
+				5D4D28B7247B9E5B00876765 /* NewsFeed.swift in Sources */,
 				5DC45FC02456D5CA00CF58CD /* Extensions.swift in Sources */,
 				5D5D306E24465CDA009B9A17 /* SettingsViewController.swift in Sources */,
 				5DFC9494243B369100BE9B06 /* NewsTableController.swift in Sources */,

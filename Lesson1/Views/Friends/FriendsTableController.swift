@@ -9,7 +9,8 @@
 import UIKit
 import Alamofire
 import AlamofireImage
-import SwiftyJSON
+//import SwiftyJSON
+import RealmSwift
 
 //struct SectionFriend {
 //    var title: String
@@ -28,18 +29,22 @@ class FriendsTableController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-                
-//        group(friends: friends)
         
-        vkRequest.loadFriends { [weak self] (result) in
-            switch result {
-            case .success(let friendResponse):
-                self?.friendResponse = friendResponse
-                self?.tableView.reloadData()
-                loadDataFriends(friendResponse)
-            case .failure(let error):
-                print("error: ", error)
-            }
+        //        group(friends: friends)
+        loadDataFriends()
+        vkRequest.getFriends { [weak self] in
+            self?.loadDataFriends()
+        }
+    }
+    
+    func loadDataFriends() {
+        do {
+            let realm = try Realm()
+            let friends = realm.objects(Friend.self)
+            self.friendResponse = Array(friends)
+            self.tableView.reloadData()
+        } catch  {
+            print(error)
         }
     }
     

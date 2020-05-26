@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 import AlamofireImage
+import RealmSwift
 
 class FriendsCollectionController: UICollectionViewController {
     
@@ -16,27 +17,32 @@ class FriendsCollectionController: UICollectionViewController {
     
     //    var friend: Friends!
     @IBOutlet weak var iCarouselView: iCarousel!
-    var fotoResponse = [PhotoItems]()
+    var fotoResponse = [Photo]()
     var friend: Friend?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        vkRequest.loadPhotos(friendId: String(friend!.id)) { [weak self] (result) in
-            switch result {
-            case .success(let fotoResponse):
-                self?.fotoResponse = fotoResponse
-                self?.iCarouselView.reloadData()
-//                loadDataPhotos(fotoResponse)
-            case .failure(let error):
-                print(error)
-            }
+        loadDataPhotos()
+        vkRequest.loadPhotos(friendId: friend!.id) { [weak self] in
+            self?.loadDataPhotos()
         }
 
         title = friend?.firstName
         iCarouselView.type = .invertedCylinder
         iCarouselView.contentMode = .scaleAspectFill
         iCarouselView.isPagingEnabled = true
+    }
+    
+    func loadDataPhotos() {
+        do {
+            let realm = try Realm()
+            let photos = realm.objects(Photo.self)
+            self.fotoResponse = Array(photos)
+            self.iCarouselView.reloadData()
+        } catch  {
+            print(error)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -66,7 +72,7 @@ extension FriendsCollectionController: iCarouselDelegate, iCarouselDataSource {
         } else {
             imageView = view as? UIImageView
         }
-        imageView.af.setImage(withURL: URL(string: (fotoResponse[index].sizes[2].url))!)
+        imageView.af.setImage(withURL: URL(string: (fotoResponse[index].url))!)
         return imageView
     }
 }

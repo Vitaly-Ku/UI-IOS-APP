@@ -19,7 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if let realm = try? Realm() {
             print(realm.configuration.fileURL, " файл Рилм")
         }
-        Realm.Configuration.defaultConfiguration = Realm.Configuration(deleteRealmIfMigrationNeeded: true)    }
+        Realm.Configuration.defaultConfiguration = Realm.Configuration(deleteRealmIfMigrationNeeded: true)
+    }
     
 }
 

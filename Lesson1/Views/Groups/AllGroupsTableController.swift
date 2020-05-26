@@ -23,22 +23,32 @@ class AllGroupsTableController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadDataGroups()
-        vkRequest.loadGroups { [weak self] in
-            self?.loadDataGroups()
+//        loadDataGroups()
+//        vkRequest.loadGroups { [weak self] in
+//            self?.loadDataGroups()
+//        }
+        vkRequest.loadGroups { [weak self] (result) in
+            switch result {
+            case .success(let groupResponse):
+                self?.groupResponse = groupResponse
+                self?.tableView.reloadData()
+//                saveDataGroups(groupResponse)
+            case .failure(let error):
+                print("error: ", error)
+            }
         }
     }
     
-    func loadDataGroups() {
-        do {
-            let realm = try Realm()
-            let groups = realm.objects(Group.self)
-            self.groupResponse = Array(groups)
-            self.tableView.reloadData()
-        } catch  {
-            print(error)
-        }
-    }
+//    func loadDataGroups() {
+//        do {
+//            let realm = try Realm()
+//            let groups = realm.objects(Group.self)
+//            self.groupResponse = Array(groups)
+//            self.tableView.reloadData()
+//        } catch  {
+//            print(error)
+//        }
+//    }
     
     override func viewWillAppear(_ animated: Bool) {
         animateTable()
@@ -59,7 +69,7 @@ class AllGroupsTableController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "groupCell", for: indexPath) as! AllGroupsTableCell 
         if searching {
             cell.titleLabel?.text = filteredGroups[indexPath.row].name
-            AF.request(filteredGroups[indexPath.row].photo50).responseImage { response in
+            AF.request(filteredGroups[indexPath.row].photo200).responseImage { response in
                 do {
                  let image = try response.result.get()
                     cell.photo.image = image
@@ -69,7 +79,7 @@ class AllGroupsTableController: UITableViewController {
             }
         } else {
             cell.titleLabel?.text = groupResponse[indexPath.row].name
-            AF.request(groupResponse[indexPath.row].photo50).responseImage { response in
+            AF.request(groupResponse[indexPath.row].photo200).responseImage { response in
                 do {
                  let image = try response.result.get()
                     cell.photo.image = image

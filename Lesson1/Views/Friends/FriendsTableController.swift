@@ -32,7 +32,7 @@ class FriendsTableController: UITableViewController {
         
         //        group(friends: friends)
         loadDataFriends()
-        vkRequest.loadFriends { [weak self] in
+        vkRequest.getFriends { [weak self] in
             self?.loadDataFriends()
         }
     }

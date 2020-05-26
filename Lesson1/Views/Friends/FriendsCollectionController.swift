@@ -24,7 +24,7 @@ class FriendsCollectionController: UICollectionViewController {
         super.viewDidLoad()
         
         loadDataPhotos()
-        vkRequest.loadPhotos(friendId: String(friend!.id)) { [weak self] in
+        vkRequest.loadPhotos(friendId: friend!.id) { [weak self] in
             self?.loadDataPhotos()
         }
 

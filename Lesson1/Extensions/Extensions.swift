@@ -51,3 +51,24 @@ extension UIImage {
         return image
     }
 }
+
+extension TimeInterval {
+
+    func toRelativeDateTime() -> String {
+
+        let time = NSInteger(self)
+
+        let seconds = time % 60
+        let minutes = (time / 60) % 60
+        let hours = (time / 3600)
+        if hours > 24{
+            return ""
+        } else if hours > 1 {
+            return "\(hours) часов назад"
+        } else if minutes > 1 {
+            return "\(minutes) минут назад"
+        } else {
+            return "\(seconds) секунд назад"
+        }
+    }
+}

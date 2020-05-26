@@ -30,7 +30,7 @@ class MyGroupsTableController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "groupCell", for: indexPath) as! MyGroupsTableCell
         cell.titleLabel.text = groups[indexPath.row].name
-        AF.request(groups[indexPath.row].photo50).responseImage { response in
+        AF.request(groups[indexPath.row].photo200).responseImage { response in
             do {
              let image = try response.result.get()
                 cell.photo.image = image

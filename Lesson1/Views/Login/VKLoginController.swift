@@ -53,13 +53,6 @@ extension VKLoginController: WKNavigationDelegate {
         Session.shared.token = token
         Session.shared.userId = userId
         
-        // MARK: ВЫЗОВ ЗАПРОСОВ
-        
-//        VKRequests.loadGroups()
-//        VKRequests.loadFriends()
-//        VKRequests.loadFotosFriends()
-//        VKRequests.groupsSearch()
-        
         performSegue(withIdentifier: "VKLogin", sender: nil)
         decisionHandler(.cancel)
     }

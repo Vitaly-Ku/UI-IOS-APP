@@ -9,30 +9,27 @@
 import UIKit
 import Alamofire
 import AlamofireImage
-//import SwiftyJSON
 import RealmSwift
 
-//struct SectionFriend {
-//    var title: String
-//    var items: [Friends]
-//}
+struct SectionFriend {
+    var title: String
+    var items: [Friend]
+}
 
 class FriendsTableController: UITableViewController {
     
     let vkRequest = VKRequests()
     
-//    let friends = FriendsFactory.makeFriends()
-//    var friendSection = [SectionFriend]()
+    var friendSection = [SectionFriend]()
     var friendResponse = [Friend]()
-        
+    
     @IBOutlet weak var searchBar: UISearchBar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //        group(friends: friends)
         loadDataFriends()
-        vkRequest.getFriends { [weak self] in
+        vkRequest.getFriends() { [weak self] in
             self?.loadDataFriends()
         }
     }
@@ -40,14 +37,19 @@ class FriendsTableController: UITableViewController {
     func loadDataFriends() {
         do {
             let realm = try Realm()
-            let friends = realm.objects(Friend.self)
+            let friends = realm.objects(Friend.self).filter("firstName != %@","DELETED")
             self.friendResponse = Array(friends)
+            
+            let myFriendsDictionary = Dictionary.init(grouping: (self.friendResponse)) {
+                $0.lastName.prefix(1)
+            }
+            self.friendSection = myFriendsDictionary.map {SectionFriend(title: String($0.key), items: $0.value)}
+            self.friendSection.sort {$0.title < $1.title}
             self.tableView.reloadData()
         } catch  {
             print(error)
         }
     }
-    
     
     override func viewWillAppear(_ animated: Bool) {
         print(Session.shared.token)
@@ -57,76 +59,61 @@ class FriendsTableController: UITableViewController {
         searchBar.tintColor = colorBG
     }
     
-//    override func numberOfSections(in tableView: UITableView) -> Int { friendSection.count }
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return friendSection[section].title
+    }
     
-//    override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
-//        tableView.sectionIndexColor = .darkGray
-//        tableView.sectionIndexBackgroundColor = .init(displayP3Red: 31, green: 33, blue: 36, alpha: 0.0)
-//        return  friendSection.map {$0.title}
-//    }
+    override func numberOfSections(in tableView: UITableView) -> Int { friendSection.count }
     
-//    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int { friendSection[section].items.count }
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int { friendResponse.count }
+    override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
+        tableView.sectionIndexColor = .darkGray
+        tableView.sectionIndexBackgroundColor = .init(displayP3Red: 31, green: 33, blue: 36, alpha: 0.0)
+        return  friendSection.map {$0.title}
+    }
     
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int { friendSection[section].items.count }
     
-//    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "friendCell", for: indexPath) as! FriendsTableCell
-//        cell.titleLabel.text = friendSection[indexPath.section].items[indexPath.row].title
-//        cell.statusLabel.text = friendSection[indexPath.section].items[indexPath.row].status
-//        cell.photo.image = friendSection[indexPath.section].items[indexPath.row].avatar
-//        return cell
-//    }
-        override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "friendCell", for: indexPath) as! FriendsTableCell
-            cell.titleLabel.text = friendResponse[indexPath.row].lastName + " " + friendResponse[indexPath.row].firstName
-            
-            if friendResponse[indexPath.row].online == 0 {
-                cell.statusLabel.text = "не в сети"
-                cell.statusLabel.textColor = .lightGray
-            } else {
-                cell.statusLabel.text = "в сети"
-                cell.statusLabel.textColor = .systemGreen
-            }
-
-            AF.request((friendResponse[indexPath.row].photo100)).responseImage { response in
-                do {
-                 let image = try response.result.get()
-                    cell.photo.image = image
-                } catch {
-                    print("CAN'T GET AVATAR")
-                }
-            }
-            return cell
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "friendCell", for: indexPath) as! FriendsTableCell
+        let friend = friendSection[indexPath.section].items[indexPath.row]
+        cell.titleLabel.text = friend.lastName + " " + friend.firstName
+        if friend.online == 0 {
+            cell.statusLabel.text = "не в сети"
+            cell.statusLabel.textColor = .darkGray
+        } else {
+            cell.statusLabel.text = "в сети"
+            cell.statusLabel.textColor = .systemGreen
         }
+        AF.request((friend.photo100)).responseImage { response in
+            do {
+                let image = try response.result.get()
+                cell.photo.image = image
+            } catch {
+                print("CAN'T GET AVATAR")
+            }
+        }
+        return cell
+    }
     
-//    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? { // хедеры
-//        let view = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 20))
-//        view.backgroundColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
-//        let lbl = UILabel(frame: CGRect(x: 15, y: 5, width: view.frame.width - 10, height: 20))
-//        lbl.font = UIFont.systemFont(ofSize: 15)
-//        lbl.text = friendSection[section].title
-//        view.addSubview(lbl)
-//        return view
-//    }
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? { // хедеры
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 20))
+        view.backgroundColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
+        let lbl = UILabel(frame: CGRect(x: 15, y: 5, width: view.frame.width - 10, height: 20))
+        lbl.font = UIFont.systemFont(ofSize: 15)
+        lbl.text = friendSection[section].title
+        view.addSubview(lbl)
+        return view
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) { // отображение заголовка на странице с фото в соответствии с названием выбранной ячейки
         if let friendsCVC = segue.destination as? FriendsCollectionController { // проверка перехода на нужный контроллер
             if let indexPath = tableView.indexPathForSelectedRow { // проверка выбранной строки перехода
-                
-//                friendsCVC.friend = friendSection[indexPath.section].items[indexPath.row]
-//                friendsCVC.friend = FriendsTableController.arr[indexPath.row]
-                friendsCVC.friend = friendResponse[indexPath.row]
+                friendsCVC.friend = friendSection[indexPath.section].items[indexPath.row]
             }
         }
     }
     
-//    func group(friends: [Friends]) {
-//        let friendsDictionary = Dictionary.init(grouping: friends) { $0.title.prefix(1) }
-//        friendSection = friendsDictionary.map {SectionFriend(title: String($0.key), items: $0.value)}
-//        friendSection.sort {$0.title < $1.title}
-//    }
-    
-    //    MARK: Animation of table list
+//    MARK: Animation of table list
     
     func animateTable() {
         tableView.reloadData()
@@ -150,20 +137,17 @@ class FriendsTableController: UITableViewController {
     }
 }
 
-//extension FriendsTableController: UISearchBarDelegate {
-//
-//    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-//        if searchText.isEmpty {
-////            group(friends: friends)
-//        } else {
-//            let filteredUsers = friendResponse?.response.items.filter({$0.last_name.lowercased().contains(searchText.lowercased())})
-//            group(friends: filteredUsers)
-//        }
-//        tableView.reloadData()
-//    }
-//
-//    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-//        group(friends: friends)
-//        tableView.reloadData()
-//    }
-//}
+//    MARK: SearchBar Delegate
+
+extension FriendsTableController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        let friendsDictionary = Dictionary.init(grouping: friendResponse.filter{(user) -> Bool in return searchText.isEmpty ? true : user.firstName.lowercased().contains(searchText.lowercased()) || user.lastName.lowercased().contains(searchText.lowercased())
+        }) { $0.lastName.prefix(1) }
+        friendSection = friendsDictionary.map {SectionFriend(title: String($0.key), items: $0.value)}
+        friendSection.sort {$0.title < $1.title}
+        tableView.reloadData()
+    }
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        view.endEditing(true)
+    }
+}

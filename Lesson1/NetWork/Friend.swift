@@ -15,13 +15,18 @@ class Friend: Object, Decodable {
     @objc dynamic var online: Int = 0
     @objc dynamic var photo100: String = ""
     @objc dynamic var id: Int = 0
+    @objc dynamic var sex: Int = 0
+//    @objc dynamic var city: String = ""
+    
     
     enum CodingKeys: String, CodingKey {
         case firstName = "first_name"
         case lastName = "last_name"
         case online = "online"
         case photo100 = "photo_100"
-        case id = "id"
+        case id
+        case sex
+//        case city
     }
     
     override static func primaryKey() -> String? {

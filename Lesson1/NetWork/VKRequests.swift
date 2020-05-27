@@ -30,7 +30,7 @@ class VKRequests {
     
     // MARK: GET GROUPS
     /// для примера оставил этот метод через URLSession
-    func loadGroups(completion: @escaping (Result<[Group], Error>) -> Void ) {
+    func loadGroups(completion: @escaping () -> Void ) {
         var urlComponents = URLComponents()
         urlComponents.scheme = "https"
         urlComponents.host = "api.vk.com"
@@ -46,16 +46,15 @@ class VKRequests {
             DispatchQueue.main.async {
                 if let error = error {
                     print("some error")
-                    completion(.failure(error))
                     return
                 }
                 guard let data = data else { return }
                 do {
                     let group = try JSONDecoder().decode(GroupResponse.self, from: data).response.items
-                    completion(.success(group))
+                    saveDataGroups(group)
+                    completion()
                 } catch let jsonError {
                     print("FAILED TO DECODE JSON", jsonError)
-                    completion(.failure(jsonError))
                 }
             }
         }.resume()
@@ -64,7 +63,7 @@ class VKRequests {
     // MARK: GET FRIENDS
     func getFriends(completion: @escaping () -> Void) {
         let params: Parameters = [
-            "fields" : "photo_100",
+            "fields" : "photo_100,sex",
         ]
         AF.request("https://api.vk.com/method/" + "friends.get",  parameters: getBaseParameters(params)).responseJSON { response in
             guard let data = response.data else { return }
@@ -104,7 +103,7 @@ class VKRequests {
             guard let data = response.data else { return }
             do {
                 let photo = try JSONDecoder().decode(PhotoResponse.self, from: data).response.items
-                saveDataPhotos(photo)
+                saveDataPhotos(photo, userId: friendId)
                 completion()
             } catch  let jsonError {
                 print("FAILED TO DECODE JSON", jsonError)

@@ -66,10 +66,11 @@ class PhotoResponse: Decodable {
     let response: PhotoList
 }
 
-func saveDataPhotos(_ photos: [Photo]) {
+func saveDataPhotos(_ photos: [Photo], userId: Int) {
     do {
         let realm = try Realm()
-        let oldValue = realm.objects(Photo.self)
+        let filter = "ownerId == " + String(userId)
+        let oldValue = realm.objects(Photo.self).filter(filter)
         realm.beginWrite()
         realm.delete(oldValue)
         realm.add(photos, update: .modified)

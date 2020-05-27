@@ -9,16 +9,36 @@
 import UIKit
 import Alamofire
 import AlamofireImage
+import RealmSwift
 
 class MyGroupsTableController: UITableViewController {
+    
+    let vkRequest = VKRequests()
     
     var groups = [Group]() // вот тут-то и хранятся рез-ты запросов!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadDataGroup()
+        vkRequest.loadGroups() { [weak self]  in
+            self?.loadDataGroup()
+        }
+    }
+    
+    func loadDataGroup() {
+        do {
+            let realm = try Realm()
+            let groups = realm.objects(Group.self)
+            self.groups = Array(groups)
+            self.tableView?.reloadData()
+        }
+        catch {
+            print(error)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        animateTable()
         tableView.backgroundColor = colorBG
         print(groups)
     }
@@ -69,6 +89,27 @@ class MyGroupsTableController: UITableViewController {
         if editingStyle == .delete { // Если была нажата кнопка «Удалить»
             groups.remove(at: indexPath.row) // Удаляем группу из массива
             tableView.deleteRows(at: [indexPath], with: .fade) // удаляем строку из таблицы
+        }
+    }
+    
+    func animateTable() {
+        tableView.reloadData()
+        let cells = tableView.visibleCells
+        let tableHeight: CGFloat = tableView.bounds.size.height
+        for i in cells {
+            let cell: UITableViewCell = i as UITableViewCell
+            cell.transform = CGAffineTransform(translationX: 0, y: tableHeight)
+        }
+        var index = 0
+        for a in cells {
+            let cell: UITableViewCell = a as UITableViewCell
+            cell.alpha = 0
+            UIView.animate(withDuration: 1.0, delay: 0.05 * Double(index), usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: .curveEaseInOut, animations: {
+                cell.transform = CGAffineTransform(translationX: 0, y: 0)
+                cell.alpha = 1
+            }, completion: nil)
+            
+            index += 1
         }
     }
 }

@@ -34,16 +34,16 @@ class GroupList: Decodable {
     var items: [Group]
 }
 
-//func saveDataGroups(_ groups: [Group]) {
-//    do {
-//        let realm = try Realm()
-//        let oldValue = realm.objects(Group.self)
-//        realm.beginWrite()
-//        realm.delete(oldValue)
-//        realm.add(groups, update: .all)
-//        try realm.commitWrite()
-//        
-//    } catch {
-//        print(error)
-//    }
-//}
+func saveDataGroups(_ groups: [Group]) {
+    do {
+        let realm = try Realm()
+        let oldValue = realm.objects(Group.self)
+        realm.beginWrite()
+        realm.delete(oldValue)
+        realm.add(groups, update: .modified)
+        try realm.commitWrite()
+        
+    } catch {
+        print(error)
+    }
+}

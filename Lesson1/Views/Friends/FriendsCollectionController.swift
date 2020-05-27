@@ -23,9 +23,9 @@ class FriendsCollectionController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        loadDataPhotos()
+        loadDataPhotos(friendId: friend!.id)
         vkRequest.loadPhotos(friendId: friend!.id) { [weak self] in
-            self?.loadDataPhotos()
+            self?.loadDataPhotos(friendId: self!.friend!.id)
         }
 
         title = friend?.firstName
@@ -34,17 +34,19 @@ class FriendsCollectionController: UICollectionViewController {
         iCarouselView.isPagingEnabled = true
     }
     
-    func loadDataPhotos() {
+    func loadDataPhotos(friendId: Int) {
         do {
             let realm = try Realm()
-            let photos = realm.objects(Photo.self)
+            let filter = "ownerId == " + String(friendId)
+            let photos = realm.objects(Photo.self).filter(filter)
             self.fotoResponse = Array(photos)
             self.iCarouselView.reloadData()
+            collectionView.reloadData()
         } catch  {
             print(error)
         }
     }
-    
+ 
     override func viewWillAppear(_ animated: Bool) {
         collectionView.backgroundColor = colorBG
         iCarouselView.backgroundColor = colorBG

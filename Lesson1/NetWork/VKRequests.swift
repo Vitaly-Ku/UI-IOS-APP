@@ -45,7 +45,7 @@ class VKRequests {
         URLSession.shared.dataTask(with: request) { (data, response, error) in
             DispatchQueue.main.async {
                 if let error = error {
-                    print("some error")
+                    print("some error", error)
                     return
                 }
                 guard let data = data else { return }
@@ -63,7 +63,7 @@ class VKRequests {
     // MARK: GET FRIENDS
     func getFriends(completion: @escaping () -> Void) {
         let params: Parameters = [
-            "fields" : "photo_100,sex",
+            "fields" : "photo_100,sex", // sex = 1 or 2
         ]
         AF.request("https://api.vk.com/method/" + "friends.get",  parameters: getBaseParameters(params)).responseJSON { response in
             guard let data = response.data else { return }
@@ -98,6 +98,8 @@ class VKRequests {
         let params: Parameters = [
             "album_id" : "profile",
             "owner_id" : friendId,
+            "extended" : "1",
+            
         ]
         AF.request("https://api.vk.com/method/" + "photos.get",  parameters: getBaseParameters(params)).responseJSON { response in
             guard let data = response.data else { return }
@@ -105,6 +107,7 @@ class VKRequests {
                 let photo = try JSONDecoder().decode(PhotoResponse.self, from: data).response.items
                 saveDataPhotos(photo, userId: friendId)
                 completion()
+                print(photo)
             } catch  let jsonError {
                 print("FAILED TO DECODE JSON", jsonError)
             }

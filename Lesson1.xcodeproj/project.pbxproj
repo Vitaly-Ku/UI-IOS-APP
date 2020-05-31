@@ -177,10 +177,10 @@
 			children = (
 				5DD916D324640EBD005A6B08 /* VKRequests.swift */,
 				5DD916D5246411C8005A6B08 /* VKSession.swift */,
-				5D4D28B6247B9E5B00876765 /* NewsFeed.swift */,
-				5D9BEF0D2467E51F00AE82F6 /* Group.swift */,
 				5D87020A245E9EB8001A0E55 /* Friend.swift */,
+				5D9BEF0D2467E51F00AE82F6 /* Group.swift */,
 				5D2E182F24698A01009A226E /* Photo.swift */,
+				5D4D28B6247B9E5B00876765 /* NewsFeed.swift */,
 			);
 			path = NetWork;
 			sourceTree = "<group>";

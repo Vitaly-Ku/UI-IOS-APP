@@ -52,6 +52,7 @@ extension VKLoginController: WKNavigationDelegate {
         
         Session.shared.token = token
         Session.shared.userId = userId
+        print(Session.shared.token, " это токен")
         
         performSegue(withIdentifier: "VKLogin", sender: nil)
         decisionHandler(.cancel)

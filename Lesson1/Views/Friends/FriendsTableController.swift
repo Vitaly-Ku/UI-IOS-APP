@@ -19,28 +19,44 @@ struct SectionFriend {
 class FriendsTableController: UITableViewController {
     
     let vkRequest = VKRequests()
-    
+    var token: NotificationToken?
     var friendSection = [SectionFriend]()
-    var friendResponse = [Friend]()
+//    var friendResponse = [Friend]()
+    var friendResponse: Results<Friend>?
     
     @IBOutlet weak var searchBar: UISearchBar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        loadDataFriends()
+        pairTableAndRealm()
         vkRequest.getFriends() { [weak self] in
-            self?.loadDataFriends()
+            self?.pairTableAndRealm()
         }
     }
     
-    func loadDataFriends() {
+    func pairTableAndRealm() {
         do {
             let realm = try Realm()
-            let friends = realm.objects(Friend.self).filter("firstName != %@","DELETED")
-            self.friendResponse = Array(friends)
+            friendResponse = realm.objects(Friend.self).filter("firstName != %@","DELETED")
+            self.token = friendResponse!.observe({ [weak self] (changes: RealmCollectionChange) in
+                guard let tableView = self!.tableView else { return }
+                switch changes {
+                case .initial(let results):
+                    print("initial", results)
+                    tableView.reloadData()
+                case let .update(results, deletions, insertions, modifications):
+                    print("update ", results,
+                          "deletions ", deletions,
+                          "insertions ", insertions,
+                          "modifications ", modifications)
+                    tableView.reloadData()
+                case .error(let error):
+                    print(error)
+                }
+            })
             
-            let myFriendsDictionary = Dictionary.init(grouping: (self.friendResponse)) {
+            let myFriendsDictionary = Dictionary.init(grouping: (self.friendResponse!)) {
                 $0.lastName.prefix(1)
             }
             self.friendSection = myFriendsDictionary.map {SectionFriend(title: String($0.key), items: $0.value)}
@@ -141,7 +157,7 @@ class FriendsTableController: UITableViewController {
 
 extension FriendsTableController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        let friendsDictionary = Dictionary.init(grouping: friendResponse.filter{(user) -> Bool in return searchText.isEmpty ? true : user.firstName.lowercased().contains(searchText.lowercased()) || user.lastName.lowercased().contains(searchText.lowercased())
+        let friendsDictionary = Dictionary.init(grouping: friendResponse!.filter{(user) -> Bool in return searchText.isEmpty ? true : user.firstName.lowercased().contains(searchText.lowercased()) || user.lastName.lowercased().contains(searchText.lowercased())
         }) { $0.lastName.prefix(1) }
         friendSection = friendsDictionary.map {SectionFriend(title: String($0.key), items: $0.value)}
         friendSection.sort {$0.title < $1.title}

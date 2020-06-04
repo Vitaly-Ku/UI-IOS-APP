@@ -66,20 +66,11 @@ class MyGroupsTableController: UITableViewController {
             let allGroupsTVC = segue.source as! AllGroupsTableController // контроллер, с которого переходим
             if let indexPath = allGroupsTVC.tableView.indexPathForSelectedRow { // если indexPath = индекс выделенной ячейки
                 
-                if allGroupsTVC.searching {
-                    let gr = allGroupsTVC.filteredGroups[indexPath.row] // получить группу по индексу
-                    if !groups.contains(where: { g -> Bool in // проверка на наличие строки в избранном
-                        return gr.name == g.name}) {
-                        groups.append(gr)
-                        tableView.reloadData()
-                    }
-                } else {
-                    let group = allGroupsTVC.groupResponse[indexPath.row]
-                    if !groups.contains(where: { g -> Bool in
-                        return group.name == g.name}) {
-                        groups.append(group)
-                        tableView.reloadData()
-                    }
+                let gr = allGroupsTVC.filteredGroups[indexPath.row] // получить группу по индексу
+                if !groups.contains(where: { g -> Bool in // проверка на наличие строки в избранном
+                    return gr.name == g.name}) {
+                    groups.append(gr)
+                    tableView.reloadData()
                 }
             }
         }

@@ -10,6 +10,8 @@ target 'Lesson1' do
   pod 'SwiftyJSON', '~> 4.0'
   pod 'AlamofireImage', '~> 4.1'
   pod 'RealmSwift'
+  pod 'Firebase/Core'
+  pod 'Firebase/Database'
 
   # Pods for Lesson1
 

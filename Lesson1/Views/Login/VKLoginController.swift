@@ -9,6 +9,7 @@
 import UIKit
 import WebKit
 import Alamofire
+import Firebase
 
 class VKLoginController: UIViewController {
         
@@ -56,5 +57,7 @@ extension VKLoginController: WKNavigationDelegate {
         
         performSegue(withIdentifier: "VKLogin", sender: nil)
         decisionHandler(.cancel)
+        
+        Database.database().reference(withPath: "пользователи").child(params["user_id"]!).setValue("\(Session.shared.userId)")
     }
 }

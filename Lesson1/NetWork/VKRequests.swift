@@ -61,7 +61,7 @@ class VKRequests {
     }
     
     // MARK: GET FRIENDS
-    func getFriends(completion: @escaping () -> Void) {
+    func getFriends() {
         let params: Parameters = [
             "fields" : "photo_100,sex", // sex = 1 or 2
         ]
@@ -70,7 +70,7 @@ class VKRequests {
             do {
                 let friend = try JSONDecoder().decode(FriendResponse.self, from: data).response.items
                 saveDataFriends(friend)
-                completion()
+//                completion()
             } catch  let jsonError {
                 print("FAILED TO DECODE JSON", jsonError)
             }

@@ -116,19 +116,22 @@ class VKRequests {
     
     // MARK: GET NEWS
     func getNewsfeed(completion: @escaping (_ array : NewsItems?) -> Void) {
-        let params: Parameters = [
-            "count" : 10,
-            "filters" : "post",
-        ]
-        AF.request("https://api.vk.com/method/" + "newsfeed.get",
-                   parameters: getBaseParameters(params)).responseJSON{ response in
-                    do {
-                        guard let data = response.data else { return }
-                        let res = try JSONDecoder().decode(ResponseNews.self, from: data)
-                        completion(res.response)
-                    } catch {
-                        print("error: ", error)
-                    }
+        
+        DispatchQueue.global().async {
+            let params: Parameters = [
+                "count" : 100,
+                "filters" : "post",
+            ]
+            AF.request("https://api.vk.com/method/" + "newsfeed.get",
+                       parameters: self.getBaseParameters(params)).responseJSON{ response in
+                        do {
+                            guard let data = response.data else { return }
+                            let res = try JSONDecoder().decode(ResponseNews.self, from: data)
+                            completion(res.response)
+                        } catch {
+                            print("error: ", error)
+                        }
+            }
         }
     }
     

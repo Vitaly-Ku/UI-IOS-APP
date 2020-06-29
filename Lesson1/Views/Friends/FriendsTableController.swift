@@ -55,6 +55,7 @@ class FriendsTableController: UITableViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         print(Session.shared.token)
         animateTable()
         tableView.backgroundColor = colorBG

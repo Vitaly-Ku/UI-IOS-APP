@@ -61,21 +61,20 @@ class VKRequests {
     }
     
     // MARK: GET FRIENDS
-    func getFriends() {
-        let params: Parameters = [
-            "fields" : "photo_100,sex", // sex = 1 or 2
-        ]
-        AF.request("https://api.vk.com/method/" + "friends.get",  parameters: getBaseParameters(params)).responseJSON { response in
-            guard let data = response.data else { return }
-            do {
-                let friend = try JSONDecoder().decode(FriendResponse.self, from: data).response.items
-                saveDataFriends(friend)
-//                completion()
-            } catch  let jsonError {
-                print("FAILED TO DECODE JSON", jsonError)
-            }
-        }
-    }
+//    func getFriends() {
+//        let params: Parameters = [
+//            "fields" : "photo_100,sex", // sex = 1 or 2
+//        ]
+//        AF.request("https://api.vk.com/method/" + "friends.get",  parameters: getBaseParameters(params)).responseJSON { response in
+//            guard let data = response.data else { return }
+//            do {
+//                let friend = try JSONDecoder().decode(FriendResponse.self, from: data).response.items
+//                saveDataFriends(friend)
+//            } catch  let jsonError {
+//                print("FAILED TO DECODE JSON", jsonError)
+//            }
+//        }
+//    }
     
     // MARK: GROUP SEARCH
     func groupsSearch(searchText: String, completion: @escaping (Result<[Group], Error>) -> Void) {
@@ -117,13 +116,13 @@ class VKRequests {
     // MARK: GET NEWS
     func getNewsfeed(completion: @escaping (_ array : NewsItems?) -> Void) {
         
-        DispatchQueue.global().async {
+        DispatchQueue.global().async { [weak self] in
             let params: Parameters = [
                 "count" : 100,
                 "filters" : "post",
             ]
             AF.request("https://api.vk.com/method/" + "newsfeed.get",
-                       parameters: self.getBaseParameters(params)).responseJSON{ response in
+                       parameters: self!.getBaseParameters(params)).responseJSON{ response in
                         do {
                             guard let data = response.data else { return }
                             let res = try JSONDecoder().decode(ResponseNews.self, from: data)

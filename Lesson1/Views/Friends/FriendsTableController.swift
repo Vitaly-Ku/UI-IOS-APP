@@ -21,18 +21,15 @@ class FriendsTableController: UITableViewController {
     let vkRequest = VKRequests()
     var token: NotificationToken?
     var friendSection = [SectionFriend]()
-//    var friendResponse = [Friend]()
     var friendResponse: Results<Friend>?
     
     @IBOutlet weak var searchBar: UISearchBar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        vkRequest.getFriends() 
+//        vkRequest.getFriends()
+        FriendsService.getFriends(controller: self)
         pairTableAndRealm()
-//        vkRequest.getFriends() { [weak self] in
-//            self?.pairTableAndRealm()
-//        }
     }
     
     func pairTableAndRealm() {
@@ -40,7 +37,6 @@ class FriendsTableController: UITableViewController {
             let realm = try Realm()
             friendResponse = realm.objects(Friend.self).filter("firstName != %@","DELETED")
             self.token = friendResponse!.observe({ [weak self] (changes: RealmCollectionChange) in
-                //                guard let tableView = self!.tableView else { return }
                 switch changes {
                 case .initial, .update:
                     let myFriendsDictionary = Dictionary.init(grouping: (self!.friendResponse!)) {
@@ -49,12 +45,6 @@ class FriendsTableController: UITableViewController {
                     self!.friendSection = myFriendsDictionary.map {SectionFriend(title: String($0.key), items: $0.value)}
                     self!.friendSection.sort {$0.title < $1.title}
                     self!.tableView.reloadData()
-                    //                case let .update(results, deletions, insertions, modifications):
-                    //                    print("update ", results,
-                    //                          "deletions ", deletions,
-                    //                          "insertions ", insertions,
-                    //                          "modifications ", modifications)
-                    
                 case .error(let error):
                     print(error)
                 }

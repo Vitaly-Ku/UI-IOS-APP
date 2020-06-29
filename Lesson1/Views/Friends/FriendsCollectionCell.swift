@@ -20,9 +20,6 @@ class FriendsCollectionCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-//        layer.borderColor = UIColor.lightGray.cgColor // рамки у фото в CVC
-//        layer.borderWidth = 7
-//        layer.cornerRadius = 25
         likeButton.setImage(#imageLiteral(resourceName: "heartRed"), for: .selected)
         likeButton.setImage(#imageLiteral(resourceName: "heartBlue"), for: .normal)
     }

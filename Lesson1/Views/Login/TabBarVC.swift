@@ -15,6 +15,7 @@ class TabBarVC: UITabBarController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
         tabBar.tintColor = colorBG
     }
 }

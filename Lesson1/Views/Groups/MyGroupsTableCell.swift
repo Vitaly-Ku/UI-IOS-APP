@@ -9,6 +9,7 @@
 import UIKit
 
 class MyGroupsTableCell: UITableViewCell {
+    
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var photo: UIImageView!
 }

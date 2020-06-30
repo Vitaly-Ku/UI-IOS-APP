@@ -44,19 +44,19 @@ class FriendList: Decodable {
 }
 
 
-func saveDataFriends(_ friends: [Friend]) {
-    do {
-        let realm = try Realm()
-        print(realm.configuration.fileURL)
-        let oldValue = realm.objects(Friend.self)
-        realm.beginWrite()
-        realm.delete(oldValue)
-        realm.add(friends, update: .modified)
-        try realm.commitWrite()
-        
-    } catch {
-        print(error)
-    }
-}
+//func saveDataFriends(_ friends: [Friend]) {
+//    do {
+//        let realm = try Realm()
+//        print(realm.configuration.fileURL)
+//        let oldValue = realm.objects(Friend.self)
+//        realm.beginWrite()
+//        realm.delete(oldValue)
+//        realm.add(friends, update: .modified)
+//        try realm.commitWrite()
+//        
+//    } catch {
+//        print(error)
+//    }
+//}
 
 

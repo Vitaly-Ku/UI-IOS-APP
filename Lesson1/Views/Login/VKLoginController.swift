@@ -13,7 +13,7 @@ import Firebase
 
 class VKLoginController: UIViewController {
         
-    @IBOutlet var webView: WKWebView!
+    @IBOutlet private var webView: WKWebView!
     let vkRequest = VKRequests()
     
     override func viewDidLoad() {

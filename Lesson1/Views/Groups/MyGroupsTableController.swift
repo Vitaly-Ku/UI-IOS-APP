@@ -14,8 +14,7 @@ import RealmSwift
 class MyGroupsTableController: UITableViewController {
     
     let vkRequest = VKRequests()
-    
-    var groups = [Group]() // вот тут-то и хранятся рез-ты запросов!
+    var groups = [Group]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +37,7 @@ class MyGroupsTableController: UITableViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         animateTable()
         tableView.backgroundColor = colorBG
         print(groups)

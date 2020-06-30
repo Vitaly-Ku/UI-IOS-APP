@@ -10,8 +10,8 @@
 		39550A3769BD53F258475C2F /* Pods_Lesson1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5C3C975AB2542CC884D6FB3 /* Pods_Lesson1.framework */; };
 		5D01A40D24A9020900E8A910 /* Operation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D01A40C24A9020900E8A910 /* Operation.swift */; };
 		5D01A40F24A902D400E8A910 /* GetData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D01A40E24A902D400E8A910 /* GetData.swift */; };
-		5D01A41124A9032500E8A910 /* ReloadTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D01A41024A9032500E8A910 /* ReloadTableController.swift */; };
-		5D01A41324A903CE00E8A910 /* ParseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D01A41224A903CE00E8A910 /* ParseData.swift */; };
+		5D01A41124A9032500E8A910 /* ReloadTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D01A41024A9032500E8A910 /* ReloadTableView.swift */; };
+		5D01A41324A903CE00E8A910 /* ParseFriends.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D01A41224A903CE00E8A910 /* ParseFriends.swift */; };
 		5D2E183024698A01009A226E /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2E182F24698A01009A226E /* Photo.swift */; };
 		5D362CC6244ED84E002DF4EF /* InteractiveTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D362CC5244ED84E002DF4EF /* InteractiveTransition.swift */; };
 		5D4B24082449AAA100E25884 /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D4B24072449AAA100E25884 /* iCarousel.m */; };
@@ -54,8 +54,8 @@
 		36E671F1F7427092C2D269CF /* Pods-Lesson1.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lesson1.debug.xcconfig"; path = "Target Support Files/Pods-Lesson1/Pods-Lesson1.debug.xcconfig"; sourceTree = "<group>"; };
 		5D01A40C24A9020900E8A910 /* Operation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Operation.swift; sourceTree = "<group>"; };
 		5D01A40E24A902D400E8A910 /* GetData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetData.swift; sourceTree = "<group>"; };
-		5D01A41024A9032500E8A910 /* ReloadTableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReloadTableController.swift; sourceTree = "<group>"; };
-		5D01A41224A903CE00E8A910 /* ParseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseData.swift; sourceTree = "<group>"; };
+		5D01A41024A9032500E8A910 /* ReloadTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReloadTableView.swift; sourceTree = "<group>"; };
+		5D01A41224A903CE00E8A910 /* ParseFriends.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseFriends.swift; sourceTree = "<group>"; };
 		5D2DF1002466F3380076BEF3 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D2DF1042466F3410076BEF3 /* AlamofireImage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AlamofireImage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D2DF1072466F34A0076BEF3 /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -124,8 +124,8 @@
 			children = (
 				5D01A40C24A9020900E8A910 /* Operation.swift */,
 				5D01A40E24A902D400E8A910 /* GetData.swift */,
-				5D01A41024A9032500E8A910 /* ReloadTableController.swift */,
-				5D01A41224A903CE00E8A910 /* ParseData.swift */,
+				5D01A41024A9032500E8A910 /* ReloadTableView.swift */,
+				5D01A41224A903CE00E8A910 /* ParseFriends.swift */,
 				5DF03FEC24A9C9B200EE3CDF /* FriendsService.swift */,
 			);
 			path = Operation;
@@ -436,7 +436,7 @@
 				5D8B22CE242FECCB00A2D17C /* FriendsCollectionController.swift in Sources */,
 				5D8CBFD8244EC234007A5C34 /* CustomPushAnimator.swift in Sources */,
 				5D4B24082449AAA100E25884 /* iCarousel.m in Sources */,
-				5D01A41124A9032500E8A910 /* ReloadTableController.swift in Sources */,
+				5D01A41124A9032500E8A910 /* ReloadTableView.swift in Sources */,
 				5DD916D424640EBD005A6B08 /* VKRequests.swift in Sources */,
 				5DB3227724345CC9001AAC86 /* AvatarRoundShadow.swift in Sources */,
 				5DD916D6246411C8005A6B08 /* VKSession.swift in Sources */,
@@ -447,7 +447,7 @@
 				5DC45FC02456D5CA00CF58CD /* Extensions.swift in Sources */,
 				5D5D306E24465CDA009B9A17 /* SettingsViewController.swift in Sources */,
 				5DFC9494243B369100BE9B06 /* NewsTableController.swift in Sources */,
-				5D01A41324A903CE00E8A910 /* ParseData.swift in Sources */,
+				5D01A41324A903CE00E8A910 /* ParseFriends.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

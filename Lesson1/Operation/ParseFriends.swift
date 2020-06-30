@@ -9,14 +9,14 @@
 import Foundation
 import RealmSwift
 
-class ParseDataVKGroup: Operation {
+class ParseFriends: Operation {
     
     override func main() {
-        guard let getDataOperation = dependencies.first as? GetDataOperation,
-            let data = getDataOperation.data else { return }
+        guard let operation = dependencies.first as? GetOperationData,
+            let data = operation.data else { return }
         
-        let dataVKGroups =  try? JSONDecoder().decode(FriendResponse.self, from: data).response.items
-        ParseDataVKGroup.self.saveDataFriends(dataVKGroups!)   
+        let dataFriends =  try? JSONDecoder().decode(FriendResponse.self, from: data).response.items
+        ParseFriends.self.saveDataFriends(dataFriends!)   
     }
     
     static func saveDataFriends(_ friends: [Friend]) {

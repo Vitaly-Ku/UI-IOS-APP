@@ -16,29 +16,15 @@ class FriendsService {
             "fields" : "photo_100,sex",
         ]
         let request = AF.request("https://api.vk.com/method/friends.get",  parameters: getBaseParameters(params))
-        
-        //создаем очередь
         let queue = OperationQueue()
-        
-        //задача на выполнение запроса
-        let getDataOperation = GetDataOperation(request: request)
-        queue.addOperation(getDataOperation)
-        
-        //задача на парсинг даных
-        let parseDataVKGroup = ParseDataVKGroup()
-        //добавляем зависимость
-        parseDataVKGroup.addDependency(getDataOperation)
-        queue.addOperation(parseDataVKGroup)
-        
-        //задание на обновление контроллера
-        let realoadGroupController = ReloadTableController(controller: controller)
-        
-        //добавляем зависимость
-        realoadGroupController.addDependency(parseDataVKGroup)
-        
-        //добавляем на глвную очередь
-        OperationQueue.main.addOperation(realoadGroupController)
-        
+        let getData = GetOperationData(request: request)
+        queue.addOperation(getData)
+        let parse = ParseFriends()
+        parse.addDependency(getData)
+        queue.addOperation(parse)
+        let reload = ReloadTableView(controller: controller)
+        reload.addDependency(parse)
+        OperationQueue.main.addOperation(reload)
     }
 }
 

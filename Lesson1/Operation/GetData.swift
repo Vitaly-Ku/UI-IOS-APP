@@ -8,7 +8,7 @@
 
 import Alamofire
 
-class GetDataOperation : AsyncOperation {
+class GetOperationData : AsyncOperation {
     
     var request: DataRequest
     var data: Data?

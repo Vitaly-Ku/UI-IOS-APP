@@ -9,7 +9,7 @@
 import Foundation
 import RealmSwift
 
-class ReloadTableController: Operation {
+class ReloadTableView: Operation {
     
     var controller: FriendsTableController
     var frriends: Results<Friend>?
@@ -19,11 +19,8 @@ class ReloadTableController: Operation {
     }
     
     override func main() {
-        
-        guard (dependencies.first as? ParseDataVKGroup) != nil else { return }
-        
+        guard (dependencies.first as? ParseFriends) != nil else { return }
         guard let realm = try? Realm() else {return}
-        //получаем данные из реалм
         frriends = realm.objects(Friend.self)
         controller.friendResponse = frriends
         controller.tableView.reloadData()

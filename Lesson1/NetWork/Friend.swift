@@ -16,7 +16,6 @@ class Friend: Object, Decodable {
     @objc dynamic var photo100: String = ""
     @objc dynamic var id: Int = 0
     @objc dynamic var sex: Int = 0
-//    @objc dynamic var city: String = ""
     
     
     enum CodingKeys: String, CodingKey {
@@ -26,7 +25,6 @@ class Friend: Object, Decodable {
         case photo100 = "photo_100"
         case id
         case sex
-//        case city
     }
     
     override static func primaryKey() -> String? {
@@ -53,7 +51,7 @@ class FriendList: Decodable {
 //        realm.delete(oldValue)
 //        realm.add(friends, update: .modified)
 //        try realm.commitWrite()
-//        
+//
 //    } catch {
 //        print(error)
 //    }

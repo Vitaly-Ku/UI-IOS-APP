@@ -47,6 +47,7 @@ class FriendsCollectionController: UICollectionViewController {
     }
  
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         collectionView.backgroundColor = colorBG
         iCarouselView.backgroundColor = colorBG
     }

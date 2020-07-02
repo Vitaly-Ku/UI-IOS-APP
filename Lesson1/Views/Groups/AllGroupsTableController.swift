@@ -24,6 +24,7 @@ class AllGroupsTableController: UITableViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         tableView.backgroundColor = colorBG
         searchBar.barTintColor = colorBG
         searchBar.tintColor = colorBG

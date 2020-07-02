@@ -61,20 +61,20 @@ class VKRequests {
     }
     
     // MARK: GET FRIENDS
-//    func getFriends() {
-//        let params: Parameters = [
-//            "fields" : "photo_100,sex", // sex = 1 or 2
-//        ]
-//        AF.request("https://api.vk.com/method/" + "friends.get",  parameters: getBaseParameters(params)).responseJSON { response in
-//            guard let data = response.data else { return }
-//            do {
-//                let friend = try JSONDecoder().decode(FriendResponse.self, from: data).response.items
-//                saveDataFriends(friend)
-//            } catch  let jsonError {
-//                print("FAILED TO DECODE JSON", jsonError)
-//            }
-//        }
-//    }
+    func getFriends() {
+        let params: Parameters = [
+            "fields" : "photo_100,sex", // sex = 1 or 2
+        ]
+        AF.request("https://api.vk.com/method/" + "friends.get",  parameters: getBaseParameters(params)).responseJSON { response in
+            guard let data = response.data else { return }
+            do {
+                let friend = try JSONDecoder().decode(FriendResponse.self, from: data).response.items
+                saveDataFriends(friend)
+            } catch  let jsonError {
+                print("FAILED TO DECODE JSON", jsonError)
+            }
+        }
+    }
     
     // MARK: GROUP SEARCH
     func groupsSearch(searchText: String, completion: @escaping (Result<[Group], Error>) -> Void) {

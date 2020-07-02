@@ -12,6 +12,7 @@ target 'Lesson1' do
   pod 'RealmSwift'
   pod 'Firebase/Core'
   pod 'Firebase/Database'
+  pod  'PromiseKit' ,  '~> 6.0'
 
   # Pods for Lesson1
 

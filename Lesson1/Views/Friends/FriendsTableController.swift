@@ -28,7 +28,7 @@ class FriendsTableController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 //        vkRequest.getFriends()
-        FriendsService.getFriends(controller: self)
+        PromiseFriends.freandPromise()
         pairTableAndRealm()
     }
     

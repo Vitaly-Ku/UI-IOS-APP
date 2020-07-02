@@ -10,8 +10,8 @@
 		39550A3769BD53F258475C2F /* Pods_Lesson1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5C3C975AB2542CC884D6FB3 /* Pods_Lesson1.framework */; };
 		5D01A40D24A9020900E8A910 /* Operation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D01A40C24A9020900E8A910 /* Operation.swift */; };
 		5D01A40F24A902D400E8A910 /* GetData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D01A40E24A902D400E8A910 /* GetData.swift */; };
-		5D01A41124A9032500E8A910 /* ReloadTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D01A41024A9032500E8A910 /* ReloadTableView.swift */; };
-		5D01A41324A903CE00E8A910 /* ParseFriends.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D01A41224A903CE00E8A910 /* ParseFriends.swift */; };
+		5D01A41124A9032500E8A910 /* ReloadTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D01A41024A9032500E8A910 /* ReloadTableController.swift */; };
+		5D01A41324A903CE00E8A910 /* ParseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D01A41224A903CE00E8A910 /* ParseData.swift */; };
 		5D2E183024698A01009A226E /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2E182F24698A01009A226E /* Photo.swift */; };
 		5D362CC6244ED84E002DF4EF /* InteractiveTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D362CC5244ED84E002DF4EF /* InteractiveTransition.swift */; };
 		5D4B24082449AAA100E25884 /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D4B24072449AAA100E25884 /* iCarousel.m */; };
@@ -33,6 +33,7 @@
 		5D92BCB224570BCF00C107E0 /* TabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D92BCB124570BCF00C107E0 /* TabBarVC.swift */; };
 		5D9BEF0C2467156C00AE82F6 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DE083BC2458347E008E3134 /* WebKit.framework */; };
 		5D9BEF0E2467E51F00AE82F6 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9BEF0D2467E51F00AE82F6 /* Group.swift */; };
+		5D9FA54024ADBD5600074C2D /* PromiseFriends.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9FA53F24ADBD5600074C2D /* PromiseFriends.swift */; };
 		5DB193092488D5F70028554A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5DB193082488D5F70028554A /* GoogleService-Info.plist */; };
 		5DB3227724345CC9001AAC86 /* AvatarRoundShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB3227624345CC9001AAC86 /* AvatarRoundShadow.swift */; };
 		5DC45FC02456D5CA00CF58CD /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC45FBF2456D5CA00CF58CD /* Extensions.swift */; };
@@ -54,8 +55,8 @@
 		36E671F1F7427092C2D269CF /* Pods-Lesson1.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lesson1.debug.xcconfig"; path = "Target Support Files/Pods-Lesson1/Pods-Lesson1.debug.xcconfig"; sourceTree = "<group>"; };
 		5D01A40C24A9020900E8A910 /* Operation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Operation.swift; sourceTree = "<group>"; };
 		5D01A40E24A902D400E8A910 /* GetData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetData.swift; sourceTree = "<group>"; };
-		5D01A41024A9032500E8A910 /* ReloadTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReloadTableView.swift; sourceTree = "<group>"; };
-		5D01A41224A903CE00E8A910 /* ParseFriends.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseFriends.swift; sourceTree = "<group>"; };
+		5D01A41024A9032500E8A910 /* ReloadTableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReloadTableController.swift; sourceTree = "<group>"; };
+		5D01A41224A903CE00E8A910 /* ParseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseData.swift; sourceTree = "<group>"; };
 		5D2DF1002466F3380076BEF3 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D2DF1042466F3410076BEF3 /* AlamofireImage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AlamofireImage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D2DF1072466F34A0076BEF3 /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -82,6 +83,7 @@
 		5D8CBFD7244EC234007A5C34 /* CustomPushAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPushAnimator.swift; sourceTree = "<group>"; };
 		5D92BCB124570BCF00C107E0 /* TabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarVC.swift; sourceTree = "<group>"; };
 		5D9BEF0D2467E51F00AE82F6 /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
+		5D9FA53F24ADBD5600074C2D /* PromiseFriends.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromiseFriends.swift; sourceTree = "<group>"; };
 		5DB193082488D5F70028554A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5DB3227624345CC9001AAC86 /* AvatarRoundShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarRoundShadow.swift; sourceTree = "<group>"; };
 		5DC45FBF2456D5CA00CF58CD /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -124,8 +126,8 @@
 			children = (
 				5D01A40C24A9020900E8A910 /* Operation.swift */,
 				5D01A40E24A902D400E8A910 /* GetData.swift */,
-				5D01A41024A9032500E8A910 /* ReloadTableView.swift */,
-				5D01A41224A903CE00E8A910 /* ParseFriends.swift */,
+				5D01A41024A9032500E8A910 /* ReloadTableController.swift */,
+				5D01A41224A903CE00E8A910 /* ParseData.swift */,
 				5DF03FEC24A9C9B200EE3CDF /* FriendsService.swift */,
 			);
 			path = Operation;
@@ -209,6 +211,14 @@
 			path = NetWork;
 			sourceTree = "<group>";
 		};
+		5D9FA53E24ADBD3100074C2D /* Promise */ = {
+			isa = PBXGroup;
+			children = (
+				5D9FA53F24ADBD5600074C2D /* PromiseFriends.swift */,
+			);
+			path = Promise;
+			sourceTree = "<group>";
+		};
 		5DB3227524345CAE001AAC86 /* CustomClass */ = {
 			isa = PBXGroup;
 			children = (
@@ -284,6 +294,7 @@
 			isa = PBXGroup;
 			children = (
 				DC81B23C2429257800E170A0 /* Main.storyboard */,
+				5D9FA53E24ADBD3100074C2D /* Promise */,
 				5D01A40B24A901E000E8A910 /* Operation */,
 				5DC45FBE2456D5AA00CF58CD /* Extensions */,
 				5D870209245E9E73001A0E55 /* NetWork */,
@@ -424,6 +435,7 @@
 				5D611E032445EA2B00811894 /* LoadingViewController.swift in Sources */,
 				5D92BCB224570BCF00C107E0 /* TabBarVC.swift in Sources */,
 				5DE083BA24581D99008E3134 /* VKLoginController.swift in Sources */,
+				5D9FA54024ADBD5600074C2D /* PromiseFriends.swift in Sources */,
 				5D8B22CA242FC81200A2D17C /* MyGroupsTableController.swift in Sources */,
 				5DF03FED24A9C9B200EE3CDF /* FriendsService.swift in Sources */,
 				5D362CC6244ED84E002DF4EF /* InteractiveTransition.swift in Sources */,
@@ -436,7 +448,7 @@
 				5D8B22CE242FECCB00A2D17C /* FriendsCollectionController.swift in Sources */,
 				5D8CBFD8244EC234007A5C34 /* CustomPushAnimator.swift in Sources */,
 				5D4B24082449AAA100E25884 /* iCarousel.m in Sources */,
-				5D01A41124A9032500E8A910 /* ReloadTableView.swift in Sources */,
+				5D01A41124A9032500E8A910 /* ReloadTableController.swift in Sources */,
 				5DD916D424640EBD005A6B08 /* VKRequests.swift in Sources */,
 				5DB3227724345CC9001AAC86 /* AvatarRoundShadow.swift in Sources */,
 				5DD916D6246411C8005A6B08 /* VKSession.swift in Sources */,
@@ -447,7 +459,7 @@
 				5DC45FC02456D5CA00CF58CD /* Extensions.swift in Sources */,
 				5D5D306E24465CDA009B9A17 /* SettingsViewController.swift in Sources */,
 				5DFC9494243B369100BE9B06 /* NewsTableController.swift in Sources */,
-				5D01A41324A903CE00E8A910 /* ParseFriends.swift in Sources */,
+				5D01A41324A903CE00E8A910 /* ParseData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

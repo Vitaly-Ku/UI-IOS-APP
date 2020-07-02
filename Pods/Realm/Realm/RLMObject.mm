@@ -156,10 +156,6 @@
     return RLMObjectFreeze(self);
 }
 
-- (BOOL)isFrozen {
-    return _realm.isFrozen;
-}
-
 - (RLMNotificationToken *)addNotificationBlock:(RLMObjectChangeBlock)block {
     return RLMObjectAddNotificationBlock(self, block, nil);
 }

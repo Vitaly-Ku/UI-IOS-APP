@@ -1599,9 +1599,7 @@ public class DownloadRequest: Request {
 
             let result = validation(self.request, response, self.fileURL)
 
-            if case let .failure(error) = result {
-                self.error = error.asAFError(or: .responseValidationFailed(reason: .customValidationFailed(error: error)))
-            }
+            if case let .failure(error) = result { self.error = error.asAFError(or: .responseValidationFailed(reason: .customValidationFailed(error: error))) }
 
             self.eventMonitor?.request(self,
                                        didValidateRequest: self.request,

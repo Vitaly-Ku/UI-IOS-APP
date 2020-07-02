@@ -232,10 +232,7 @@ extension DataStreamRequest {
     /// - Returns: The instance.
     @discardableResult
     public func validate() -> Self {
-        let contentTypes: () -> [String] = { [unowned self] in
-            self.acceptableContentTypes
-        }
-        return validate(statusCode: acceptableStatusCodes).validate(contentType: contentTypes())
+        validate(statusCode: acceptableStatusCodes).validate(contentType: self.acceptableContentTypes)
     }
 }
 

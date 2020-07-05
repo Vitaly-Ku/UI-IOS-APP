@@ -8,6 +8,12 @@
 
 import Alamofire
 
+protocol VKServiceInterface {
+//    func loadGroups(for user: Int, completion: (([Group]?, Error?) -> Void)?)
+    func joinGroup(for group: Int)
+    func leaveGroup(for group: Int)
+}
+
 class VKRequests {
     
     // MARK: LOGIN REQUEST
@@ -132,6 +138,24 @@ class VKRequests {
                         }
             }
         }
+    }
+    
+    func joinGroup(for group: Int) {
+        let parameters: Parameters = [
+            "group_id": group,
+            "access_token": Session.shared.token,
+            "v": "5.103"
+        ]
+        AF.request("https://api.vk.com/method/" + "groups.join", parameters: getBaseParameters(parameters)).responseJSON { response in}
+    }
+    
+    func leaveGroup(for group: Int) {
+        let parameters: Parameters = [
+            "group_id": group,
+            "access_token": Session.shared.token,
+            "v": "5.103"
+        ]
+        AF.request("https://api.vk.com/method/" + "groups.leave", parameters: getBaseParameters(parameters)).responseJSON { response in }
     }
     
     // MARK: BASE PARAMETERS

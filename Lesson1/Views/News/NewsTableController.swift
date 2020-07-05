@@ -37,7 +37,7 @@ class NewsTableController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "newsCell", for: indexPath) as! NewsTableCell
         let currentNews = news!.items[indexPath.row]
         
-        cell.configure(news: news!.items[indexPath.row], n: news!)
+        cell.configure(news: news!.items[indexPath.row], newsItem: news!)
         
         let date = NSDate(timeIntervalSince1970: Double(currentNews.date))
         let currentDate = Date()

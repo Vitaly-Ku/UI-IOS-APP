@@ -12,6 +12,7 @@
 		5D01A40F24A902D400E8A910 /* GetData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D01A40E24A902D400E8A910 /* GetData.swift */; };
 		5D01A41124A9032500E8A910 /* ReloadTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D01A41024A9032500E8A910 /* ReloadTableController.swift */; };
 		5D01A41324A903CE00E8A910 /* ParseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D01A41224A903CE00E8A910 /* ParseData.swift */; };
+		5D24AE0324B210C000F04978 /* VKServiceProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D24AE0224B210C000F04978 /* VKServiceProxy.swift */; };
 		5D2E183024698A01009A226E /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2E182F24698A01009A226E /* Photo.swift */; };
 		5D362CC6244ED84E002DF4EF /* InteractiveTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D362CC5244ED84E002DF4EF /* InteractiveTransition.swift */; };
 		5D4B24082449AAA100E25884 /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D4B24072449AAA100E25884 /* iCarousel.m */; };
@@ -57,6 +58,7 @@
 		5D01A40E24A902D400E8A910 /* GetData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetData.swift; sourceTree = "<group>"; };
 		5D01A41024A9032500E8A910 /* ReloadTableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReloadTableController.swift; sourceTree = "<group>"; };
 		5D01A41224A903CE00E8A910 /* ParseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseData.swift; sourceTree = "<group>"; };
+		5D24AE0224B210C000F04978 /* VKServiceProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKServiceProxy.swift; sourceTree = "<group>"; };
 		5D2DF1002466F3380076BEF3 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D2DF1042466F3410076BEF3 /* AlamofireImage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AlamofireImage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D2DF1072466F34A0076BEF3 /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -207,6 +209,7 @@
 				5D9BEF0D2467E51F00AE82F6 /* Group.swift */,
 				5D2E182F24698A01009A226E /* Photo.swift */,
 				5D4D28B6247B9E5B00876765 /* NewsFeed.swift */,
+				5D24AE0224B210C000F04978 /* VKServiceProxy.swift */,
 			);
 			path = NetWork;
 			sourceTree = "<group>";
@@ -449,6 +452,7 @@
 				5D8CBFD8244EC234007A5C34 /* CustomPushAnimator.swift in Sources */,
 				5D4B24082449AAA100E25884 /* iCarousel.m in Sources */,
 				5D01A41124A9032500E8A910 /* ReloadTableController.swift in Sources */,
+				5D24AE0324B210C000F04978 /* VKServiceProxy.swift in Sources */,
 				5DD916D424640EBD005A6B08 /* VKRequests.swift in Sources */,
 				5DB3227724345CC9001AAC86 /* AvatarRoundShadow.swift in Sources */,
 				5DD916D6246411C8005A6B08 /* VKSession.swift in Sources */,

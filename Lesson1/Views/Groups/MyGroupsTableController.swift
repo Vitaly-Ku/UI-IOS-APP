@@ -50,14 +50,19 @@ class MyGroupsTableController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "groupCell", for: indexPath) as! MyGroupsTableCell
         cell.titleLabel.text = groups[indexPath.row].name
-        AF.request(groups[indexPath.row].photo200).responseImage { response in
-            do {
-             let image = try response.result.get()
-                cell.photo.image = image
-            } catch {
-                print("CAN'T GET AVATAR")
-            }
-        }
+        
+        let urlUserImage = groups[indexPath.row].photo200
+        
+        cell.photo.af.setImage(withURL: URL(string: urlUserImage)!)
+        
+//        AF.request(groups[indexPath.row].photo200).responseImage { response in
+//            do {
+//             let image = try response.result.get()
+//                cell.photo.image = image
+//            } catch {
+//                print("CAN'T GET AVATAR")
+//            }
+//        }
         return cell
     }
     
@@ -71,6 +76,7 @@ class MyGroupsTableController: UITableViewController {
                     return gr.name == g.name}) {
                     groups.append(gr)
                     tableView.reloadData()
+                    vkRequest.joinGroup(for: gr.id)
                 }
             }
         }
@@ -78,6 +84,7 @@ class MyGroupsTableController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) { // изменение строки (удаление/ или вставка)
         if editingStyle == .delete { // Если была нажата кнопка «Удалить»
+            vkRequest.leaveGroup(for: groups[indexPath.row].id)
             groups.remove(at: indexPath.row) // Удаляем группу из массива
             tableView.deleteRows(at: [indexPath], with: .fade) // удаляем строку из таблицы
         }

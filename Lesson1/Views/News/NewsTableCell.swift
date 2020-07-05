@@ -7,9 +7,10 @@
 //
 
 import UIKit
+import AlamofireImage
 
 class NewsTableCell: UITableViewCell {
-
+    
     @IBOutlet private weak var avatar: UIImageView!
     @IBOutlet private weak var name: UILabel!
     @IBOutlet weak var date: UILabel!
@@ -37,28 +38,26 @@ class NewsTableCell: UITableViewCell {
         self.likeCounter.frame.origin.y -= 3
     }
     
-    func configure(news: News, n: NewsItems) {
+    func configure(news: News, newsItem: NewsItems) {
         
         let id = news.sourceID
-        var authorImage : UIImage?
+        var authorImage = ""
         var authorName = ""
         
         if id > 0 {
-            if let user = n.profiles.first(where: {$0.id == abs(id)}) {
+            if let user = newsItem.profiles.first(where: {$0.id == abs(id)}) {
                 authorName = user.firstName + user.lastName
-                authorImage = UIImage.getImage(from: user.photo100)
+                authorImage = user.photo100
             }
         } else {
-            if let group = n.groups.first(where: {$0.id == abs(id)}) {
+            if let group = newsItem.groups.first(where: {$0.id == abs(id)}) {
                 authorName = group.name
-                authorImage = UIImage.getImage(from: group.photo200)
+                authorImage = group.photo200
             }
         }
         
-        if let authorImage = authorImage {
-            avatar.image = authorImage
-            img.image = authorImage
-        }
+        avatar.af.setImage(withURL: URL(string: authorImage)!)
+        img.af.setImage(withURL: URL(string: authorImage)!)
         
         comment.text = news.text
         name.text = authorName

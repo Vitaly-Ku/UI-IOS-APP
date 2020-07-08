@@ -36,15 +36,7 @@ class AllGroupsTableController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "groupCell", for: indexPath) as! AllGroupsTableCell
-        cell.titleLabel?.text = filteredGroups[indexPath.row].name
-                   AF.request(filteredGroups[indexPath.row].photo200).responseImage { response in
-                       do {
-                        let image = try response.result.get()
-                           cell.photo.image = image
-                       } catch {
-                           print("CAN'T GET AVATAR")
-                       }
-                   }
+        cell.configureAllGroupsCell(group: filteredGroups[indexPath.row])
         return cell
     }
 }
@@ -57,7 +49,6 @@ extension AllGroupsTableController: UISearchBarDelegate {
             switch result {
             case .success(let searchResponse):
                 self?.filteredGroups = searchResponse
-//                self?.searching = false
                 self?.tableView.reloadData()
             case .failure(let error):
                 print(error)

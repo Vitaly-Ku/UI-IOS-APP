@@ -7,13 +7,14 @@
 //
 
 import UIKit
+import AlamofireImage
 
 class FriendsTableCell: UITableViewCell {
         
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var statusLabel: UILabel!
-    @IBOutlet weak var photo: UIImageView!
-    @IBOutlet weak var shadov: UIView!
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var statusLabel: UILabel!
+    @IBOutlet private weak var photo: UIImageView!
+    @IBOutlet private weak var shadov: UIView!
     
     @IBAction func avatarRotate() { 
         let animation = CASpringAnimation(keyPath: "transform.scale")
@@ -22,5 +23,18 @@ class FriendsTableCell: UITableViewCell {
         animation.stiffness = 350
         animation.duration = 0.7
         photo.layer.add(animation, forKey: nil)
+    }
+    
+    func configureFriendsCell(friend: Friend) {
+        titleLabel.text = friend.lastName + " " + friend.firstName
+        if friend.online == 0 {
+            statusLabel.text = "не в сети"
+            statusLabel.textColor = .darkGray
+        } else {
+            statusLabel.text = "в сети"
+            statusLabel.textColor = .systemGreen
+        }
+        let urlUserImage = friend.photo100
+        photo.af.setImage(withURL: URL(string: urlUserImage)!)
     }
 }

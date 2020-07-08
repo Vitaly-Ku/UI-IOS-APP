@@ -7,9 +7,17 @@
 //
 
 import UIKit
+import AlamofireImage
 
 class AllGroupsTableCell: UITableViewCell {
-
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var photo: UIImageView!
+    
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var photo: UIImageView!
+    
+    func configureAllGroupsCell(group: Group) {
+        titleLabel.text = group.name
+        
+        let urlGroupImage = group.photo200
+        photo.af.setImage(withURL: URL(string: urlGroupImage)!)
+    }
 }

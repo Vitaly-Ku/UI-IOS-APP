@@ -27,8 +27,7 @@ class FriendsTableController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        vkRequest.getFriends()
-        PromiseFriends.freandPromise()
+        vkRequest.getFriends()
         pairTableAndRealm()
     }
     
@@ -78,32 +77,8 @@ class FriendsTableController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int { friendSection[section].items.count }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-//        let imageCache = NSCache<AnyObject, AnyObject>()
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: "friendCell", for: indexPath) as! FriendsTableCell
-        let friend = friendSection[indexPath.section].items[indexPath.row]
-        cell.titleLabel.text = friend.lastName + " " + friend.firstName
-        if friend.online == 0 {
-            cell.statusLabel.text = "не в сети"
-            cell.statusLabel.textColor = .darkGray
-        } else {
-            cell.statusLabel.text = "в сети"
-            cell.statusLabel.textColor = .systemGreen
-        }
-        
-        let urlUserImage = friend.photo100
-        
-        cell.photo.af.setImage(withURL: URL(string: urlUserImage)!)
-        
-//        AF.request((friend.photo100)).responseImage { response in
-//            do {
-//                let image = try response.result.get()
-//                cell.photo.image = image
-//            } catch {
-//                print("CAN'T GET AVATAR")
-//            }
-//        }
+        cell.configureFriendsCell(friend: friendSection[indexPath.section].items[indexPath.row])
         return cell
     }
     

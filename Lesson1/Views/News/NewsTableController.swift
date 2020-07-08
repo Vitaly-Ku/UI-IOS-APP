@@ -34,17 +34,8 @@ class NewsTableController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "newsCell", for: indexPath) as! NewsTableCell
-        let currentNews = news!.items[indexPath.row]
-        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "newsCell", for: indexPath) as! NewsTableCell  
         cell.configure(news: news!.items[indexPath.row], newsItem: news!)
-        
-        let date = NSDate(timeIntervalSince1970: Double(currentNews.date))
-        let currentDate = Date()
-        let result = currentDate.timeIntervalSince(date as Date)
-        
-        cell.date.text = result.toRelativeDateTime()
-        
         return cell
     }
 }

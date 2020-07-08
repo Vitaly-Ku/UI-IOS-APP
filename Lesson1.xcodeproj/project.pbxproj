@@ -34,7 +34,6 @@
 		5D92BCB224570BCF00C107E0 /* TabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D92BCB124570BCF00C107E0 /* TabBarVC.swift */; };
 		5D9BEF0C2467156C00AE82F6 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DE083BC2458347E008E3134 /* WebKit.framework */; };
 		5D9BEF0E2467E51F00AE82F6 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9BEF0D2467E51F00AE82F6 /* Group.swift */; };
-		5D9FA54024ADBD5600074C2D /* PromiseFriends.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9FA53F24ADBD5600074C2D /* PromiseFriends.swift */; };
 		5DB193092488D5F70028554A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5DB193082488D5F70028554A /* GoogleService-Info.plist */; };
 		5DB3227724345CC9001AAC86 /* AvatarRoundShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB3227624345CC9001AAC86 /* AvatarRoundShadow.swift */; };
 		5DC45FC02456D5CA00CF58CD /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC45FBF2456D5CA00CF58CD /* Extensions.swift */; };
@@ -85,7 +84,6 @@
 		5D8CBFD7244EC234007A5C34 /* CustomPushAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPushAnimator.swift; sourceTree = "<group>"; };
 		5D92BCB124570BCF00C107E0 /* TabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarVC.swift; sourceTree = "<group>"; };
 		5D9BEF0D2467E51F00AE82F6 /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
-		5D9FA53F24ADBD5600074C2D /* PromiseFriends.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromiseFriends.swift; sourceTree = "<group>"; };
 		5DB193082488D5F70028554A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5DB3227624345CC9001AAC86 /* AvatarRoundShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarRoundShadow.swift; sourceTree = "<group>"; };
 		5DC45FBF2456D5CA00CF58CD /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -214,14 +212,6 @@
 			path = NetWork;
 			sourceTree = "<group>";
 		};
-		5D9FA53E24ADBD3100074C2D /* Promise */ = {
-			isa = PBXGroup;
-			children = (
-				5D9FA53F24ADBD5600074C2D /* PromiseFriends.swift */,
-			);
-			path = Promise;
-			sourceTree = "<group>";
-		};
 		5DB3227524345CAE001AAC86 /* CustomClass */ = {
 			isa = PBXGroup;
 			children = (
@@ -297,7 +287,6 @@
 			isa = PBXGroup;
 			children = (
 				DC81B23C2429257800E170A0 /* Main.storyboard */,
-				5D9FA53E24ADBD3100074C2D /* Promise */,
 				5D01A40B24A901E000E8A910 /* Operation */,
 				5DC45FBE2456D5AA00CF58CD /* Extensions */,
 				5D870209245E9E73001A0E55 /* NetWork */,
@@ -438,7 +427,6 @@
 				5D611E032445EA2B00811894 /* LoadingViewController.swift in Sources */,
 				5D92BCB224570BCF00C107E0 /* TabBarVC.swift in Sources */,
 				5DE083BA24581D99008E3134 /* VKLoginController.swift in Sources */,
-				5D9FA54024ADBD5600074C2D /* PromiseFriends.swift in Sources */,
 				5D8B22CA242FC81200A2D17C /* MyGroupsTableController.swift in Sources */,
 				5DF03FED24A9C9B200EE3CDF /* FriendsService.swift in Sources */,
 				5D362CC6244ED84E002DF4EF /* InteractiveTransition.swift in Sources */,

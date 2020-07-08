@@ -24,45 +24,32 @@ class MyGroupsTableController: UITableViewController {
         }
     }
     
-    func loadDataGroup() {
-        do {
-            let realm = try Realm()
-            let groups = realm.objects(Group.self)
-            self.groups = Array(groups)
-            self.tableView?.reloadData()
-        }
-        catch {
-            print(error)
-        }
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        animateTable()
-        tableView.backgroundColor = colorBG
-        print(groups)
-    }
-    
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return groups.count
-    }
+   func loadDataGroup() {
+          do {
+              let realm = try Realm()
+              let groups = realm.objects(Group.self)
+              self.groups = Array(groups)
+              self.tableView?.reloadData()
+          }
+          catch {
+              print(error)
+          }
+      }
+      
+      override func viewWillAppear(_ animated: Bool) {
+          super.viewWillAppear(animated)
+          animateTable()
+          tableView.backgroundColor = colorBG
+          print(groups)
+      }
+      
+      override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+          return groups.count
+      }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "groupCell", for: indexPath) as! MyGroupsTableCell
-        cell.titleLabel.text = groups[indexPath.row].name
-        
-        let urlUserImage = groups[indexPath.row].photo200
-        
-        cell.photo.af.setImage(withURL: URL(string: urlUserImage)!)
-        
-//        AF.request(groups[indexPath.row].photo200).responseImage { response in
-//            do {
-//             let image = try response.result.get()
-//                cell.photo.image = image
-//            } catch {
-//                print("CAN'T GET AVATAR")
-//            }
-//        }
+        cell.configureMyGroupsCell(group: groups[indexPath.row])
         return cell
     }
     
@@ -111,3 +98,4 @@ class MyGroupsTableController: UITableViewController {
         }
     }
 }
+

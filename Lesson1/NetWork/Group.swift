@@ -38,9 +38,9 @@ func saveDataGroups(_ groups: [Group]) {
     do {
         let config = Realm.Configuration(deleteRealmIfMigrationNeeded: false)
         let realm = try Realm(configuration: config)
-//        let oldValue = realm.objects(Group.self)
+        let oldValue = realm.objects(Group.self)
         realm.beginWrite()
-//        realm.delete(oldValue)
+        realm.delete(oldValue)
         realm.add(groups, update: .modified)
         try realm.commitWrite()
         

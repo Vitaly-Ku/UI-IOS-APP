@@ -13,12 +13,13 @@ class NewsTableCell: UITableViewCell {
     
     @IBOutlet private weak var avatar: UIImageView!
     @IBOutlet private weak var name: UILabel!
-    @IBOutlet weak var date: UILabel!
+    @IBOutlet private weak var date: UILabel!
     @IBOutlet private weak var comment: UILabel!
     @IBOutlet private weak var img: UIImageView!
+    @IBOutlet private weak var likeButton: UIButton!
+    @IBOutlet private weak var likeCounter: UILabel!
     
-    @IBOutlet weak var likeButton: UIButton!
-    @IBOutlet weak var likeCounter: UILabel!
+    let currentDate = Date()
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -61,5 +62,10 @@ class NewsTableCell: UITableViewCell {
         
         comment.text = news.text
         name.text = authorName
+        
+        let dates = NSDate(timeIntervalSince1970: Double(news.date))
+        let result = self.currentDate.timeIntervalSince(dates as Date)
+        
+        date.text = result.toRelativeDateTime()
     }
 }

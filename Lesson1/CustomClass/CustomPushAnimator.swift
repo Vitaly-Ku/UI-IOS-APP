@@ -82,12 +82,15 @@ class CustomNavigationController: UINavigationController {
         delegate = self
     }
     
-//    override func viewWillAppear(_ animated: Bool) {
-//        navigationBar.tintColor = colorBG
-//    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationBar.tintColor = colorBG
+        navigationBar.titleTextAttributes = [NSAttributedString.Key.font:UIFont.boldSystemFont(ofSize: 20),
+                                             NSAttributedString.Key.foregroundColor: colorBG]
+    }
     
     let interactiveTransition = CustomInteractiveTransition()
-
+    
 }
 
 extension CustomNavigationController: UINavigationControllerDelegate {

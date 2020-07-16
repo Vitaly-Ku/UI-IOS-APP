@@ -8,10 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		39550A3769BD53F258475C2F /* Pods_Lesson1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5C3C975AB2542CC884D6FB3 /* Pods_Lesson1.framework */; };
-		5D01A40D24A9020900E8A910 /* Operation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D01A40C24A9020900E8A910 /* Operation.swift */; };
-		5D01A40F24A902D400E8A910 /* GetData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D01A40E24A902D400E8A910 /* GetData.swift */; };
-		5D01A41124A9032500E8A910 /* ReloadTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D01A41024A9032500E8A910 /* ReloadTableController.swift */; };
-		5D01A41324A903CE00E8A910 /* ParseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D01A41224A903CE00E8A910 /* ParseData.swift */; };
 		5D24AE0324B210C000F04978 /* VKServiceProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D24AE0224B210C000F04978 /* VKServiceProxy.swift */; };
 		5D2E183024698A01009A226E /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2E182F24698A01009A226E /* Photo.swift */; };
 		5D362CC6244ED84E002DF4EF /* InteractiveTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D362CC5244ED84E002DF4EF /* InteractiveTransition.swift */; };
@@ -40,7 +36,6 @@
 		5DD916D424640EBD005A6B08 /* VKRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD916D324640EBD005A6B08 /* VKRequests.swift */; };
 		5DD916D6246411C8005A6B08 /* VKSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD916D5246411C8005A6B08 /* VKSession.swift */; };
 		5DE083BA24581D99008E3134 /* VKLoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE083B924581D99008E3134 /* VKLoginController.swift */; };
-		5DF03FED24A9C9B200EE3CDF /* FriendsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF03FEC24A9C9B200EE3CDF /* FriendsService.swift */; };
 		5DFC347E24670A2500B57BD7 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DFC347D24670A2500B57BD7 /* Alamofire.framework */; };
 		5DFC9494243B369100BE9B06 /* NewsTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DFC9493243B369100BE9B06 /* NewsTableController.swift */; };
 		5DFC9496243B36D600BE9B06 /* NewsTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DFC9495243B36D600BE9B06 /* NewsTableCell.swift */; };
@@ -53,10 +48,6 @@
 
 /* Begin PBXFileReference section */
 		36E671F1F7427092C2D269CF /* Pods-Lesson1.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lesson1.debug.xcconfig"; path = "Target Support Files/Pods-Lesson1/Pods-Lesson1.debug.xcconfig"; sourceTree = "<group>"; };
-		5D01A40C24A9020900E8A910 /* Operation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Operation.swift; sourceTree = "<group>"; };
-		5D01A40E24A902D400E8A910 /* GetData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetData.swift; sourceTree = "<group>"; };
-		5D01A41024A9032500E8A910 /* ReloadTableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReloadTableController.swift; sourceTree = "<group>"; };
-		5D01A41224A903CE00E8A910 /* ParseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseData.swift; sourceTree = "<group>"; };
 		5D24AE0224B210C000F04978 /* VKServiceProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKServiceProxy.swift; sourceTree = "<group>"; };
 		5D2DF1002466F3380076BEF3 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D2DF1042466F3410076BEF3 /* AlamofireImage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AlamofireImage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -92,7 +83,6 @@
 		5DE083B924581D99008E3134 /* VKLoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKLoginController.swift; sourceTree = "<group>"; };
 		5DE083BC2458347E008E3134 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		5DEA0F95246712BB004AB72B /* AlamofireImage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AlamofireImage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5DF03FEC24A9C9B200EE3CDF /* FriendsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsService.swift; sourceTree = "<group>"; };
 		5DFC347D24670A2500B57BD7 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DFC9493243B369100BE9B06 /* NewsTableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableController.swift; sourceTree = "<group>"; };
 		5DFC9495243B36D600BE9B06 /* NewsTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableCell.swift; sourceTree = "<group>"; };
@@ -121,18 +111,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5D01A40B24A901E000E8A910 /* Operation */ = {
-			isa = PBXGroup;
-			children = (
-				5D01A40C24A9020900E8A910 /* Operation.swift */,
-				5D01A40E24A902D400E8A910 /* GetData.swift */,
-				5D01A41024A9032500E8A910 /* ReloadTableController.swift */,
-				5D01A41224A903CE00E8A910 /* ParseData.swift */,
-				5DF03FEC24A9C9B200EE3CDF /* FriendsService.swift */,
-			);
-			path = Operation;
-			sourceTree = "<group>";
-		};
 		5D31CFCE243F16C30023C392 /* OtherFiles */ = {
 			isa = PBXGroup;
 			children = (
@@ -198,7 +176,7 @@
 			path = iCarousel;
 			sourceTree = "<group>";
 		};
-		5D870209245E9E73001A0E55 /* NetWork */ = {
+		5D870209245E9E73001A0E55 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				5DD916D324640EBD005A6B08 /* VKRequests.swift */,
@@ -209,7 +187,7 @@
 				5D4D28B6247B9E5B00876765 /* NewsFeed.swift */,
 				5D24AE0224B210C000F04978 /* VKServiceProxy.swift */,
 			);
-			path = NetWork;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		5DB3227524345CAE001AAC86 /* CustomClass */ = {
@@ -287,10 +265,9 @@
 			isa = PBXGroup;
 			children = (
 				DC81B23C2429257800E170A0 /* Main.storyboard */,
-				5D01A40B24A901E000E8A910 /* Operation */,
 				5DC45FBE2456D5AA00CF58CD /* Extensions */,
-				5D870209245E9E73001A0E55 /* NetWork */,
 				5DB3227524345CAE001AAC86 /* CustomClass */,
+				5D870209245E9E73001A0E55 /* Model */,
 				5D4DB871242DD7830092C1DC /* Views */,
 				DC81B2422429257900E170A0 /* Assets.xcassets */,
 				DC81B2472429257900E170A0 /* Info.plist */,
@@ -420,7 +397,6 @@
 			files = (
 				5D4DB87D242DFF660092C1DC /* AllGroupsTableController.swift in Sources */,
 				5D4DB881242E0A330092C1DC /* FriendsTableCell.swift in Sources */,
-				5D01A40F24A902D400E8A910 /* GetData.swift in Sources */,
 				5D4DB883242E0A650092C1DC /* FriendsTableController.swift in Sources */,
 				5DFC9496243B36D600BE9B06 /* NewsTableCell.swift in Sources */,
 				5D8B22CC242FC84200A2D17C /* MyGroupsTableCell.swift in Sources */,
@@ -428,18 +404,15 @@
 				5D92BCB224570BCF00C107E0 /* TabBarVC.swift in Sources */,
 				5DE083BA24581D99008E3134 /* VKLoginController.swift in Sources */,
 				5D8B22CA242FC81200A2D17C /* MyGroupsTableController.swift in Sources */,
-				5DF03FED24A9C9B200EE3CDF /* FriendsService.swift in Sources */,
 				5D362CC6244ED84E002DF4EF /* InteractiveTransition.swift in Sources */,
 				5D5D01142474879200BAF937 /* CustomGradient.swift in Sources */,
 				DC81B23B2429257800E170A0 /* LoginController.swift in Sources */,
 				DC81B2372429257800E170A0 /* AppDelegate.swift in Sources */,
 				5D87020B245E9EB8001A0E55 /* Friend.swift in Sources */,
 				5D4DB879242DF9EB0092C1DC /* AllGroupsTableCell.swift in Sources */,
-				5D01A40D24A9020900E8A910 /* Operation.swift in Sources */,
 				5D8B22CE242FECCB00A2D17C /* FriendsCollectionController.swift in Sources */,
 				5D8CBFD8244EC234007A5C34 /* CustomPushAnimator.swift in Sources */,
 				5D4B24082449AAA100E25884 /* iCarousel.m in Sources */,
-				5D01A41124A9032500E8A910 /* ReloadTableController.swift in Sources */,
 				5D24AE0324B210C000F04978 /* VKServiceProxy.swift in Sources */,
 				5DD916D424640EBD005A6B08 /* VKRequests.swift in Sources */,
 				5DB3227724345CC9001AAC86 /* AvatarRoundShadow.swift in Sources */,
@@ -451,7 +424,6 @@
 				5DC45FC02456D5CA00CF58CD /* Extensions.swift in Sources */,
 				5D5D306E24465CDA009B9A17 /* SettingsViewController.swift in Sources */,
 				5DFC9494243B369100BE9B06 /* NewsTableController.swift in Sources */,
-				5D01A41324A903CE00E8A910 /* ParseData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -120,11 +120,12 @@ class VKRequests {
     }
     
     // MARK: GET NEWS
-    func getNewsfeed(completion: @escaping (_ array : NewsItems?) -> Void) {
+    func getNewsfeed(startFrom: String, completion: @escaping (_ array : NewsItems?) -> Void) {
         
         DispatchQueue.global().async { [weak self] in
             let params: Parameters = [
-                "count" : 100,
+                "start_from" : startFrom,
+                "count" : 30,
                 "filters" : "post",
             ]
             AF.request("https://api.vk.com/method/" + "newsfeed.get",

@@ -15,19 +15,36 @@ class NewsTableController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        vkRequests.getNewsfeed(
+        vkRequests.getNewsfeed(startFrom: "",
             completion: {
                 [weak self] array in
                 self?.news = array
                 self?.tableView.reloadData()
             }
         )
+//        configureRefreshControl()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tableView.backgroundColor = colorBG
     }
+    
+//    private func configureRefreshControl() {
+//        refreshControl = UIRefreshControl()
+//        refreshControl?.attributedTitle = NSAttributedString(string: "Загрузка...")
+//        refreshControl?.tintColor = .cyan
+//        refreshControl?.addTarget(self, action: #selector(refreshNews), for: .valueChanged)
+//    }
+//
+//    @objc func refreshNews() {
+//        refreshControl?.beginRefreshing()
+//        print("Обновление новостной ленты")
+//        let mostFreshNewsDate = self.news?.items.first?.date ?? Int(Date().timeIntervalSince1970)
+//        vkRequests.getNewsfeed(startFrom: String(mostFreshNewsDate + 1)) { items, dateFrom in
+//            <#code#>
+//        }
+//    }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return news?.items.count ?? 0

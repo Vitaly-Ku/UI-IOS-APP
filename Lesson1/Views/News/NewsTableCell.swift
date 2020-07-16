@@ -63,7 +63,7 @@ class NewsTableCell: UITableViewCell {
         comment.text = news.text
         name.text = authorName
         
-        let dates = NSDate(timeIntervalSince1970: Double(news.date))
+        let dates = Date(timeIntervalSince1970: Double(news.date))
         let result = self.currentDate.timeIntervalSince(dates as Date)
         
         date.text = result.toRelativeDateTime()

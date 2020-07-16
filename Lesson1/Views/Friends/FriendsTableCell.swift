@@ -27,13 +27,8 @@ class FriendsTableCell: UITableViewCell {
     
     func configureFriendsCell(friend: Friend) {
         titleLabel.text = friend.lastName + " " + friend.firstName
-        if friend.online == 0 {
-            statusLabel.text = "не в сети"
-            statusLabel.textColor = .darkGray
-        } else {
-            statusLabel.text = "в сети"
-            statusLabel.textColor = .systemGreen
-        }
+        statusLabel.text = friend.online == 0 ? "не в сети" : "в сети"
+        statusLabel.textColor = friend.online == 0 ? .darkGray : .systemGreen
         let urlUserImage = friend.photo100
         photo.af.setImage(withURL: URL(string: urlUserImage)!)
     }

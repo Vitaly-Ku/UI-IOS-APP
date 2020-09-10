@@ -70,7 +70,7 @@ class FriendsTableController: UITableViewController {
     
     override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
         tableView.sectionIndexColor = .darkGray
-        tableView.sectionIndexBackgroundColor = .init(displayP3Red: 31, green: 33, blue: 36, alpha: 0.0)
+        tableView.sectionIndexBackgroundColor = .invisible
         return  friendSection.map {$0.title}
     }
     

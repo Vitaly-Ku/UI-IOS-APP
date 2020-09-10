@@ -9,7 +9,11 @@
 import UIKit
 
 extension UIColor {
+    
+    static let invisible = UIColor(red: 31 / 255.0, green: 33 / 255.0, blue: 36 / 255.0, alpha: 0.3)
+    
     static func random() -> UIColor {
+        
         let red: CGFloat = .random(in: 0...0.7)
         let green: CGFloat = .random(in: 0...0.7)
         let blue: CGFloat = .random(in: 0...0.7)
